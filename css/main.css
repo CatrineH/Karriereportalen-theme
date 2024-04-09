@@ -1,0 +1,85 @@
+/* Styling for top-bar */
+.top-bar {
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 3rem 8rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-bar .logo img {
+    height: 50px; /* Juster høyden på logoen etter behov */
+}
+
+.top-bar-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.top-bar-nav a {
+    text-decoration: none;
+    color: black;
+    margin-right: 1rem; /* Mellomrom mellom linker */
+    padding: 0.5rem 0; /* Padding for å gjøre klikk-området større */
+}
+
+.top-bar-nav .separator {
+    margin-right: 1rem;
+}
+
+.top-bar-nav .button {
+    background-color: rgb(168, 2, 2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.top-bar-nav .button:hover {
+    background-color: darkred;
+}
+
+/* Styling for footer */
+.site-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 0px;
+}
+
+.footer-column {
+    display: flex;
+    align-items: center;
+    margin: 50px;
+}
+.logo img {
+    height: 50px; /* Juster høyden på logoen etter behov */
+}
+.footer-separator {
+    margin: 0 40px;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+.social-media-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-media-icons img {
+    height: 24px; /* Juster etter dine behov */
+}
