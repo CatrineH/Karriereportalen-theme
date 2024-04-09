@@ -9,7 +9,7 @@
 }
 
 .top-bar .logo img {
-    height: 50px; /* Juster høyden på logoen etter behov */
+    height: 50px; /* Juster høyden på logoen*/
 }
 
 .top-bar-nav {
@@ -63,7 +63,7 @@
     margin: 50px;
 }
 .logo img {
-    height: 50px; /* Juster høyden på logoen etter behov */
+    height: 50px; /* Juster høyden på logoen */
 }
 .footer-separator {
     margin: 0 40px;
@@ -81,5 +81,5 @@
 }
 
 .social-media-icons img {
-    height: 24px; /* Juster etter dine behov */
+    height: 24px; 
 }
