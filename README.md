@@ -9,14 +9,16 @@ Stillingsportalen-Theme/
 │   ├── css/
 │   │   ├── main.css          # Hovedstilfil for temaet
 │   │   └── bootstrap.min.css  # Bootstrap CSS
+│   │   └── +alle bootstrap filer  # Bootstrap CSS
 │   ├── js/
 │   │   ├── script.js          # Tilpassede JavaScript-funksjoner
 │   │   └── bootstrap.bundle.min.js # Bootstrap JS
-│   └── img/
+│   │   └── +alle bootstrap filer  # Bootstrap JS
+│   └── images/
 │       └── ...                # Bilder brukt i temaet
-├── inc/
-│   ├── customizer.php         # Tilpasninger for tema-tilpasseren
-│   └── functions.php          # Tilpassede funksjoner og funksjonalitet
+├── includes/
+│   ├── en eller annen fil.php       # Tilpasninger for tema-tilpasseren
+│   └── extra-functions.php          # Tilpassede funksjoner og funksjonalitet
 ├── page-templates/
 │   ├── login.php              # Tilpasset side for login
 │   ├── register.php           # Tilpasset side for registrering
@@ -28,6 +30,8 @@ Stillingsportalen-Theme/
 ├── functions.php              # Definerer funksjonalitet, støtte for tema-funksjoner
 ├── style.css                  # Hovedstilark, inkludert WordPress-temainformasjon
 └── screenshot.png             # Skjermbilde av temaet (vises i tema-valg i WP-admin)
+├── single.php                 # Standard single page
+└── page.png                   # Standard page 
 ```
 
 
