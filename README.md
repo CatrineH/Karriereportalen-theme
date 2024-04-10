@@ -24,6 +24,7 @@ Stillingsportalen-Theme/
 │   ├── register.php           # Tilpasset side for registrering
 │   ├── control-panel.php      # Tilpasset side for kontrollpanelet
 │   └── job-posting.php        # Tilpasset side for oppretting/forhåndsvisning av stillingsannonser
+├── 404.php                    # Standard 404
 ├── header.php                 # Standard header
 ├── footer.php                 # Standard footer
 ├── index.php                  # Hovedinngangspunkt for temaet
