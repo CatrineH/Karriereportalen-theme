@@ -66,7 +66,7 @@ Lage HTML-skjemaer for brukerregistrering og login. Disse skjemaene samler bruke
 Gi tilbakemelding til brukeren basert på resultatet av API-kallet (for eksempel en vellykket innlogging, feilmeldinger ved feil i dataene, osv.)
 
 - #### reCAPTCHA login
-Vurdere om vi skal Implementer en passordbeskyttelse.
+Vurdere om vi skal implementer en passordbeskyttelse.
 eller bruke en WordPress brannmur-plugin som Sucuri. Den vil blokkere dårlig trafikk fra å nå nettsiden og forhindre uautorisert tilgang. Må undersøkes.
 
 
