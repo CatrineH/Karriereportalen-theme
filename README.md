@@ -69,6 +69,9 @@ Gi tilbakemelding til brukeren basert på resultatet av API-kallet (for eksempel
 Vurdere om vi skal implementer en passordbeskyttelse.
 eller bruke en WordPress brannmur-plugin som Sucuri. Den vil blokkere dårlig trafikk fra å nå nettsiden og forhindre uautorisert tilgang. Må undersøkes.
 
+- #### Sikkerhet og GDPR
+Når vi integrerer med eksterne API-er og håndterer personopplysninger, må vi sørge for at løsningen er sikker og overholder GDPR og andre relevante personvernlovgivninger. Dette inkluderer sikker lagring av data, sikker overføring av data og tydelig kommunikasjon til brukeren om hvordan deres data vil bli bruk.
+
 
 ## Kontrollpanel / Dashboard
 
