@@ -223,6 +223,7 @@
   .checkbox-container input:checked ~ .checkmark {
     background-color: darkred;
   }
+
   .login-button {
     background: rgb(187, 4, 4);
     color: rgb(255, 255, 255);
@@ -234,6 +235,7 @@
     border: none;
     width: 100%;
   }
+  
   .forgot-password {
     color: rgb(0, 0, 0);
     text-align: center;
