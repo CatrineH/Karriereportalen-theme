@@ -1,15 +1,18 @@
+
 /* Styling for top-bar */
 .top-bar {
     background-color: white;
     color: black;
     display: flex;
     align-items: center;
-    padding: 3rem 8rem;
+    justify-content: space-between;
+    padding: 3rem 2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
 }
 
 .top-bar .logo img {
-    height: 50px; /* Juster høyden på logoen*/
+    height: 70px; 
 }
 
 .top-bar-nav {
@@ -18,19 +21,23 @@
     margin-left: auto;
 }
 
+.top-bar-nav a, .top-bar-nav .separator, .top-bar-nav .button {
+    margin-right: 2rem; /* Konsistent space for elements */
+}
+
 .top-bar-nav a {
     text-decoration: none;
     color: black;
-    margin-right: 1rem; /* Mellomrom mellom linker */
+    margin-right: 2rem; /* Mellomrom mellom linker 
     padding: 0.5rem 0; /* Padding for å gjøre klikk-området større */
 }
 
 .top-bar-nav .separator {
-    margin-right: 1rem;
-}
+    margin-right: 2rem;
+} 
 
 .top-bar-nav .button {
-    background-color: rgb(168, 2, 2);
+    background-color: rgb(145, 2, 2);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -42,19 +49,21 @@
 }
 
 /* Styling for footer */
-.site-footer {
+.footer {
     background-color: #000;
     color: #fff;
     padding: 20px 0;
+    display: flex;
+    width: 100%;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
+    align-items: center;  
+    max-width: 100%; 
     margin: 0 auto;
-    padding: 0 0px;
+    padding: 0 20px; 
 }
 
 .footer-column {
@@ -63,10 +72,10 @@
     margin: 50px;
 }
 .logo img {
-    height: 50px; /* Juster høyden på logoen */
+    height: 70px; /* Adjust hight logo */
 }
 .footer-separator {
-    margin: 0 40px;
+    margin: 0 60px;
 }
 
 .contact-info a {
@@ -83,3 +92,176 @@
 .social-media-icons img {
     height: 24px; 
 }
+
+/* Side-navigation */
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 100vh;
+    background-color: rgb(110, 2, 2);
+    color: white;
+    padding: 20px;
+}
+
+.side-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.side-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.side-nav ul li a i {
+    margin-right: 10px;
+   
+}
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: auto;
+    max-width: 400px;  
+    margin: auto;
+}
+
+.login-txt {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    padding: 100px; 
+    color: white; 
+    margin-bottom: 1rem; 
+  
+}
+.login-txt h2{
+    text-align: left;
+  
+}
+  .login-form h2 {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+    
+  }
+  
+  .form-field label {
+    display: block;
+    color: #000000;
+    margin-bottom: 5px;
+  }
+  
+  .form-field input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+  }
+  
+  .form-action {
+    margin-top: 20px;
+  }
+  
+  .checkbox-container {
+    color: #000000;
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+  
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: darkred;
+  }
+  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: darkred;
+  }
+  .login-button {
+    background: rgb(187, 4, 4);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+  }
+  .forgot-password {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+   
+  }
+  .register {
+    color: rgb(187, 4, 4);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+  }
+  
+  .forgot-password, .register {
+    background: none;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  
+  .login-button:hover {
+    background-color: darkred;
+  }
+  
