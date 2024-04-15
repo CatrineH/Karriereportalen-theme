@@ -22,6 +22,9 @@ Stillingsportalen-Theme/
 ├── page-templates/
 │   ├── login.php              # Tilpasset side for login
 │   ├── register.php           # Tilpasset side for registrering
+│   ├── register-step-1.php           # Tilpasset side for registrering
+│   ├── register-step-2.php           # Tilpasset side for registrering
+│   ├── register-step-3.php           # Tilpasset side for registrering
 │   ├── control-panel.php      # Tilpasset side for kontrollpanelet
 │   └── job-posting.php        # Tilpasset side for oppretting/forhåndsvisning av stillingsannonser
 ├── 404.php                    # Standard 404
