@@ -82,7 +82,7 @@ Vurdere å opprette tilpassede brukerroller eller kapabiliteter for tilgangskont
 - #### UI-komponenter
  Utvikle en serie med UI-komponenter (som knapper, inndatafelt, navigasjonselementer) som brukere vil interagere med.
 
-- #### Server-side Logikk
+- #### Server-side / Backend Logikk
  Skrive server-side logikk for å håndtere forespørsler fra kontrollpanelet, som kan inkludere oppdatering av innstillinger, håndtering av brukerdata, eller andre administrative oppgaver.
 
 - #### Sikkerhet
