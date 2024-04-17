@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Registrering
+Template Name: Register
 */
 get_header(); 
 ?>
