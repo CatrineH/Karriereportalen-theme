@@ -10,7 +10,7 @@ Template Name: Register-1
 <div class="container d-flex align-items-center justify-content-between ">
 </div>
 <div class="reg-login-form" >
-   <?php get_template_part('inc/register-form-1'); ?>
+   <?php get_template_part('includes/register-form-1'); ?>
    </div>
 
 </div>

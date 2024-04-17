@@ -11,7 +11,7 @@ get_header();
         <h2>La oss finne informasjonen din <br> litt raskere!</h2> 
     </div>
   </div>
-  <?php get_template_part('inc/modal-popup'); ?>
+  <?php get_template_part('includes/modal-popup'); ?>
 </div>
 
   

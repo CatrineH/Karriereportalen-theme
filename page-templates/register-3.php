@@ -10,7 +10,7 @@ get_header();
 <div class="container d-flex align-items-center justify-content-between ">
 </div>
 <div class="reg-login-form" >
-<?php get_template_part('inc/register-form-3'); ?>
+<?php get_template_part('includes/register-form-3'); ?>
   </div>
 
 </div>

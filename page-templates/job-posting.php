@@ -16,7 +16,7 @@ Template Name: Annonsering
         <div class="col-lg-6">
             This is where the form goes
         </div>
-        <?php get_template_part('inc/job-posting-form'); ?>
+        <?php get_template_part('includes/job-posting-form'); ?>
         
 
 </div>

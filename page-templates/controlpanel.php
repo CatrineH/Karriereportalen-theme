@@ -22,7 +22,7 @@ Template Name: Kontrollpanel
                 <h5>Velkommen til karriereportalen.</h5>
              </div>
                 <div class="col align-items-start">
-                    <?php get_template_part('inc/controlpanel-cards'); ?>
+                    <?php get_template_part('includes/controlpanel-cards'); ?>
                 </div>
          </div>
 </div>

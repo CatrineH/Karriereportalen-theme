@@ -14,7 +14,7 @@ get_header();  // Load the header
     </div>
         </div>
         <div class="login-form">
-            <?php get_template_part('inc/login-form'); // Include the login form ?>
+            <?php get_template_part('includes/login-form'); // Include the login form ?>
         </div>
  </div>
 
