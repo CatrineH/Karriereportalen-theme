@@ -11,7 +11,7 @@ Template Name: Kontrollpanel
         <!-- Sticky Sidebar -->
         <div class="col-md-3">
             <div class="sticky-top" style="top: 100px;"> 
-                <?php get_template_part('inc/controlpanel-sidebar'); ?>
+                <?php get_template_part('includes/controlpanel-sidebar'); ?>
             </div>
         </div>
 
