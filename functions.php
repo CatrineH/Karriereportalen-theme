@@ -70,3 +70,34 @@ function theme_setup() {
     add_image_size('banner-mobile-small', 200, 250, true);
 }
 add_action('after_setup_theme', 'theme_setup');
+
+add_action('init', 'handle_custom_login');
+
+function handle_custom_login() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'custom_login_action') {
+        // Input checks
+        if (!isset($_POST['email']) || !isset($_POST['password'])) {
+            wp_die('email and password are required!');
+        }
+
+        $email = sanitize_text_field($_POST['email']);
+        $password = sanitize_text_field($_POST['password']);
+        // $remember = isset($_POST['remember-me']) ? true : false;
+
+        $creds = array(
+            'user_login'    => $email,
+            'user_password' => $password,
+            // 'remember'      => $remember
+        );
+
+        $user = wp_signon($creds, false);
+
+        if (is_wp_error($user)) {
+            echo $user->get_error_message();
+        } else {
+            // Redirect to a kontrollpanel page after successful login
+            wp_redirect("kontrollpanel");
+            exit;
+        }
+    }
+}
