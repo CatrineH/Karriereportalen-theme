@@ -82,12 +82,12 @@ function handle_custom_login() {
 
         $email = sanitize_text_field($_POST['email']);
         $password = sanitize_text_field($_POST['password']);
-        // $remember = isset($_POST['remember-me']) ? true : false;
+        $remember = isset($_POST['remember-me']) ? true : false;
 
         $creds = array(
             'user_login'    => $email,
             'user_password' => $password,
-            // 'remember'      => $remember
+            'remember'      => $remember
         );
 
         $user = wp_signon($creds, false);
