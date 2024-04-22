@@ -7,8 +7,7 @@
 // Load Stylesheets
 function load_css() {
     // bootstrap
-    wp_register_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), false, 'all');
-    wp_enqueue_style('bootstrap');
+    wp_enqueue_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
 
     // custom css
     wp_register_style('style', get_template_directory_uri() . '/assets/css/custom.css', array(), false, 'all');
@@ -70,3 +69,6 @@ function theme_setup() {
     add_image_size('banner-mobile-small', 200, 250, true);
 }
 add_action('after_setup_theme', 'theme_setup');
+
+
+

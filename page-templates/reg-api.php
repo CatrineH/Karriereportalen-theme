@@ -1,6 +1,7 @@
 <?php
 /*
-Template Name: register-3
+Template Name: Register Api Page
+
 */
 
 get_header(); 
@@ -9,9 +10,9 @@ get_header();
 <div class="container-fluid my-5">
   <div class="row">
 
-      <!-- Back button -->
-      <div class="back-button">
-      <a href="register-2" class="btn btn-light"><i class="fa-solid fa-circle-arrow-left fa-lg"></i></a>
+    <!-- Back button -->
+    <div class="back-button position-absolute " style="top: 23%;  transform: translateY(-50%); "> 
+      <a href="register-1" class="btn"><i class="fa-solid fa-circle-arrow-left fa-lg" style="color: #e00606;"></i></a>
     </div>
 
     <!-- Image column -->
@@ -23,17 +24,17 @@ get_header();
     <!-- Form column -->
     <div class="col-md-6 mt-4 text-black">
           <!-- Progress navigation -->
-          <div class="progress mb-3">
+          <div class="progress" style="height: 7px;" >
   <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
   <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">Steg 3 av 3</div>
 
 </div>
 
 <br><br>
-     <!--- Registration Form 3 --->
-      <?php get_template_part('includes/register-form-3'); ?>
-      
+      <h2>Hent bedriftens detaljer</h2>
+
+      <!-- API Interaction Form -->
+      <?php get_template_part('includes/reg-api-form'); ?>
 
     </div>
   </div>
