@@ -71,10 +71,10 @@ function theme_setup() {
 }
 add_action('after_setup_theme', 'theme_setup');
 
-add_action('init', 'handle_custom_login');
+add_action('init', 'handle_user_login');
 
-function handle_custom_login() {
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'custom_login_action') {
+function handle_user_login() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'user_login_action') {
         // Input checks
         if (!isset($_POST['email']) || !isset($_POST['password'])) {
             wp_die('email and password are required!');

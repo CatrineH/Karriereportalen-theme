@@ -17,7 +17,7 @@
       <span class="checkmark"></span>
     </label>
     <button type="submit" class="login-button" id="login-button">Logg inn</button>
-    <input type="hidden" name="action" value="custom_login_action">
+    <input type="hidden" name="action" value="user_login_action">
   </div>
   <a href="register" class="register">Opprett konto</a>
 </form>
