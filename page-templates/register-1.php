@@ -4,7 +4,7 @@ Template Name: Register-1
 */
 get_header();
 ?>
-
+<div class="main-content" >
 <div class="bg-image-container" style="min-height: calc(100vh - var(--header-height) - var(--footer-height));">
 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/img2.png" alt="Image Description" class="img-fluid">
   <div class="overlay-content">
@@ -22,7 +22,7 @@ get_header();
     <?php get_template_part('includes/register-form-1'); ?>
   </div>
 </div>
-
+</div>
 <?php get_footer(); ?>
 
 

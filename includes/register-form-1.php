@@ -1,7 +1,7 @@
 
    <!-- Registreringsscheme user-->
    <form class="form" action="<?php echo wp_login_url(); ?>" method="post">
-   <h2>Legg til informasjon</h2>
+   <h2>Legg til informasjon </h2>
       <br>
       <p>For å opprette en konto trenger vi at du fyller inn noen detaljer.</p>
       
