@@ -6,11 +6,10 @@ get_header();
 ?>
 
 
-<div id="wrapper" class="d-flex">
-    <!-- Sidebar -->
-    <div class="bg-red p-4" id="sidebar-wrapper">
-    <?php get_template_part('includes/controlpanel-sidebar'); ?>
-</div>
+<div id="wrapper">
+  <div id="sidebar-wrapper" class="bg-red p-3">
+    <!-- Sidebar content -->
+  </div>
 
   <div id="page-content-wrapper">
     <div class="container">

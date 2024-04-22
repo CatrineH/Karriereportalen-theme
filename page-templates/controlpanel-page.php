@@ -3,14 +3,11 @@
 
 get_header();
 ?>
-
-  <!-- Sticky Sidebar -->
-  <div class="col-md-3">
-            <div class="sticky-top" style="top: 100px;"> 
-                <?php get_template_part('includes/controlpanel-sidebar'); ?>
-            </div>
-        </div>
-
+<div id="wrapper" class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-red p-4" id="sidebar-wrapper">
+    <?php get_template_part('includes/controlpanel-sidebar'); ?>
+</div>
     <!-- Page Content -->
     <div id="page-content-wrapper" >
         <div class="container">
