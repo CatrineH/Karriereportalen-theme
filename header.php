@@ -28,8 +28,13 @@
             <nav class="top-bar-nav">
         <a href="https://karriere.kristiania.no/arrangementer/">Aktivitetskalender</a>
         <a href="https://karriere.kristiania.no/ledige-stillinger/">Ledige stillinger</a>
-        <a href="https://karriere.kristiania.no/">Kontrollpanel</a>
-        <a href="login">Login / Registrer</a>
+        <?php
+            if (is_user_logged_in()) {
+                echo '<a href="/kontrollpanel">Kontrollpanel</a>';
+            } else {
+                echo '<a href="/">Log In</a>';
+            }
+        ?>
         <span class="separator">|</span>
         <a href="http://www.kristiania.no" class="button">
      Kristiania.no  <i class=" fa-solid fa-arrow-up-right-from-square"></i>
