@@ -58,13 +58,13 @@ body, html {
 }
 
 
-.btn-standard {
+.btn-danger {
 	color:rgb(255, 255, 255);
 	background-color: #9E182F;
 }
 
 
-.btn-standard:hover {
+.btn-danger:hover {
 	color:rgb(255, 255, 255);
 	background-color:#4e0000;
 }
@@ -318,16 +318,6 @@ body, html {
     border-radius: 0.25rem; 
 }
 
-
-.btn-danger {
-    background-color: #b40000; 
-    border: none;
-}
-
-
-h1 {
-    color: #ffffff; 
-}
 
 .card-header h4, .card-body h3 {
     color: #1a1a1a; 
