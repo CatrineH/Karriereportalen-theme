@@ -196,7 +196,7 @@
 <div class="form-group row">
                         <div class="col-md-12 text-right">
                             <button id="button1id" name="button1id" class="btn btn-white">Forhåndsvis</button>
-                            <button id="button2id" name="button2id" class="btn btn-danger">publiser</button>
+                            <button id="button2id" name="button2id" class="btn btn-standard">publiser</button>
                         </div>
                     </div>
                 </fieldset>

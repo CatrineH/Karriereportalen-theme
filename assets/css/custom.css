@@ -58,6 +58,16 @@ body, html {
 }
 
 
+.btn-standard {
+	color:rgb(255, 255, 255);
+	background-color: #9E182F;
+}
+
+
+.btn-standard:hover {
+	color:rgb(255, 255, 255);
+	background-color:#4e0000;
+}
 /*======================== NAVIGATION HEADER ========================*/
 
 .navbar-brand img {
@@ -416,12 +426,12 @@ h1 {
 	padding: 10px 15px;
 	text-decoration: none;
 	font-size: 16px;
-	color: #e40000;
+	color:#4e0000;
 	display: block;
 }
 .sidebar a:hover {
 
-	color: #4e0000; ;
+	color:rgb(187, 4, 4);
 }
 
 

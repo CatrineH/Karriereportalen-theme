@@ -5,13 +5,13 @@
          
 <ul class="nav flex-column">
   <li class="nav-item">
-  <a href="controlpanel"><i class="fa fa-dashboard"></i> Kontrollpanel</a>
+  <a href="kontrollpanel"><i class="fa fa-dashboard"></i> Kontrollpanel</a>
   </li>
   <li class="nav-item">
-  <a href="job-posting"><i class="fa fa-plus-square"></i> Opprett ny annonse</a>
+  <a href="annonsering"><i class="fa fa-plus-square"></i> Opprett ny annonse</a>
   </li>
   <li class="nav-item">
-  <a href="#"><i class="fa fa-life-ring"></i> Support</a>
+  <a href="faq"><i class="fa fa-life-ring"></i> Support</a>
   </li>
   <li class="nav-item">
   <a href="#"><i class="fa fa-cog"></i> Innstillinger</a>
