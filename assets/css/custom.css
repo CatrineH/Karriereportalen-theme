@@ -1,27 +1,17 @@
-:root {
-    --header-height: 0px; /* Adjust as per header's actual height */
-    --footer-height: 0px; /* Adjust as per footer's actual height */
-}
 
 body, html {
-	height: 100%;
-	margin: 0;
-	padding-top: var(--header-height); /* Push body content down by header height */
-    padding-bottom: var(--footer-height); /* Push body content up by footer height */
-    box-sizing: border-box;
-  }
-
-  .header, .footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 10; /* Above other content */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.header {
-    top: 0;
-    height: var(--header-height);
+header {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
 }
+
 
  /* position bg-img */ 
 .main-content {
@@ -38,19 +28,12 @@ body, html {
 	min-height: 100vh;
   }
   
-  #page-content-wrapper {
+  /* #page-content-wrapper {
 
-		
-		padding-top: var(--header-height); /* Space for the header */
-		padding-bottom: var(--footer-height); /* Space for the footer */
+		padding-top: var(--header-height); 
+		padding-bottom: var(--footer-height); 
 	
-	/*padding-bottom: var(--footer-height);
-		 padding-top: var(--navbar-height);
-
-	flex: 1;
-	display: flex;
-	flex-direction: column; */
-  }
+  } */
   
   .container {
 	flex: 1;
@@ -61,6 +44,10 @@ body, html {
     margin: auto;
     padding: 1rem; 
 }
+
+
+
+
 
 /*======================== NAVIGATION HEADER ========================*/
 
@@ -81,7 +68,7 @@ body, html {
 	margin: 30px;
 }
 
-.navbar-btn:hover {
+.nav-button:hover {
 	background-color: #c61932;
 	color: white;
 } 
@@ -100,35 +87,29 @@ body, html {
 
 
 
+.navbar-nav {
+	margin-left: auto;
+}
+.nav-button {
+	padding: 6px 12px;
+	margin-left: 10px;
+	background-color: rgb(0, 0, 0);
+	color: white;
+}
 
 /*==============================    FOOTER  ===================================*/
 
-
-  .footer {
-    /* position: relative;
-    width: 100%;
-    height: var(--footer-height); 
-	clear: both; */
-
-    bottom: 0;
-    width: 100%;
-    height: var(--footer-height); /* Footer height */
-	
-	
-}
   
 .bg-black {
 	background-color: #000;
+	
   }
 
   .footer .navbar-brand img {
-	height: 170px; 
+	height: 100px; 
+	width: 100%;
   }
-  
-  .footer div {
-	color: #fff;
-	margin-right: 40%;
-  }
+
   
   .social-icons {
 	display: flex;
@@ -153,11 +134,11 @@ body, html {
 
 .form {
 	width: 100%;
-	height: 550px;
+	height: auto;
 	padding: 50px;
 	display: block;
 	background-color: rgba(241, 241, 241, 0.9);
-	border-radius: 20px;
+	border-radius: 3px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	color: #000;
 }
@@ -257,20 +238,20 @@ body, html {
 
 .right-side-content {
 	height: 100%;
-	max-width: 500px; /* Fixed width for the right side content */
-	margin-left: auto; /* Pushes the content to the right */
-	background: #fff; /* Example background color */
-	/* Additional styling */
-	box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1); /* Optional shadow for a layered effect */
-	overflow-y: auto; /* Enables scrolling if the content overflows */
-  }
-
+	max-width: 500px; 
+	margin-left: auto; 
+	padding: 2%;
+	
+	
+	box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1); 
+	overflow-y: auto; 
+}
 
 /*========================== BRRG CARD ==========================*/
 
 
 .main-content-wrapper {
-    background-color: #7a1f1f; /* Base color */
+    background-color: #7a1f1f; 
     color: white;
 }
 
@@ -296,7 +277,7 @@ body, html {
 	position: relative; 
 	margin-top: 17rem; 
 	margin-right: 30rem;
-	z-index: 1; /* Below the h2 element */
+	z-index: 1; 
   }
 
 .btn-outline-light, .btn-light {
@@ -367,71 +348,6 @@ h1 {
 
   /*====================== REG - LAYOUT 2COL GRID ==========================*/
 
-/* 
-  .bg-dark {
-	background-color: #000000;
-  }
-  
-  .back-button a {
-	font-size: 2rem; 
-	color: #fff; 
-	padding: 0.5rem 1rem; 
-	margin-left: 1rem; 
-  }
-  
-  .back-button a:hover {
-	color: #ccc; 
-  }
-  
-  
-  .progress-navigation {
-	color:#960018
-  }
-  
-.progress-navigation .step {
-	text-align: center;
-	margin-right: 20px; 
-  }
-  
-  .progress-navigation .step:last-child {
-	margin-right: 0;
-  }
-  
-  .progress-navigation .step-icon {
-	font-size: 2rem; 
-	color: #777; 
-  }
-  
-  .progress-navigation .complete {
-	color: #28a745; 
-  }
-  
-  .progress-navigation .active {
-	color: #dc3545; 
-  }
-  
-  .form-control {
-	background: #fff; 
-	border: 2px solid #ccc; 
-  }
-  
-  .btn-primary {
-	background-color: #b40000; 
-	border: none;
-  }
-  
-  .btn-primary:hover {
-	background-color: #9b0000; 
-  }
-  
-  .img-fluid {
-	max-width: 100%;
-	height: auto;
-	/* display: block; */
-
-	  
-	  /* Other styles as needed... */
-	  
   
 	  .bg-image-container {
 		background-size: cover;
@@ -445,7 +361,7 @@ h1 {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		z-index: 2;
-		max-width: 600px; /* or whatever maximum width you want */
+		max-width: 600px; 
 		width: 100%;
 	  }
 	  
@@ -460,8 +376,7 @@ h1 {
 		height: 40px;
 	  }
 	  
-	  /* Adjust the padding-top to match the height of your header */
-	  /* Adjust the padding-bottom to match the height of your footer */
+	 
 	  .container-fluid {
 		padding-top: var(--header-height);
 		padding-bottom: var(--footer-height);
@@ -471,7 +386,7 @@ h1 {
 /*========================== CONTROLPANEL - CARDS 1 ==========================*/
 
 
-.custom-card-1:hover {
+ .custom-card-1:hover {
 	transform: scale(1.05);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -488,7 +403,7 @@ h1 {
     width: 100%;        
     margin: auto;       
     padding: 20px;      
-}
+} 
 
 
 
@@ -496,39 +411,27 @@ h1 {
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
 
 
-.bg-red {
-    background-color: #4e0000; /* Your brand red color */
-}
-
-.list-group-item {
-    color: white;
-}
-
-.sidebar-heading {
-    padding: 1rem;
-    text-align: center;
-}
-
-#sidebar-wrapper {
+.sidebar {
+	height: calc(100% - 300px); 
 	position: fixed;
-	height: 100%;
+	z-index: 1;
+	top: 150px; 
 	left: 0;
-	width: 250px; 
-	background-color: #4e0000;
-	color: white;
-	padding: 0.5rem;
+	overflow-x: hidden;
 	overflow-y: auto; 
-
-
-  }
-  
-.list-group-item-action.bg-red:hover {
-    background-color: #b30000; 
-    color: white;
+	padding-top: 100px;
 }
+.sidebar a {
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #e40000;
+	display: block;
+}
+.sidebar a:hover {
 
-
-
+	color: #4e0000; ;
+}
 
 
 /*========================== MEDIA QUERIES ==========================*/
@@ -560,33 +463,24 @@ h1 {
 	.back-button {
 	  position: static;
 	  transform: none;
-	  margin-bottom: 1rem; /* Add space above the button on smaller screens */
+	  margin-bottom: 1rem; 
 	  
 	}
 	.social-icons {
 		margin-top: 1rem;
 	  }
 	  #page-content-wrapper {
-        margin-left: 250px; /* same as sidebar width */
+        margin-left: 250px;
     }
 
 	#sidebar-wrapper {
         width: 100%;
-        top: var(--header-height); /* Adjust if header height changes */
-        bottom: auto; /* Reset to auto on smaller screens */
+        top: var(--header-height); 
+        bottom: auto;
     }
 
     #page-content-wrapper {
         margin-left: 0;
     }
-	/* #sidebar-wrapper {
-		position: static;
-		height: auto;
-		width: 100%;
-		top: 0;
-	  }
-	  #page-content-wrapper {
-		padding-top: 0;
-	  } */
 
   }

@@ -17,6 +17,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+
     <header class="container-fluid py-3 sticky-top" style="background-color: #FFFFFF; box-shadow: 0px 3px 6px #00000029;">
       <div class="row">
         <div class="col d-flex justify-content-between align-items-center">
@@ -40,33 +42,3 @@
     </header>
 
 
-
-
-
-<!-- <header class="header fixed-top"> 
-
-<nav class="navbar bg-body-tertiary">
-  <div class="container">
-            <a href="<?php echo home_url(); ?>" class="logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Kristiania_logo_22_sort.png" alt="Logo">
-            </a> -->
-
-
-              <!-- Navigation Links -->
-        <!-- <a href="https://karriere.kristiania.no/arrangementer/">Aktivitetskalender</a>
-        <a href="https://karriere.kristiania.no/ledige-stillinger/">Ledige stillinger</a>
-        <a href="https://karriere.kristiania.no/">Kontrollpanel</a>
-        <a href="login">Login / Registrer</a>
-        <span class="separator">|</span>
-        <a href="http://www.kristiania.no" class="button"> Kristiania.no  <i class=" fa-solid fa-arrow-up-right-from-square"></i></a>
-  </div>
-</nav> -->
-
-
-
-   
-    <!-- <nav class="navbar ">
-           
-       
-    </nav> -->
-<!-- <header> -->

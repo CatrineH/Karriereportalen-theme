@@ -25,29 +25,4 @@ get_header();
   </div>
 </main>
 
-
-
-<!-- <div class="container py-5 text-center text-white ">
-        <h2>La oss hente informasjonen litt raskere!</h2>
-        <div class="question-box py-5 my-5 ">
-            <p class="lead">Er bedriften din registrert i Brønnøysundregistret?</p>
-            <div class="button-group" style="padding: 30px;">
-                <a href="register-1" class="btn btn-outline-light mr-5">Nei</a>
-                <a href="#" class="btn btn-light">Ja</a>
-            </div>
-        </div>
-    </div>
-   -->
-
-
-
-
-
-
-
-</main>
-
-
-  
-
 <?php get_footer(); ?>

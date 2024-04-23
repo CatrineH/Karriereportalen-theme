@@ -1,10 +1,14 @@
 <?php
 /*
-Template Name: Login Page
+Template Name: Login-Page
 */
-get_header();  // Load the header
+get_header(); 
 ?>
-<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img1.png');">
+
+
+
+
+<div class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img1.png');">
   <div class="container-fluid vh-100">
     <div class="row h-100 align-items-start">
      
@@ -20,7 +24,10 @@ get_header();  // Load the header
       </div>
     </div>
 
-</main>
+</div>
+</div>
+    </div>
+  </section><!-- End Hero Section -->
 
-<?php get_footer(); // Load the footer ?>
+<?php get_footer(); ?>
 
