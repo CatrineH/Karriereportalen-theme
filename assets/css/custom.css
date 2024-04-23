@@ -418,7 +418,44 @@ body, html {
 	color:#C61932;
 }
 
+/*========================== FAQ ==========================*/
 
+
+.accordion-button:focus {
+	box-shadow: none; 
+	outline: none; 
+  }
+  
+ 
+  .accordion-button:focus {
+	border: 2px solid #9E182F; 
+  }
+  
+  /* Color for the accordion header */
+.accordion-button {
+	background-color: #9E182F;  
+	color: white; 
+  }
+  
+  /* Color for the accordion header when collapsed */
+  .accordion-button.collapsed {
+	background-color: white; 
+	color: #9E182F; 
+  }
+  
+  /* Color for the accordion header when expanded */
+  .accordion-button:not(.collapsed) {
+	
+
+	background-color: #9E182F; 
+	color: white; 
+  }
+  
+  /* Color for the accordion body */
+  .accordion-body {
+	background-color: whitesmoke; 
+  }
+  
   
 /*========================== MEDIA QUERIES ==========================*/
 
