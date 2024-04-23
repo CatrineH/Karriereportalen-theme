@@ -11,7 +11,10 @@ get_header();
           </div>
 </div>
 
-
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar-wrapper">
+    <?php get_template_part('includes/controlpanel-sidebar'); ?>
+    </div>
 <?php
 get_footer();
 ?>

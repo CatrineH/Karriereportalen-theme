@@ -396,7 +396,7 @@ body, html {
 
 
 .sidebar{
-	height: calc(100% - 300px); 
+	height: calc(100% - 200px); 
 	position: fixed;
 	z-index: 1;
 	top: 150px; 
@@ -417,6 +417,14 @@ body, html {
 
 	color:#C61932;
 }
+
+.profile-img {
+	border-radius: 50%;
+	object-fit: cover; 
+	width: 150px; 
+	height: 150px; 
+  }
+  
 
 /*========================== FAQ ==========================*/
 
