@@ -183,7 +183,7 @@ body, html {
   
   .login-button,
 .reg-button {
-	background: rgb(187, 4, 4);
+	background:#9E182F;
 	color: rgb(255, 255, 255);
 	text-align: center;
 	text-decoration: none;
@@ -204,7 +204,7 @@ body, html {
   }
   
   .register {
-	color: rgb(187, 4, 4);
+	color: #9E182F;
 	text-decoration: none;
 	display: inline-block; 
   }
@@ -233,7 +233,7 @@ body, html {
 }
 
 .checkbox-container input:checked ~ .checkmark {
-	background-color: darkred;
+	background-color: #9E182F;
 }
 
 
@@ -272,7 +272,7 @@ body, html {
   }
   
   .question-box {
-	background: rgba(82, 21, 21, 0.9);
+	background: #4e0000;
 	padding: 60px;
 	border-radius: 15px;
 	position: relative; 
@@ -320,7 +320,7 @@ body, html {
 
 
 .card-header h4, .card-body h3 {
-    color: #1a1a1a; 
+    color: #9E182F;
     margin-bottom: 1rem;
 }
 
@@ -377,7 +377,7 @@ body, html {
 /*========================== CONTROLPANEL - CARDS 1 ==========================*/
 
 
- .custom-card-1:hover {
+.custom-card-1:hover {
 	transform: scale(1.05);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -411,6 +411,7 @@ body, html {
 	overflow-x: hidden;
 	overflow-y: auto; 
 	padding-top: 100px;
+	color: #9E182F;;
 }
 .sidebar a {
 	padding: 10px 15px;
@@ -421,7 +422,7 @@ body, html {
 }
 .sidebar a:hover {
 
-	color:#9E182F;
+	color:#C61932;
 }
 
 
