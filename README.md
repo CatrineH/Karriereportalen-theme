@@ -7,7 +7,7 @@
 Stillingsportalen-Theme/
 ├── assets/
 │   ├── css/
-│   │   ├── main.css          # Hovedstilfil for temaet
+│   │   ├── custom.css          # Hovedstilfil for temaet
 │   │   └── bootstrap.min.css  # Bootstrap CSS
 │   ├── js/
 │   │   ├── script.js          # Tilpassede JavaScript-funksjoner
@@ -17,22 +17,23 @@ Stillingsportalen-Theme/
 ├── includes/
 │   ├── controlpanel-cards.php # Tilpasninger for tema-tilpasseren
 │   ├── controlpanel-sidebar.php # Tilpasninger for tema-tilpasseren
-│   ├── step-navigation.php       # Tilpasninger for tema-tilpasseren
-│   ├── login-form.php         # Tilpasninger for tema-tilpasseren
 │   ├── job-posting-form.php   # Tilpasninger for tema-tilpasseren
-│   ├── register-form1.php       # Tilpasninger for tema-tilpasseren
-│   ├── register-form2.php       # Tilpasninger for tema-tilpasseren
-│   ├── register-form3.php       # Tilpasninger for tema-tilpasseren
+│   ├── login-form.php         # Tilpasninger for tema-tilpasseren
+│   ├── reg-api-form.php       # Tilpasninger for tema-tilpasseren
+│   ├── register-form-1.php       # Tilpasninger for tema-tilpasseren
+│   ├── register-form-2.php       # Tilpasninger for tema-tilpasseren
+│   ├── register-form-3.php       # Tilpasninger for tema-tilpasseren
 │   ├── modal-popup.php         # Tilpasninger for tema-tilpasseren
+│   ├── step-navigation.php         # Tilpasninger for tema-tilpasseren
 │   └── functions.php          # Tilpassede funksjoner og funksjonalitet
 ├── page-templates/
-│   ├── login.php              # Tilpasset side for login
+│   ├── login-page.php              # Tilpasset side for login
 │   ├── register.php           # Tilpasset side for registrering
 │   ├── register-1.php           # Tilpasset side for registrering
 │   ├── register-2.php           # Tilpasset side for registrering
 │   ├── register-3.php           # Tilpasset side for registrering
-│   ├── controlpanel.php      # Tilpasset side for kontrollpanelet
-│   └── job-posting.php        # Tilpasset side for oppretting/forhåndsvisning av stillingsannonser
+│   ├── controlpanel-page.php      # Tilpasset side for kontrollpanelet
+│   └── job-posting-page.php        # Tilpasset side for oppretting/forhåndsvisning av stillingsannonser
 ├── header.php                 # Standard header fil inc tilpasninger
 ├── footer.php                 # Standard footer inc tilpasninger
 ├── index.php                  # Hovedinngangspunkt for temaet
@@ -78,9 +79,6 @@ eller bruke en WordPress brannmur-plugin som Sucuri. Den vil blokkere dårlig tr
 
 ## Kontrollpanel / Dashboard
 
-
-- #### Tilpassede Brukerroller 
-Vurdere å opprette tilpassede brukerroller eller kapabiliteter for tilgangskontroll til kontrollpanelet.
 
 - #### UI-komponenter
  Utvikle en serie med UI-komponenter (som knapper, inndatafelt, navigasjonselementer) som brukere vil interagere med.
