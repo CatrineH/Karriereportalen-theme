@@ -41,3 +41,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 });
+
+
+// Job-post custom file input label change
+document.addEventListener('DOMContentLoaded', function () {
+	var jobImageInput = document.getElementById('job-image');
+	jobImageInput.addEventListener('change', function(event) {
+	  var inputFile = event.target;
+	  var label = inputFile.nextElementSibling;
+	  label.textContent = inputFile.files[0].name;
+	});
+  });
+
+  // Handle the custom file input label change
+jQuery(document).ready(function($) {
+    $(document).on('change', '.custom-file-input', function(event) {
+        $(this).next('.custom-file-label').html(event.target.files[0].name);
+    })
+});
+
+  

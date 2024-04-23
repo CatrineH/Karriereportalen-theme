@@ -1,14 +1,18 @@
 <?php
 /*
-Template Name: Login Page
+Template Name: Login-Page
 */
 get_header(); 
 ?>
-<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img1.png');">
+
+
+
+
+<div class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img1.png');">
   <div class="container-fluid vh-100">
     <div class="row h-100 align-items-start">
      
-    <div class="col-md-7  text-white float-left p-4 mt-5">
+    <div class="col-md-7 text-white float-left p-4">
         <h1>Velkommen til karriereportalen</h1>
       </div>
 
@@ -20,7 +24,10 @@ get_header();
       </div>
     </div>
 
-</main>
+</div>
+</div>
+    </div>
+  </section><!-- End Hero Section -->
 
 <?php get_footer(); ?>
 

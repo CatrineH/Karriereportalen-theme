@@ -1,5 +1,5 @@
   <!-- API Interaction Form -->
-  <form action="#" method="post">
+      <form action="#" method="post">
         <div class="form-group">
           <br>
           <label for="organisationNumber">Organisasjonsnummer</label>
