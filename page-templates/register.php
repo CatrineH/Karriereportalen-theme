@@ -17,7 +17,7 @@ get_header();
           <a href="http://www.brrg.no" class="navbar-btn-brrg m-3 align-items-end justify-content-end">brrg.no <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           <div class="button-group">
             <a href="register-1" class="btn btn-outline-light mr-3">Nei</a>
-            <a href="reg-api" class="btn btn-light">Ja</a>
+            <a href="register-api" class="btn btn-light">Ja</a>
           </div>
         </div>
       </div>
