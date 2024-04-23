@@ -1,4 +1,8 @@
 
+  :root {
+	--header-height: 100px; 
+	--footer-height: 100px; 
+  }
 body, html {
     height: 100%;
     margin: 0;
@@ -6,11 +10,19 @@ body, html {
     overflow-x: hidden;
 }
 
-header {
-    width: 100%;
-    padding: 0;
-    margin-bottom: 0;
-}
+  .footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+  }
+  
+
+  header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+  }
+  
 
 
  /* position bg-img */ 
@@ -105,9 +117,9 @@ header {
 	
   }
 
-  .footer .navbar-brand img {
-	height: 100px; 
-	width: 100%;
+ .navbar-brand img {
+	height: 70px; 
+	
   }
 
   
@@ -433,7 +445,17 @@ h1 {
 	color: #4e0000; ;
 }
 
+/*========================== FAQ ==========================*/
 
+
+
+
+  
+  
+
+  
+  
+  
 /*========================== MEDIA QUERIES ==========================*/
 
 /* Min-height for full viewport height on all devices */
