@@ -4,19 +4,19 @@
         <div class="sidebar-sticky">
          
 <ul class="nav flex-column">
-  <li class="nav-item">
+  <li class="nav-item sidebar">
   <a href="kontrollpanel"><i class="fa fa-dashboard"></i> Kontrollpanel</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item sidebar">
   <a href="annonsering"><i class="fa fa-plus-square"></i> Opprett ny annonse</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item sidebar">
   <a href="faq"><i class="fa fa-life-ring"></i> Support</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item sidebar">
   <a href="#"><i class="fa fa-cog"></i> Innstillinger</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item sidebar">
   <a href="#"><i class="fa fa-sign-out"></i> Logg ut</a>
   </li>
 </ul>
