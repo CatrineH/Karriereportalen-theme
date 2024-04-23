@@ -4,7 +4,7 @@
         <div class="row no-gutters">
 
             <div class="col-4 border-right border-dark"> 
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/animations/content-manger.gif"  class="card-img" alt="Content Manager" style="max-width:100%; height:auto;">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/animations/Content-Manger.gif"  class="card-img-top" alt="Content Manager" style="max-width:100%; height:auto;">
             </div>
 
             <div class="col-8">
