@@ -9,7 +9,7 @@
 
             <div class="col-8">
                 <div class="card-body">
-                    <h3 class="card-title">Opprett annonse</h5>
+                    <h4 class="card-title">Opprett annonse</h4>
                     <p class="card-text" style="font-size:14px;">Kom i gang nå, start med å utlyse stillingen din, husk å få med alle detaljer for søkerne.</p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
 
     <div class="col-8 ">
       <div class="card-body ">
-        <h3 class="card-title">Se statistikk</h3>
+        <h4 class="card-title">Se statistikk</h4>
         <p class="card-text" style="font-size:14px;">Vi har gjort det enkelt for deg å følge trafikken på annonseringene dine.</p>
       </div>
     </div>
@@ -51,7 +51,7 @@
 
     <div class="col-8 ">
       <div class="card-body ">
-        <h3 class="card-title">FAQ</h3>
+        <h4 class="card-title">FAQ</h4>
         <p class="card-text" style="font-size:14px;">Sitter du fast? Sjekk våre ofte stilte spørsmål for hjelp</p>
       </div>
     </div>
