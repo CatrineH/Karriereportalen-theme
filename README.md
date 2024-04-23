@@ -7,7 +7,7 @@
 Stillingsportalen-Theme/
 ├── assets/
 │   ├── css/
-│   │   ├── custom.css          # Hovedstilfil for temaet
+│   │   ├── custom.css         # Hovedstilfil for temaet
 │   │   └── bootstrap.min.css  # Bootstrap CSS
 │   ├── js/
 │   │   ├── script.js          # Tilpassede JavaScript-funksjoner
@@ -19,21 +19,24 @@ Stillingsportalen-Theme/
 │   ├── controlpanel-sidebar.php # Tilpasninger for tema-tilpasseren
 │   ├── job-posting-form.php   # Tilpasninger for tema-tilpasseren
 │   ├── login-form.php         # Tilpasninger for tema-tilpasseren
+│   ├── faq-template.php       # Tilpasninger for tema-tilpasseren
 │   ├── reg-api-form.php       # Tilpasninger for tema-tilpasseren
-│   ├── register-form-1.php       # Tilpasninger for tema-tilpasseren
-│   ├── register-form-2.php       # Tilpasninger for tema-tilpasseren
-│   ├── register-form-3.php       # Tilpasninger for tema-tilpasseren
-│   ├── modal-popup.php         # Tilpasninger for tema-tilpasseren
-│   ├── step-navigation.php         # Tilpasninger for tema-tilpasseren
+│   ├── register-form-1.php    # Tilpasninger for tema-tilpasseren
+│   ├── register-form-2.php    # Tilpasninger for tema-tilpasseren
+│   ├── register-form-3.php    # Tilpasninger for tema-tilpasseren
+│   ├── modal-popup.php        # Tilpasninger for tema-tilpasseren
+│   ├── step-navigation.php    # Tilpasninger for tema-tilpasseren ikke i bruk foreløpig
 │   └── functions.php          # Tilpassede funksjoner og funksjonalitet
 ├── page-templates/
-│   ├── login-page.php              # Tilpasset side for login
+│   ├── login-page.php         # Tilpasset side for login
+│   ├── reg-api.php            # Tilpasset side for registrering av API
 │   ├── register.php           # Tilpasset side for registrering
-│   ├── register-1.php           # Tilpasset side for registrering
-│   ├── register-2.php           # Tilpasset side for registrering
-│   ├── register-3.php           # Tilpasset side for registrering
-│   ├── controlpanel-page.php      # Tilpasset side for kontrollpanelet
-│   └── job-posting-page.php        # Tilpasset side for oppretting/forhåndsvisning av stillingsannonser
+│   ├── register-1.php         # Tilpasset side for registrering
+│   ├── register-2.php         # Tilpasset side for registrering
+│   ├── register-3.php         # Tilpasset side for registrering
+│   ├── faq-page.php           # Tilpasset side for FAQ
+│   ├── controlpanel-page.php  # Tilpasset side for kontrollpanelet
+│   └── job-posting-page.php   # Tilpasset side for oppretting/forhåndsvisning av stillingsannonser
 ├── header.php                 # Standard header fil inc tilpasninger
 ├── footer.php                 # Standard footer inc tilpasninger
 ├── index.php                  # Hovedinngangspunkt for temaet
