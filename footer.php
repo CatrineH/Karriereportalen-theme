@@ -13,7 +13,7 @@
           </a>
         </div>
         <div class="col-12 col-md-4 mb-4 mb-md-0 ">
-          <h5> Kontakt oss</h5><br>
+          <h5> Kontakt oss</h5>
           karriere@kristiania.no<br>
           +47 99 15 07 42
         </div>
