@@ -1,5 +1,5 @@
 <!-- Login Form -->
-<form class="form" action="<?php echo wp_login_url(); ?>" method="post">
+<form class="form" id="login" method="post">
   <h2>Logg inn</h2>
   
   <div class="form-field">
@@ -21,6 +21,7 @@
   </div>
 
   <button type="submit" name="wp-submit" class="login-button">Logg inn</button>
+  <input type="hidden" name="action" value="user_login_action">
 <br>
 <p>Har du ikke en bruker hos oss?
   <a href="<?php echo get_permalink(get_page_by_path('register')); ?>" class="register">Opprett en konto</a>
