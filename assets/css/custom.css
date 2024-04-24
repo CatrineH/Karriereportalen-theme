@@ -1,205 +1,214 @@
-html,
-body {
+:root {
+	--header-height: 70px;
+	--footer-height: 70px;
+}
+
+body,
+html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	display: flex;
-	flex-direction: column;
-}
-
-.header {
-	width: 100%;
-	position: fixed;
-	top: 0;
-	z-index: 1000;
-	background-color: white;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	padding: 1rem 0rem; /* Adjusted for demo, set your own value */
-	height: 60px; /* Example height, adjust based on your content */
+	overflow-x: hidden;
 }
 
 .footer {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem 3rem;
-	width: 100%;
-	background-color: #000;
-	color: #fff;
 	position: fixed;
 	bottom: 0;
-	height: 170px;
-}
-
-.content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 60px;
-	padding-bottom: 60px;
 	width: 100%;
-	overflow: auto;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	min-height: calc(100vh - 90px);
 }
 
-.container {
-	width: 80%;
-	max-width: 1200px;
-	margin: auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
 
-/*==========  Navigation - header.php  ==========*/
-.top-bar {
+header {
 	position: fixed;
 	top: 0;
 	width: 100%;
+}
 
-	background-color: white;
-	color: black;
+
+
+/* position bg-img */
+.main-content {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+
+#wrapper {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 3rem 2rem;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	flex-direction: column;
+	min-height: 100vh;
 }
 
-.top-bar-nav a {
-	text-decoration: none;
-	color: black;
-	margin-right: 2rem; /* Mellomrom mellom linker */
-	padding: 0.5rem 0; /* Padding for å gjøre klikk-området større */
+#page-content-wrapper {
+
+	padding-top: var(--header-height);
+	padding-bottom: var(--footer-height);
+
 }
 
-.logo img {
-	height: 60px;
+.container {
+	flex: 1;
 }
 
-.separator {
-	margin-right: 2rem;
+
+.container>.text-center {
+	margin: auto;
+	padding: 1rem;
 }
 
-.top-bar-nav .button {
+
+.btn-danger {
+	color: rgb(255, 255, 255);
+	background-color: #9E182F;
+}
+
+
+.btn-danger:hover {
+	color: rgb(255, 255, 255);
+	background-color: #4e0000;
+}
+
+/*======================== NAVIGATION HEADER ========================*/
+
+.navbar-brand img {
+	height: auto;
+	margin: 30px;
+	padding-left: 30%;
+}
+
+.navbar-btn {
 	background-color: rgb(0, 0, 0);
 	color: white;
 	padding: 0.7rem 1rem;
 	border-radius: 6px;
 	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	margin: 30px;
 }
 
-.top-bar-nav .button:hover {
-	background-color: #c61932;
+.navbar-btn:hover {
+	background-color: #9E182F;
+	color: white;
 }
 
-/*==========  Footer.php  ==========*/
-
-.footer-column {
-	display: flex;
-	align-items: center;
-	margin: 50px;
-}
-
-.footer-separator {
-	margin: 0 60px;
-}
-
-.contact-info a {
-	color: #fff;
+.nav-link {
+	color: #000000;
+	margin-right: 15px;
 	text-decoration: none;
+	transition: color 0.3s ease;
+	font-size: large;
 }
 
-.social-media-icons a {
-	display: inline-block;
-	margin-right: 10px;
-	color: white;
-	margin-right: 20px;
-	font-size: 20px;
-	padding-right: 10px;
+.nav-link:hover {
+	color: #9E182F;
 }
 
-.social-media-icons a:hover {
-	color: #c61932;
+
+/*==============================    FOOTER  ===================================*/
+
+
+.bg-black {
+	background-color: #000;
+
 }
 
-.social-media-icons img {
-	height: 24px;
+
+.social-icons {
+	display: flex;
+	justify-content: center;
 }
 
-/*==========  login.php + register.php + form ==========*/
-
-.login-txt {
-	padding-left: 30%;
-	padding-bottom: 70%;
-	padding-top: 0%;
-	color: white;
+.social-icons a {
+	color: #fff;
+	margin: 0 10px;
+	font-size: 1.5rem;
 }
 
-.register-txt h2 {
-	padding-bottom: 200%;
-	padding-right: 0%;
-	padding-top: 20%;
-	color: white;
+.social-icons a:hover {
+	color: #9E182F;
 }
 
-.login-form {
-	padding-right: 15%;
-}
 
-.reg-login-form {
-	padding-right: 40%;
-	width: 80%;
-}
+/*============================== REG FORM STANDARDS  ===========================*/
+
 
 .form {
 	width: 100%;
-	height: 550px;
-	padding: 30px;
-	margin: 30px;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.9);
-	border-radius: 20px;
+	height: auto;
+	padding: 50px;
+	display: block;
+	background-color: rgba(241, 241, 241, 0.9);
+	border-radius: 3px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-final {
-	width: 100%;
-	height: 300px;
-	padding: 30px;
-	margin: 30px;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.9);
-	border-radius: 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-field {
-	margin-bottom: 18px;
+	color: #000;
 }
 
 .form-field input {
 	padding: 10px;
 	border-radius: 5px;
 	border: 1px solid #c3c3c3;
-	width: 100%;
+	width: 95%;
+
+	margin-bottom: 10px;
+	margin-top: 10px;
+
+	color: #000;
 }
 
 .form-action {
-	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .checkbox-container {
-	color: #000000;
+	display: flex;
+	align-items: center;
+}
+
+.forgot-password {
+	color: rgb(0, 0, 0);
+	text-decoration: none;
 	display: block;
-	position: relative;
-	padding-left: 25px;
+	text-align: right;
+}
+
+.login-button {
+	width: 100%;
+	padding: 10px 0;
+	margin-top: 20px;
 	margin-bottom: 10px;
-	cursor: pointer;
-	user-select: none;
+}
+
+.login-button,
+.reg-button {
+	background: #9E182F;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	width: 95%;
+	margin-top: 10px;
+}
+
+.login-button:hover {
+	background-color: darkred;
+}
+
+p {
+	text-align: left;
+}
+
+.register {
+	color: #9E182F;
+	text-decoration: none;
+	display: inline-block;
 }
 
 .checkbox-container input {
@@ -210,303 +219,314 @@ body {
 	width: 0;
 }
 
+
 .checkmark {
-	position: absolute;
-	top: 0;
-	left: 0;
+	margin: 12px;
 	height: 20px;
 	width: 20px;
 	background-color: #f5f5f5;
 	border-radius: 4px;
-}
-
-.checkbox-container:hover input ~ .checkmark {
-	background-color: darkred;
-}
-
-.checkbox-container input:checked ~ .checkmark {
-	background-color: darkred;
-}
-
-.login-button,
-.reg-button {
-	background: rgb(187, 4, 4);
-	color: rgb(255, 255, 255);
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-	width: 100%;
-}
-
-.reg-button {
-	background: rgb(187, 4, 4);
-	color: rgb(255, 255, 255);
-
-	text-decoration: none;
-	display: inline-block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-}
-
-.forgot-password {
-	color: rgb(0, 0, 0);
-	text-decoration: none;
-	display: inline-block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-}
-
-.register {
-	color: rgb(187, 4, 4);
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-	width: 100%;
-}
-
-.forgot-password,
-.register {
-	background: none;
-	padding: 5px;
-	margin-top: 10px;
-}
-
-.login-button:hover {
-	background-color: darkred;
-}
-
-/*==========  modal-popup - register.php   ==========*/
-
-.modal-brg-api {
-	display: flex;
-	position: fixed; /* Positonert fast til viewport */
-	top: 45%;
-	left: 51%;
-	transform: translate(-50%, -50%); /* Sentreres perfekt */
-	z-index: 1000; /* Sørger for at modalen vises på toppen */
-	width: 100%; /* Responsiv bredde */
-	max-width: 700px; /* Begrens maks bredde for større skjermer */
-	min-height: 300px; /* Minimum høyde for å unngå for liten modal */
-	background: rgba(78, 0, 0, 0.8); /* Mørkerød, halvtransparent bakgrunn */
-	padding: 2rem;
-	border-radius: 8px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Myk skygge for dybdefølelse */
-}
-
-.popup-content {
-	text-align: center;
-	color: white;
-	width: 100%;
-}
-
-.popup-txt {
-	padding: 20px;
-	line-height: 2rem;
-	margin-bottom: 10%; /* Gir luft under teksten */
-}
-
-.button-nei,
-.button-ja {
-	display: inline-block;
-	padding: 0.9rem 3rem;
-	margin: 0.5rem;
-	border: none;
-	border-radius: 6px;
-	cursor: pointer;
-	background-color: white;
-	color: #dc3545;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: none; /* Fjerner underlining typisk for linker */
-	transition: background-color 0.3s, color 0.3s; /* Glatt overgang for hover-effekt */
+	border-color: #333;
 }
 
 
-.button-nei:hover,
-.button-ja:hover {
-	background-color: #9e182f;
-	color: #ffffff;
+.checkbox-container:hover input~.checkmark {
+	background-color: rgb(210, 208, 208);
 }
 
-/*========== txt - controlpanel.php   ==========*/
-
-.controlpanel-welcome-txt {
-	margin-bottom: 150px;
-}
-.controlpanel-welcome-txt h5 {
-	color: #c61932;
+.checkbox-container input:checked~.checkmark {
+	background-color: #9E182F;
 }
 
-/*========== Sidebar - controlpanel.php   ==========*/
 
-.side-nav {
-	position: fixed;
-	left: 0;
-	top: 160px;
-
-	width: 250px;
+.right-side-content {
 	height: 100%;
-	background-color: #c61932;
-	color: white;
-	padding: 25px;
+	max-width: 500px;
+	margin-left: auto;
+	padding: 2%;
+
+
+	box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
 	overflow-y: auto;
 }
 
-.side-nav ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
+/*========================== BRRG CARD ==========================*/
 
-.side-nav ul li a {
+
+.main-content-wrapper {
+	background-color: #7a1f1f;
 	color: white;
-	text-decoration: none;
-	display: flex;
-	align-items: center;
-	padding: 20px;
-	border-radius: 5px;
-	transition: transform 0.3s ease;
-	font-size: larger;
 }
 
-.side-nav ul li a i {
-	margin-right: 10px; /* Space between icon and text */
-	min-width: 20px; /* Ensure icons align neatly */
+.form h2 {
+	font-size: 2.5rem;
+	top: 10%;
+	left: 300px;
+	z-index: 2;
+	color: rgb(7, 7, 7);
 }
 
-.side-nav ul li a:hover {
-	text-decoration: none;
-	transform: scale(1.05);
-	background-color: #960018; /* A darker red for hover effect */
+h2 {
+	font-size: 2.5rem;
+	top: 10%;
+	left: 300px;
+	z-index: 2;
+	color: rgb(245, 245, 245);
 }
 
-/*========== cards  - controlpanel.php   ==========*/
-
-.custom-card {
-	transition: transform 0.3s ease;
-	background: linear-gradient(to bottom, #cac5dd 50%, #ffffff 50%);
-	width: 300px;
-	height: 100px;
-
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.question-box {
+	background: #4e0000;
+	padding: 60px;
+	border-radius: 15px;
+	position: relative;
+	margin-top: 17rem;
+	margin-right: 30rem;
+	z-index: 1;
 }
 
-.custom-card:hover {
+.btn-outline-light,
+.btn-light {
+	margin: 15px;
+}
+
+
+
+/*======================= ANNONSE - FORM - CARDS 2 ==========================*/
+
+
+.custom-card-2 {
+	border: none;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+	border-bottom: none;
+	color: #d7d7d7;
+}
+
+.card-header h4 {
+	color: #fefefe;
+}
+
+
+.custom-file-label::after {
+	content: "Filen er lastet opp.";
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+	content: "Dra og slipp eller last opp fil.";
+}
+
+.form-control,
+.custom-file-label {
+	background-color: #f8f8f8;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+}
+
+
+.card-header h4,
+.card-body h3 {
+	color: #9E182F;
+	margin-bottom: 1rem;
+}
+
+.form-check-label {
+	margin-left: 0.3rem;
+	color: #000;
+}
+
+.form-control,
+.form-check-input,
+.custom-select {
+	background-color: #f8f8f8;
+	border: 1px solid #ced4da;
+}
+
+
+
+
+/*====================== REG - LAYOUT 2COL GRID ==========================*/
+
+
+.bg-image-container {
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.overlay-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	max-width: 600px;
+	width: 100%;
+}
+
+.back-button {
+	position: relative;
+	top: 4rem;
+	right: 4rem;
+	z-index: 3;
+}
+
+.progress {
+	height: 40px;
+}
+
+
+.container-fluid {
+	padding-top: var(--header-height);
+	padding-bottom: var(--footer-height);
+}
+
+
+/*========================== CONTROLPANEL - CARDS 1 ==========================*/
+
+
+.custom-card-1:hover {
 	transform: scale(1.05);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-img-top {
+.card-container {
+
 	width: 100%;
-	height: 250px;
+	margin: auto;
+	padding: 20px;
+}
+
+
+
+
+/*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
+
+
+.sidebar {
+	height: calc(100% - 200px);
+	position: fixed;
+	z-index: 1;
+	top: 150px;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding-top: 100px;
+	color: #9E182F;
+	;
+}
+
+.sidebar a {
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 16px;
+	color: #4e0000;
+	display: block;
+}
+
+.sidebar a:hover {
+
+	color: #C61932;
+}
+
+.profile-img {
+	border-radius: 50%;
 	object-fit: cover;
+	width: 150px;
+	height: 150px;
 }
 
-.controlpanel-cards {
-	padding-bottom: 10%;
+
+/*========================== FAQ ==========================*/
+
+
+.accordion-button:focus {
+	box-shadow: none;
+	outline: none;
 }
 
-/*------------------------------------------
-  Responsive Grid Media Queries - 1280, 1024, 768, 480
-   1280-1024   - desktop (default grid)
-   1024-768    - tablet landscape
-   768-480     - tablet 
-   480-less    - phone landscape & smaller
---------------------------------------------*/
-@media all and (min-width: 1024px) and (max-width: 1280px) {
+
+.accordion-button:focus {
+	border: 2px solid #9E182F;
 }
 
-@media all and (min-width: 768px) and (max-width: 1024px) {
+/* Color for the accordion header */
+.accordion-button {
+	background-color: #9E182F;
+	color: white;
 }
 
-@media all and (min-width: 480px) and (max-width: 768px) {
+/* Color for the accordion header when collapsed */
+.accordion-button.collapsed {
+	background-color: white;
+	color: #9E182F;
 }
 
-@media all and (max-width: 480px) {
+/* Color for the accordion header when expanded */
+.accordion-button:not(.collapsed) {
+
+
+	background-color: #9E182F;
+	color: white;
 }
 
-/*------------------------------------------
-  Foundation Media Queries 
-   http://foundation.zurb.com/docs/media-queries.html
---------------------------------------------*/
-
-/* Small screens - MOBILE */
-@media only screen {
-} /* Define mobile styles - Mobile First */
-
-@media only screen and (max-width: 40em) {
-} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
-
-/* Medium screens - TABLET */
-@media only screen and (min-width: 40.063em) {
-} /* min-width 641px, medium screens */
-
-@media only screen and (min-width: 40.063em) and (max-width: 64em) {
-} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
-
-/* Large screens - DESKTOP */
-@media only screen and (min-width: 64.063em) {
-} /* min-width 1025px, large screens */
-
-@media only screen and (min-width: 64.063em) and (max-width: 90em) {
-} /* min-width 1024px and max-width 1440px, use when QAing large screen-only issues */
-
-/* XLarge screens */
-@media only screen and (min-width: 90.063em) {
-} /* min-width 1441px, xlarge screens */
-
-@media only screen and (min-width: 90.063em) and (max-width: 120em) {
-} /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
-
-/* XXLarge screens */
-@media only screen and (min-width: 120.063em) {
-} /* min-width 1921px, xlarge screens */
-
-/*------------------------------------------*/
-
-/* Portrait */
-@media screen and (orientation: portrait) {
-	/* Portrait styles here */
-}
-/* Landscape */
-
-@media screen and (orientation: landscape) {
-	/* Landscape styles here */
+/* Color for the accordion body */
+.accordion-body {
+	background-color: whitesmoke;
 }
 
-/* CSS for iPhone, iPad, and Retina Displays */
 
-/* Non-Retina */
-@media screen and (-webkit-max-device-pixel-ratio: 1) {
+/*========================== MEDIA QUERIES ==========================*/
+
+/* Min-height for full viewport height on all devices */
+.min-vh-100 {
+	min-height: 100vh;
 }
 
-/* Retina */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-	only screen and (-o-min-device-pixel-ratio: 3/2),
-	only screen and (min--moz-device-pixel-ratio: 1.5),
-	only screen and (min-device-pixel-ratio: 1.5) {
+@media (max-width: 991px) {
+	.main-content-wrapper {
+		padding: 30px 15px;
+	}
+
+	.question-box {
+		position: static;
+		transform: none;
+		margin-top: 1rem;
+	}
+
+	.login-card {
+		position: static;
+		transform: none;
+		margin-top: 2rem;
+	}
 }
 
-/* iPhone Portrait */
-@media screen and (max-device-width: 480px) and (orientation: portrait) {
-}
 
-/* iPhone Landscape */
-@media screen and (max-device-width: 480px) and (orientation: landscape) {
-}
+@media (max-width: 768px) {
+	.back-button {
+		position: static;
+		transform: none;
+		margin-bottom: 1rem;
 
-/* iPad Portrait */
-@media screen and (min-device-width: 481px) and (orientation: portrait) {
-}
+	}
 
-/* iPad Landscape */
-@media screen and (min-device-width: 481px) and (orientation: landscape) {
+	.social-icons {
+		margin-top: 1rem;
+	}
+
+	#page-content-wrapper {
+		margin-left: 250px;
+	}
+
+	#sidebar-wrapper {
+		width: 100%;
+		top: var(--header-height);
+		bottom: auto;
+	}
+
+	#page-content-wrapper {
+		margin-left: 0;
+	}
+
 }
