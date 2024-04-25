@@ -357,7 +357,7 @@ h2 {
 
 .overlay-content {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 2;
@@ -367,8 +367,8 @@ h2 {
 
 .back-button {
 	position: relative;
-	top: 4rem;
-	right: 4rem;
+	top: 3.4rem;
+	right: 5rem;
 	z-index: 3;
 }
 
@@ -435,6 +435,8 @@ h2 {
 	object-fit: cover;
 	width: 150px;
 	height: 150px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 
