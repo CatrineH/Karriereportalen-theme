@@ -4,7 +4,7 @@ Template Name: Register-1
 */
 get_header();
 ?>
-<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img2.png');">
+<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img2.png'); background-position-y: -5vh;">
   <div class="container-fluid" style="height: 80vh;">
     <div class="row h-100 align-items-start">
   <div class="overlay-content">
