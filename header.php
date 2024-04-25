@@ -33,9 +33,9 @@
         <a href="https://karriere.kristiania.no/ledige-stillinger/"class="nav-link">Ledige stillinger</a>
         <?php
             if (is_user_logged_in()) {
-                echo '<a href="/kontrollpanel">Kontrollpanel</a>';
+                echo '<a href="/kontrollpanel" class="nav-link">Kontrollpanel</a>';
             } else {
-                echo '<a href="/">Log In / Registrer</a>';
+                echo '<a href="/" class="nav-link">Log inn / Registrer</a>';
             }
         ?>
         <span class="separator">|</span>

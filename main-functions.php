@@ -11,7 +11,8 @@ function handle_job_post_form_submission() {
       
       // Handle file upload
       // Make sure to validate and securely handle the file upload
-
+    }
+  }
 
 
 // Handle the form submission
