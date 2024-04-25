@@ -70,18 +70,16 @@ function theme_setup() {
 }
 add_action('after_setup_theme', 'theme_setup');
 
-add_action('init', 'handle_user_login');
-
 function handle_user_login() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'user_login_action') {
         // Input checks
         if (!isset($_POST['email']) || !isset($_POST['password'])) {
-            wp_die('email and password are required!');
+            wp_die('Email and password are required!');
         }
 
         $email = sanitize_text_field($_POST['email']);
         $password = sanitize_text_field($_POST['password']);
-        $remember = isset($_POST['remember-me']) ? true : false;
+        $remember = isset($_POST['remember']) ? true : false;
 
         $creds = array(
             'user_login'    => $email,
@@ -100,3 +98,55 @@ function handle_user_login() {
         }
     }
 }
+add_action('init', 'handle_user_login');
+
+function create_new_user() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'create_new_user') {
+        // Input checks
+        if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['email'])) {
+            wp_die('Username, password and email are required!');
+        }
+    
+        $username = sanitize_text_field($_POST['username']);
+        $password = $_POST['password']; // Passwords should not be sanitized as it can remove valid characters
+        $email = sanitize_email($_POST['email']);
+    
+        $user_id = wp_create_user($username, $password, $email);
+    
+        if (is_wp_error($user_id)) {
+            wp_redirect("register");
+            exit;
+        } else {
+            $creds = array(
+                'user_login'    => $email,
+                'user_password' => $password,
+            );
+
+            $user = wp_signon($creds, false);
+            wp_redirect("register-2");
+            exit;
+        }
+    }
+}
+add_action('init', 'create_new_user');
+
+function save_company_data($user_id) {
+    if (isset($_POST['company_name'])) {
+        update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
+    }
+    if (isset($_POST['company_address'])) {
+        update_user_meta($user_id, 'company_address', sanitize_textarea_field($_POST['company_address']));
+    }
+    if (isset($_POST['company_number'])) {
+        update_user_meta($user_id, 'company_number', sanitize_text_field($_POST['company_number']));
+    }
+}
+add_action('user_register', 'save_company_data'); // Assuming data saves on user registration
+
+function hide_admin_bar_from_non_admins(){
+  if (current_user_can('administrator')) {
+    return true;
+  }
+  return false;
+}
+add_filter( 'show_admin_bar', 'hide_admin_bar_from_non_admins' );
