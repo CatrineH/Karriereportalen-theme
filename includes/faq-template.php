@@ -8,12 +8,12 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        FAQ 1
+        Hvor finner jeg verifiseringskoden? 
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> Put content in here.
+        <strong>Verifiseringskoden er blitt sendt på mail. </strong> Du bør sjekke søppelposten dersom du ikke finner den i innboksen.
       </div>
     </div>
   </div>
@@ -23,12 +23,12 @@
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      FAQ 2
+      Hvordan laster jeg opp logo?
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
       <div class="accordion-body">
-      <strong>This is the second item's accordion body.</strong> Put content in here.
+      <strong>Bildet må være innenfor den gitte størrelsen.</strong> Bildet må være 60x60.
       </div>
     </div>
   </div>
