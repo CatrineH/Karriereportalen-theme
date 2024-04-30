@@ -116,5 +116,5 @@ Implementer sikkerhetstiltak for å beskytte sensitiv informasjon og funksjonali
 | Darker-Red| ![#4E0000](https://via.placeholder.com/10/4E0000?text=+) #4E0000 |
 | Black| ![#000000](https://via.placeholder.com/10/000000?text=+) #000000 |
 | White| ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
-| Secondary | ![#cac5dd](https://via.placeholder.com/10/FFFFFF?text=+) ##cac5dd |
+| Secondary | ![#cac5dd](https://via.placeholder.com/10/FFFFFF?text=+) #cac5dd |
 
