@@ -33,4 +33,18 @@ document.getElementById('apiForm').addEventListener('submit', function(event) {
 	});
   });
   
-  
+  // Hente bildefiler til annonseringsskjema
+  function previewImage(inputId, imgId) {
+	var file = document.getElementById(inputId).files[0];
+	var reader = new FileReader();
+	
+	reader.onloadend = function() {
+	  document.getElementById(imgId).src = reader.result;
+	}
+	
+	if (file) {
+	  reader.readAsDataURL(file);
+	} else {
+	  document.getElementById(imgId).src = "";
+	}
+  }

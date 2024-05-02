@@ -100,3 +100,17 @@ function handle_user_login() {
         }
     }
 }
+
+// Håndtere opplasting av bildefiler i annonseringsskjemaet
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['logo']) && isset($_FILES['Banner'])) {
+    $logo = $_FILES['logo'];
+    $banner = $_FILES['Banner'];
+
+    
+    if ($logo['size'] < 500000 && in_array($logo['type'], ['image/jpeg', 'image/png'])) {
+        move_uploaded_file($logo['tmp_name'], '');
+    }
+    if ($banner['size'] < 1000000 && in_array($banner['type'], ['image/jpeg', 'image/png'])) {
+        move_uploaded_file($banner['tmp_name'], '');
+    }
+}

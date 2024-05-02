@@ -10,24 +10,23 @@
 <!-- Form Name -->
 <legend>Stillingsannonse</legend>
 
-<!-- File Button --> 
+<!-- File Button Logo --> 
 <div class="form-group">
   <label class="col-md-4 control-label" for="logo">Logo</label>
   <div class="col-md-8">
-    <input id="logo" name="logo" class="input-file" type="file">
+    <input id="logo" name="logo" class="input-file" type="file" accept="image/*" onchange="previewImage('logo', 'logoPreview')">
+    <img id="logoPreview" style="width: 700px; height: 100px;" src="" alt="Logo Preview"/>
   </div>
 </div>
 
-<div class="hero-image">
+<!-- File Button Banner --> 
 <div class="form-group">
   <label class="col-md-4 control-label" for="Banner">Annonsebanner</label>
   <div class="col-md-8">
-    <input id="Banner" name="Banner" class="input-file" type="file">
+    <input id="Banner" name="Banner" class="input-file" type="file" accept="image/*" onchange="previewImage('Banner', 'bannerPreview')">
+    <img id="bannerPreview" style="width: 300px; height: auto;" src="" alt="Banner Preview"/>
   </div>
 </div>
-<hr>
-  </div>
-<!-- File Button --> 
 
 <!-- Text input-->
 <div class="form-group">
