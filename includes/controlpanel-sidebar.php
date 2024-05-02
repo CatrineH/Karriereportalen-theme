@@ -5,10 +5,10 @@
                 <div class="text-left ">
                     <?php
                     $current_user = wp_get_current_user();
-                    // $company_name = get_user_meta($user_id, 'company_name', true);
+                    $company_name = get_user_meta($current_user->ID, 'company_name', true);
                     echo get_avatar($current_user->ID, 150, '', 'User Profile Picture', ['class' => 'profile-img img-fluid']);
-                    echo '<h5 class="card-title" style="color: #9E182F;">Hei, ' . $current_user->display_name . '!</h5>';
-                    // echo '<h5 class="card-title" style="color: #9E182F;">Hei, ' . $current_user->display_name . ' hos ' . $company_name . '!</h5>';
+                    // echo '<h5 class="card-title" style="color: #9E182F;">Hei, ' . $current_user->display_name . '!</h5>';
+                    echo '<h5 class="card-title" style="color: #9E182F;">Hei, ' . $current_user->display_name . ' hos ' . $company_name . '!</h5>';
                     ?>
                 </div>   
             </div>
