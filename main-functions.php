@@ -11,7 +11,8 @@ function handle_job_post_form_submission() {
       
       // Handle file upload
       // Make sure to validate and securely handle the file upload
-
+    }
+}
 
 
 // Handle the form submission
@@ -52,5 +53,4 @@ function enqueue_custom_theme_scripts() {
       'nonce' => wp_create_nonce('search_benefits_nonce')
   ));
 }
-
 add_action('wp_enqueue_scripts', 'enqueue_custom_theme_scripts');
