@@ -26,7 +26,7 @@
              <a href="#"><i class="fa fa-cog"></i> Innstillinger</a>
         </li>
         <li class="nav-item">
-            <a href="#"><i class="fa fa-sign-out"></i> Logg ut</a>
+            <a href="<?php echo wp_logout_url( home_url() ); ?>"><i class="fa fa-sign-out"></i> Logg ut</a>
          </li>
     </ul>
 </aside>
