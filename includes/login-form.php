@@ -4,12 +4,12 @@
   
   <div class="form-field">
     <label for="user_login">Brukernavn</label><br>
-    <input type="text" name="log" id="user_login" placeholder="Din e-post" required>
+    <input type="text" name="email" id="user_login" placeholder="Din e-post" required>
   </div>
 
   <div class="form-field">
     <label for="user_pass">Passord</label><br>
-    <input type="password" name="pwd" id="user_pass" placeholder="Ditt passord" required>
+    <input type="password" name="password" id="user_pass" placeholder="Ditt passord" required>
   </div>
 
   <div class="form-action">
