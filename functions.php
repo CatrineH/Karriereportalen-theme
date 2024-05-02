@@ -198,3 +198,29 @@ function save_custom_user_fields($user_id) {
 }
 add_action('personal_options_update', 'save_custom_user_fields');
 add_action('edit_user_profile_update', 'save_custom_user_fields');
+
+/* 
+function delete_inactive_users() {
+    $users = get_users(array('role' => 'subscriber'));
+    $current_time = current_time('timestamp');
+
+    foreach ($users as $user) {
+        $last_login = get_user_meta($user->ID, 'last_login', true);
+        $last_login = strtotime($last_login);
+
+        if ($current_time - $last_login > 31536000) { // 1 year
+            wp_delete_user($user->ID);
+        }
+    }
+}
+
+if (!wp_next_scheduled('delete_inactive_users_cron')) {
+    wp_schedule_event(time(), 'daily', 'delete_inactive_users_cron');
+}
+add_action('delete_inactive_users_cron', 'delete_inactive_users');
+
+function update_last_login($user_login, $user) {
+    update_user_meta($user->ID, 'last_login', current_time('mysql'));
+}
+add_action('wp_login', 'update_last_login', 10, 2);
+ */
