@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<!-- File Button --> 
+<div class="hero-image">
 <div class="form-group">
   <label class="col-md-4 control-label" for="Banner">Annonsebanner</label>
   <div class="col-md-8">
@@ -26,6 +26,9 @@
   </div>
 </div>
 <hr>
+  </div>
+<!-- File Button --> 
+
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Stillingstittel</label>  
