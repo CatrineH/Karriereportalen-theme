@@ -152,7 +152,8 @@ function save_company_data() {
         update_user_meta($user_id, 'company_postal', sanitize_text_field($_POST['company_postal']));
         update_user_meta($user_id, 'company_orgnr', sanitize_text_field($_POST['company_orgnr']));
 
-        wp_redirect("kontrollpanel");
+        wp_redirect("register-3");
+        exit;
     }
 }
 add_action('init', 'save_company_data'); // Assuming data saves on user registration
