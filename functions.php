@@ -70,6 +70,14 @@ function theme_setup() {
 }
 add_action('after_setup_theme', 'theme_setup');
 
+function hide_admin_bar_from_non_admins(){
+    if (current_user_can('administrator')) {
+      return true;
+    }
+    return false;
+  }
+  add_filter( 'show_admin_bar', 'hide_admin_bar_from_non_admins' );
+
 function handle_user_login() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'user_login_action') {
         // Input checks
@@ -130,23 +138,63 @@ function create_new_user() {
 }
 add_action('init', 'create_new_user');
 
-function save_company_data($user_id) {
-    if (isset($_POST['company_name'])) {
+function save_company_data() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'save_company_data') {
+        if (!is_user_logged_in()) {
+            wp_die('You must be logged in to save company data!');
+        } elseif (!isset($_POST['company_name']) || !isset($_POST['company_address']) || !isset($_POST['company_postal']) || !isset($_POST['company_orgnr'])) {
+            wp_die('Company name, address, postal and orgnr are required!');
+        }
+        
+        $user_id = get_current_user_id();
         update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
-    }
-    if (isset($_POST['company_address'])) {
         update_user_meta($user_id, 'company_address', sanitize_textarea_field($_POST['company_address']));
-    }
-    if (isset($_POST['company_number'])) {
-        update_user_meta($user_id, 'company_number', sanitize_text_field($_POST['company_number']));
+        update_user_meta($user_id, 'company_postal', sanitize_text_field($_POST['company_postal']));
+        update_user_meta($user_id, 'company_orgnr', sanitize_text_field($_POST['company_orgnr']));
     }
 }
-add_action('user_register', 'save_company_data'); // Assuming data saves on user registration
+add_action('init', 'save_company_data'); // Assuming data saves on user registration
 
-function hide_admin_bar_from_non_admins(){
-  if (current_user_can('administrator')) {
-    return true;
-  }
-  return false;
+function custom_user_fields($user) {
+    $bedriftsnavn = get_user_meta($user->ID, 'company_name', true);
+    $adresse = get_user_meta($user->ID, 'company_address', true);
+    $postnummer = get_user_meta($user->ID, 'company_postal', true);
+    $orgnr = get_user_meta($user->ID, 'company_orgnr', true);
+
+    ?>
+    <h3>Bedriftsinformasjon</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="company_name">Bedriftsnavn</label></th>
+            <td><input type="text" name="company_name" id="company_name" value="<?php echo $bedriftsnavn; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_address">Adresse</label></th>
+            <td><input type="text" name="company_address" id="company_address" value="<?php echo $adresse; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_postal">Postnummer</label></th>
+            <td><input type="text" name="company_postal" id="company_postal" value="<?php echo $postnummer; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_orgnr">Organisasjonsnummer</label></th>
+            <td><input type="text" name="company_orgnr" id="company_orgnr" value="<?php echo $orgnr; ?>" class="regular-text" /></td>
+        </tr>
+    </table>
+    <?php
 }
-add_filter( 'show_admin_bar', 'hide_admin_bar_from_non_admins' );
+add_action('show_user_profile', 'custom_user_fields');
+add_action('edit_user_profile', 'custom_user_fields');
+
+function save_custom_user_fields($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+
+    update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
+    update_user_meta($user_id, 'company_address', sanitize_textarea_field($_POST['company_address']));
+    update_user_meta($user_id, 'company_postal', sanitize_text_field($_POST['company_postal']));
+    update_user_meta($user_id, 'company_orgnr', sanitize_text_field($_POST['company_orgnr']));
+}
+add_action('personal_options_update', 'save_custom_user_fields');
+add_action('edit_user_profile_update', 'save_custom_user_fields');
