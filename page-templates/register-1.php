@@ -4,8 +4,8 @@ Template Name: Register-1
 */
 get_header();
 ?>
-<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img2.png');">
-  <div class="container-fluid vh-100">
+<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img2.png'); background-position-y: -5vh;">
+  <div class="container-fluid" style="height: 80vh;">
     <div class="row h-100 align-items-start">
   <div class="overlay-content">
 
@@ -13,8 +13,8 @@ get_header();
     <div class="back-button">
       <a href="register" class="btn btn-light"><i class="fa-solid fa-circle-arrow-left fa-lg"></i></a>
     </div>
-    <div class="col-md-10">
-      <div class="right-side-content">
+    <div>
+      <div>
     <!-- Progress navigation -->
     <div class="progress mb-3">
       <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 1 av 3</div>

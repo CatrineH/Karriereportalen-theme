@@ -4,7 +4,7 @@
   
   <div class="form-field">
     <label for="user_login">Brukernavn</label><br>
-    <input type="text" name="email" id="user_login" placeholder="Din e-post" required>
+    <input type="email" name="email" id="user_login" placeholder="Din e-post" required>
   </div>
 
   <div class="form-field">
@@ -14,7 +14,7 @@
 
   <div class="form-action">
     <label class="checkbox-container"> Husk meg
-      <input type="checkbox" name="rememberme" id="remember-me" value="forever">
+      <input type="checkbox" name="remember" id="remember-me" value="forever">
       <span class="checkmark"></span>
     </label>
     <a href="<?php echo wp_lostpassword_url(); ?>" class="forgot-password">Glemt passord</a>
