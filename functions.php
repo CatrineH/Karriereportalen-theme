@@ -70,18 +70,24 @@ function theme_setup() {
 }
 add_action('after_setup_theme', 'theme_setup');
 
-add_action('init', 'handle_user_login');
+function hide_admin_bar_from_non_admins(){
+    if (current_user_can('administrator')) {
+      return true;
+    }
+    return false;
+  }
+  add_filter( 'show_admin_bar', 'hide_admin_bar_from_non_admins' );
 
 function handle_user_login() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'user_login_action') {
         // Input checks
         if (!isset($_POST['email']) || !isset($_POST['password'])) {
-            wp_die('email and password are required!');
+            wp_die('Email and password are required!');
         }
 
         $email = sanitize_text_field($_POST['email']);
         $password = sanitize_text_field($_POST['password']);
-        $remember = isset($_POST['remember-me']) ? true : false;
+        $remember = isset($_POST['remember']) ? true : false;
 
         $creds = array(
             'user_login'    => $email,
@@ -100,3 +106,121 @@ function handle_user_login() {
         }
     }
 }
+add_action('init', 'handle_user_login');
+
+function create_new_user() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'create_new_user') {
+        // Input checks
+        if (!isset($_POST['username']) || !isset($_POST['password']) || !isset($_POST['email'])) {
+            wp_die('Username, password and email are required!');
+        }
+    
+        $username = sanitize_text_field($_POST['username']);
+        $password = $_POST['password']; // Passwords should not be sanitized as it can remove valid characters
+        $email = sanitize_email($_POST['email']);
+    
+        $user_id = wp_create_user($username, $password, $email);
+    
+        if (is_wp_error($user_id)) {
+            wp_redirect("register");
+            exit;
+        } else {
+            $creds = array(
+                'user_login'    => $email,
+                'user_password' => $password,
+            );
+
+            $user = wp_signon($creds, false);
+            wp_redirect("register-2");
+            exit;
+        }
+    }
+}
+add_action('init', 'create_new_user');
+
+function save_company_data() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'save_company_data') {
+        if (!is_user_logged_in()) {
+            wp_die('You must be logged in to save company data!');
+        } elseif (!isset($_POST['company_name']) || !isset($_POST['company_address']) || !isset($_POST['company_postal']) || !isset($_POST['company_orgnr'])) {
+            wp_die('Company name, address, postal and orgnr are required!');
+        }
+        
+        $user_id = get_current_user_id();
+        update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
+        update_user_meta($user_id, 'company_address', sanitize_textarea_field($_POST['company_address']));
+        update_user_meta($user_id, 'company_postal', sanitize_text_field($_POST['company_postal']));
+        update_user_meta($user_id, 'company_orgnr', sanitize_text_field($_POST['company_orgnr']));
+    }
+}
+add_action('init', 'save_company_data'); // Assuming data saves on user registration
+
+function custom_user_fields($user) {
+    $bedriftsnavn = get_user_meta($user->ID, 'company_name', true);
+    $adresse = get_user_meta($user->ID, 'company_address', true);
+    $postnummer = get_user_meta($user->ID, 'company_postal', true);
+    $orgnr = get_user_meta($user->ID, 'company_orgnr', true);
+
+    ?>
+    <h3>Bedriftsinformasjon</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="company_name">Bedriftsnavn</label></th>
+            <td><input type="text" name="company_name" id="company_name" value="<?php echo $bedriftsnavn; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_address">Adresse</label></th>
+            <td><input type="text" name="company_address" id="company_address" value="<?php echo $adresse; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_postal">Postnummer</label></th>
+            <td><input type="text" name="company_postal" id="company_postal" value="<?php echo $postnummer; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_orgnr">Organisasjonsnummer</label></th>
+            <td><input type="text" name="company_orgnr" id="company_orgnr" value="<?php echo $orgnr; ?>" class="regular-text" /></td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'custom_user_fields');
+add_action('edit_user_profile', 'custom_user_fields');
+
+function save_custom_user_fields($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+
+    update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
+    update_user_meta($user_id, 'company_address', sanitize_textarea_field($_POST['company_address']));
+    update_user_meta($user_id, 'company_postal', sanitize_text_field($_POST['company_postal']));
+    update_user_meta($user_id, 'company_orgnr', sanitize_text_field($_POST['company_orgnr']));
+}
+add_action('personal_options_update', 'save_custom_user_fields');
+add_action('edit_user_profile_update', 'save_custom_user_fields');
+
+/* 
+function delete_inactive_users() {
+    $users = get_users(array('role' => 'subscriber'));
+    $current_time = current_time('timestamp');
+
+    foreach ($users as $user) {
+        $last_login = get_user_meta($user->ID, 'last_login', true);
+        $last_login = strtotime($last_login);
+
+        if ($current_time - $last_login > 31536000) { // 1 year
+            wp_delete_user($user->ID);
+        }
+    }
+}
+
+if (!wp_next_scheduled('delete_inactive_users_cron')) {
+    wp_schedule_event(time(), 'daily', 'delete_inactive_users_cron');
+}
+add_action('delete_inactive_users_cron', 'delete_inactive_users');
+
+function update_last_login($user_login, $user) {
+    update_user_meta($user->ID, 'last_login', current_time('mysql'));
+}
+add_action('wp_login', 'update_last_login', 10, 2);
+ */
