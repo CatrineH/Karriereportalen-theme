@@ -35,7 +35,7 @@ get_header();
 <p> For å hente opplysningene må du skrive inn organisasjonsummer.<br> 
   Etterpå registrerer du en bruker, så er du klar til å annonsere.</p>
 <br>
-<p>Hvis du må søke nummeret opp, kan du besøke <a href="http://www.brrg.no" class="navbar-btn-brrg align-items-end ">brrg.no <i class="fa-solid fa-arrow-up-right-from-square"></i></a> for mer informasjon.
+<p>Hvis du må søke nummeret opp, kan du besøke <a href="https://www.brreg.no" class="navbar-btn-brrg align-items-end ">brrg.no <i class="fa-solid fa-arrow-up-right-from-square"></i></a> for mer informasjon.
 </p>
 <br>
       <!-- API Interaction Form -->
