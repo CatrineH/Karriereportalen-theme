@@ -18,7 +18,14 @@
     <label for="email"></label>
     <input type="email" id="email" name="email" placeholder="e-post" required>
   </div>
-  
+
+  <div class="form-action">
+    <div class="checkbox-field">
+      <input type="checkbox" id="brreg" name="registrert-i-brreg" value="1" class="checkmark">
+      <label for="brreg">Er du registrert i Brønnøysundregisteret?</label>
+    </div>
+  </div>
+
   <div class="form-action">
     <button type="submit" class="reg-button">Lagre</button>
     <input type="hidden" name="action" value="create_new_user">

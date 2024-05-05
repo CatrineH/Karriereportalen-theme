@@ -11,7 +11,7 @@ get_header();
 
     <!-- Back button -->
     <div class="back-button">
-      <a href="register" class="btn btn-light"><i class="fa-solid fa-circle-arrow-left fa-lg"></i></a>
+      <a href="login" class="btn btn-light"><i class="fa-solid fa-circle-arrow-left fa-lg"></i></a>
     </div>
     <div>
       <div>
