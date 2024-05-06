@@ -122,6 +122,7 @@ function create_new_user() {
         $user_id = wp_create_user($username, $password, $email);
     
         if (is_wp_error($user_id)) {
+            wp_die($user_id->get_error_message());
             wp_redirect("register");
             exit;
         } else {
@@ -131,7 +132,7 @@ function create_new_user() {
             );
 
             $user = wp_signon($creds, false);
-            if (isset($_POST['registrert-i-brreg'])) {
+            if (isset($_POST['registrert-i-brreg']) && $_POST['registrert-i-brreg'] == 1) {
                 wp_redirect("brreg");
                 exit;
             } else {

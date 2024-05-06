@@ -1,3 +1,12 @@
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  $('.button').click(function() {
+    $('.button').removeClass('selected');
+    $(this).addClass('selected');
+  });
+});
+</script>
+
 <!-- Registreringsscheme user-->
 <form class="form" id="register" method="post">
   <h2>Legg til informasjon </h2>
@@ -20,9 +29,15 @@
   </div>
 
   <div class="form-action">
-    <div class="checkbox-field">
-      <input type="checkbox" id="brreg" name="registrert-i-brreg" value="1" class="checkmark">
-      <label for="brreg">Er du registrert i Brønnøysundregisteret?</label>
+    <div class="button-group">
+      <label class="button yes-button selected">
+        <input type="radio" id="yes-button" name="registrert-i-brreg" value="1" class="hidden-radio" checked>
+        Ja
+      </label>
+      <label class="button no-button">
+        <input type="radio" id="no-button" name="registrert-i-brreg" value="0" class="hidden-radio">
+        Nei
+      </label>
     </div>
   </div>
 
