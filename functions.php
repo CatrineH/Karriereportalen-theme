@@ -131,8 +131,13 @@ function create_new_user() {
             );
 
             $user = wp_signon($creds, false);
-            wp_redirect("register-2");
-            exit;
+            if (isset($_POST['registrert-i-brreg'])) {
+                wp_redirect("brreg");
+                exit;
+            } else {
+                wp_redirect("register-2");
+                exit;
+            }
         }
     }
 }

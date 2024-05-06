@@ -31,12 +31,10 @@ get_header();
 </div>
 
 <br><br>
-      <h3 style="color: black;">Hent bedriftens detaljer</h2>
-<p> For å hente opplysningene må du skrive inn organisasjonsummer.<br> 
-  Etterpå registrerer du en bruker, så er du klar til å annonsere.</p>
+      <h3 style="color: black;">Hent bedriftens detaljer</h3>
+<p>For å hente opplysningene må du skrive inn organisasjonsummer. <br> Hvis du må søke nummeret opp, kan du besøke <a href="https://www.brreg.no" class="navbar-btn-brrg align-items-end ">brrg.no <i class="fa-solid fa-arrow-up-right-from-square"></i></a> for mer informasjon.</p>
 <br>
-<p>Hvis du må søke nummeret opp, kan du besøke <a href="https://www.brreg.no" class="navbar-btn-brrg align-items-end ">brrg.no <i class="fa-solid fa-arrow-up-right-from-square"></i></a> for mer informasjon.
-</p>
+<p>Ønsker du å skrive bedriftsinformasjonen manuelt, kan du trykke <a href="register-2" class="navbar-btn-brrg align-items-end ">her <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
 <br>
       <!-- API Interaction Form -->
       <?php get_template_part('includes/reg-api-form'); ?>
