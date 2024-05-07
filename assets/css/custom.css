@@ -107,7 +107,7 @@ header {
 }
 
 
-/*==============================    FOOTER  ===================================*/
+/*==============================  FOOTER  ===================================*/
 
 
 .bg-black {
@@ -293,13 +293,22 @@ h2 {
 
 /*======================= ANNONSE - FORM - CARDS 2 ==========================*/
 
-.hero-image {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("");
-	height: 50%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
+img#bannerPreview {
+    width: 950;
+    height: 200px;
+	object-fit: cover;
+	object-position: center;
+
+
+}
+
+img#logoPreview {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 50%; 
+	margin: 30px;
+
 }
 
 

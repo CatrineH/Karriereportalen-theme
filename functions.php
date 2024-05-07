@@ -22,9 +22,14 @@ function load_js() {
     wp_enqueue_script('jquery');
     wp_register_script('bootstrap', get_template_directory_uri(). '/assets/js/bootstrap.min.js', array('jquery'), false, true);
     wp_enqueue_script('bootstrap');
+
+    // cropper.js for images
+    wp_enqueue_script('cropper-js', 'https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js', array('jquery'), '1.5.12', true);
+    wp_enqueue_style('cropper-css', 'https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css');
+
     
     // custom js
-    wp_register_script('script', get_template_directory_uri(). '/assets/js/script.js', array('jquery'), false, true);
+    wp_register_script('script', get_template_directory_uri(). '/assets/js/main.js', array('jquery'), false, true);
     wp_enqueue_script('script');
 }
 add_action('wp_enqueue_scripts', 'load_js');
@@ -101,16 +106,43 @@ function handle_user_login() {
     }
 }
 
-// Håndtere opplasting av bildefiler i annonseringsskjemaet
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['logo']) && isset($_FILES['Banner'])) {
-    $logo = $_FILES['logo'];
-    $banner = $_FILES['Banner'];
 
-    
-    if ($logo['size'] < 500000 && in_array($logo['type'], ['image/jpeg', 'image/png'])) {
-        move_uploaded_file($logo['tmp_name'], '');
+
+// Håndtere opplasting av bildefiler i annonseringsskjemaet - Opprette en mappe feks path/uploads/annonser/
+
+
+
+
+
+
+
+function process_upload($file_key, $target_width, $target_height) {
+    if (isset($_FILES[$file_key]) && $_FILES[$file_key]['size'] > 0) {
+        $upload_overrides = array('test_form' => false);
+        $movefile = wp_handle_upload($_FILES[$file_key], $upload_overrides);
+
+        if ($movefile && !isset($movefile['error'])) {
+            $resized_path = resize_image($movefile['file'], $movefile['file'], $target_width, $target_height);
+            if ($resized_path) {
+                $attachment = array(
+                    'guid'           => $movefile['url'],
+                    'post_mime_type' => $movefile['type'],
+                    'post_title'     => preg_replace('/\.[^.]+$/', '', basename($resized_path)),
+                    'post_content'   => '',
+                    'post_status'    => 'inherit'
+                );
+
+                $attach_id = wp_insert_attachment($attachment, $resized_path);
+                $attach_data = wp_generate_attachment_metadata($attach_id, $resized_path);
+                wp_update_attachment_metadata($attach_id, $attach_data);
+
+                return $attach_id;
+            }
+        } else {
+            error_log('File upload error: ' . $movefile['error']);
+        }
     }
-    if ($banner['size'] < 1000000 && in_array($banner['type'], ['image/jpeg', 'image/png'])) {
-        move_uploaded_file($banner['tmp_name'], '');
-    }
+    return null;
 }
+
+?>
