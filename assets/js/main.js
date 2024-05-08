@@ -33,4 +33,25 @@ document.getElementById('apiForm').addEventListener('submit', function(event) {
 	});
   });
   
-  
+  function previewImage(inputId, imgId) {
+    var input = document.getElementById(inputId);
+    var img = document.getElementById(imgId);
+    console.log(input, img); // Check if elements are correctly identified
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+            console.log(e.target.result); // Log the data URL to see if it's correctly formed
+            img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+
+
+
+
+

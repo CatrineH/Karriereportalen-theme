@@ -227,3 +227,41 @@ function update_last_login($user_login, $user) {
 }
 add_action('wp_login', 'update_last_login', 10, 2);
  */
+
+ function process_upload($file_key, $target_width, $target_height) {
+    $uploadDir = 'uploads/'; // Ensure this directory exists and is writable
+    if (isset($_FILES[$file_key]) && $_FILES[$file_key]['size'] > 0) {
+        $upload_overrides = array('test_form' => false);
+        $movefile = wp_handle_upload($_FILES[$file_key], $upload_overrides);
+
+        if ($movefile && !isset($movefile['error'])) {
+            $resized_path = resize_image($movefile['file'], $movefile['file'], $target_width, $target_height);
+            if ($resized_path) {
+                $attachment = array(
+                    'guid'           => $movefile['url'],
+                    'post_mime_type' => $movefile['type'],
+                    'post_title'     => preg_replace('/\.[^.]+$/', '', basename($resized_path)),
+                    'post_content'   => '',
+                    'post_status'    => 'inherit'
+                );
+
+                $attach_id = wp_insert_attachment($attachment, $resized_path);
+                $attach_data = wp_generate_attachment_metadata($attach_id, $resized_path);
+                wp_update_attachment_metadata($attach_id, $attach_data);
+
+                return $attach_id;
+            }
+        } else {
+            error_log('File upload error: ' . $movefile['error']);
+        }
+    }
+    return null;
+}
+
+
+
+
+
+?>
+
+

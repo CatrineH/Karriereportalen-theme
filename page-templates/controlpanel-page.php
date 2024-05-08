@@ -4,12 +4,8 @@
 get_header();
 ?>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar-wrapper">
     <?php get_template_part('includes/controlpanel-sidebar'); ?>
-    </div>
-    <!-- Page Content -->
-    <div id="page-content-wrapper" >
+
         <div class="container">
         <div class="d-flex justify-content-center">
 

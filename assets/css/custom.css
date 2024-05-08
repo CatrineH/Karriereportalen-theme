@@ -1,80 +1,39 @@
-:root {
-	--header-height: 70px;
-	--footer-height: 70px;
-}
-
-body,
-html {
-	height: 100%;
+* {
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
+	box-sizing: border-box;
 }
 
-.footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-}
-
-
-header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-
-
-
-/* position bg-img */
 .main-content {
-	position: relative;
+	position:relative;
 	background-size: cover;
 	background-position: center;
-	position: relative;
-}
+} 
 
-
-#wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-#page-content-wrapper {
-
-	padding-top: var(--header-height);
-	padding-bottom: var(--footer-height);
-
+/* Variables for positioning */
+:root {
+    --header-height: 150px; 
+    --footer-height: 150px; 
 }
 
 .container {
-	flex: 1;
+    flex: 1; /* Makes the container take up remaining space */
+    display: flex; /* Makes container a flexbox container */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    min-height: calc(100vh - var(--header-height) - var(--footer-height)); /* Ensures container fills remaining space */
 }
 
-
-.container>.text-center {
-	margin: auto;
-	padding: 1rem;
-}
-
-
-.btn-danger {
-	color: rgb(255, 255, 255);
-	background-color: #9E182F;
-}
-
-
-.btn-danger:hover {
-	color: rgb(255, 255, 255);
-	background-color: #4e0000;
+.container.txt-center {
+    margin: auto;
+    padding: 1rem;
 }
 
 /*======================== NAVIGATION HEADER ========================*/
 
 .navbar-brand img {
 	height: auto;
-	/* margin: 30px; */
+	margin: 30px;
 	padding-left: 30%;
 }
 
@@ -108,13 +67,13 @@ header {
 
 
 /*==============================    FOOTER  ===================================*/
-
+footer {
+	position: relative; /* Removed fixed positioning */
+  }
 
 .bg-black {
 	background-color: #000;
-
 }
-
 
 .social-icons {
 	display: flex;
@@ -131,6 +90,8 @@ header {
 	color: #9E182F;
 }
 
+/*============================== PROGRESSBAR ANNONSER  ===========================*/
+
 
 /*============================== REG FORM STANDARDS  ===========================*/
 
@@ -141,7 +102,7 @@ header {
 	padding: 50px;
 	display: block;
 	background-color: rgba(241, 241, 241, 0.9);
-	border-radius: 3px;
+	
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	color: #000;
 }
@@ -151,10 +112,8 @@ header {
 	border-radius: 5px;
 	border: 1px solid #c3c3c3;
 	width: 95%;
-
 	margin-bottom: 10px;
 	margin-top: 10px;
-
 	color: #000;
 }
 
@@ -252,20 +211,6 @@ p {
 
 /*========================== BRRG CARD ==========================*/
 
-
-.main-content-wrapper {
-	background-color: #7a1f1f;
-	color: white;
-}
-
-.form h2 {
-	font-size: 2.5rem;
-	top: 10%;
-	left: 300px;
-	z-index: 2;
-	color: rgb(7, 7, 7);
-}
-
 h2 {
 	font-size: 2.5rem;
 	top: 10%;
@@ -291,68 +236,47 @@ h2 {
 
 
 
-/*======================= ANNONSE - FORM - CARDS 2 ==========================*/
+/*======================= ANNONSE - FORM ==========================*/
 
-
-.custom-card-2 {
-	border: none;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+img#bannerPreview {
+	object-fit: cover;
+	object-position: center;
 }
 
-.card-header {
-	border-bottom: none;
-	color: #d7d7d7;
-}
+img#logoPreview {
+    object-fit: contain;
+    border-radius: 50%; 
+	margin: 30px;
+} 
 
-.card-header h4 {
-	color: #fefefe;
-}
+.input-icon {
+    position: relative;
+    display: inline-block;
+  }
+  .input-icon .form-control {
+    padding-left: 30px; 
+	
+  }
+  .input-icon i {
+    position: absolute;
+    left: 25px; 
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4e0000; 
+  }
 
-
-.custom-file-label::after {
-	content: "Filen er lastet opp.";
-}
-
-.custom-file-input:lang(en)~.custom-file-label::after {
-	content: "Dra og slipp eller last opp fil.";
-}
-
-.form-control,
-.custom-file-label {
-	background-color: #f8f8f8;
-	border: 1px solid #ced4da;
-	border-radius: 0.25rem;
-}
-
-
-.card-header h4,
-.card-body h3 {
+  label {
 	color: #9E182F;
-	margin-bottom: 1rem;
-}
-
-.form-check-label {
-	margin-left: 0.3rem;
-	color: #000;
-}
-
-.form-control,
-.form-check-input,
-.custom-select {
-	background-color: #f8f8f8;
-	border: 1px solid #ced4da;
-}
-
-
-
+  }
 
 /*====================== REG - LAYOUT 2COL GRID ==========================*/
 
-
-.bg-image-container {
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
+.form h2 {
+	font-size: 2.5rem;
+	top: 10%;
+	left: 300px;
+	z-index: 2;
+	color: rgb(7, 7, 7);
 }
 
 .overlay-content {
@@ -377,13 +301,7 @@ h2 {
 }
 
 
-.container-fluid {
-	padding-top: var(--header-height);
-	padding-bottom: var(--footer-height);
-}
-
-
-/*========================== CONTROLPANEL - CARDS 1 ==========================*/
+/*========================== CONTROLPANEL - CARD 1 ==========================*/
 
 
 .custom-card-1:hover {
@@ -399,85 +317,58 @@ h2 {
 }
 
 
-
-
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
-
+.with-line:after {
+	content: '';
+	width: 250px; 
+	height: 0.5px; 
+	background-color: #fff; 
+	margin-top: 15px; 
+  }
+  
 
 .sidebar {
-	height: calc(100% - 200px);
 	position: fixed;
-	z-index: 1;
-	top: 150px;
-	left: 0;
-	overflow-x: hidden;
-	overflow-y: auto;
-	padding-top: 100px;
-	color: #9E182F;
-	;
+    left: 0;
+    width: 230px;
+	padding-top: 25px;
+    background-color: #9E182F;
+    text-align: center;
+    overflow-y: auto; 
+    height: calc(100vh - var(--header-height));
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
+	  
 .sidebar a {
-	padding: 10px 15px;
-	text-decoration: none;
-	font-size: 16px;
-	color: #4e0000;
-	display: block;
-}
-
-.sidebar a:hover {
-
-	color: #C61932;
-}
-
-.profile-img {
-	border-radius: 50%;
-	object-fit: cover;
-	width: 150px;
-	height: 150px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-
-/*========================== FAQ ==========================*/
-
-
-.accordion-button:focus {
-	box-shadow: none;
-	outline: none;
-}
-
-
-.accordion-button:focus {
-	border: 2px solid #9E182F;
-}
-
-/* Color for the accordion header */
-.accordion-button {
-	background-color: #9E182F;
-	color: white;
-}
-
-/* Color for the accordion header when collapsed */
-.accordion-button.collapsed {
-	background-color: white;
-	color: #9E182F;
-}
-
-/* Color for the accordion header when expanded */
-.accordion-button:not(.collapsed) {
-
-
-	background-color: #9E182F;
-	color: white;
-}
-
-/* Color for the accordion body */
-.accordion-body {
-	background-color: whitesmoke;
-}
-
+		display: block;
+		color: #fff;
+		padding: 16px;
+		text-decoration: none;
+		white-space: nowrap;
+		position: relative;
+		
+	  }
+	   
+	  .sidebar a.active {
+		background-color: #9E182F;
+		color: white;
+	  }
+	  
+	  .sidebar a:hover:not(.active)::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 250px;
+		height: 100%; 
+		background-color: #4e0000; 
+		opacity: 0.3; 
+		transition: opacity 0.3s ease;
+	  }
 
 /*========================== MEDIA QUERIES ==========================*/
 
@@ -487,9 +378,6 @@ h2 {
 }
 
 @media (max-width: 991px) {
-	.main-content-wrapper {
-		padding: 30px 15px;
-	}
 
 	.question-box {
 		position: static;
@@ -517,18 +405,20 @@ h2 {
 		margin-top: 1rem;
 	}
 
-	#page-content-wrapper {
-		margin-left: 250px;
-	}
+	.sidebar {
+        width: 100%; /* Full-width on smaller screens */
+        height: auto;
+        position: relative;
+        top: 0;
+        bottom: auto;
+    }
 
-	#sidebar-wrapper {
-		width: 100%;
-		top: var(--header-height);
-		bottom: auto;
-	}
-
-	#page-content-wrapper {
-		margin-left: 0;
-	}
+    .content {
+        margin-left: 0; /* Full width content on smaller screens */
+    }
 
 }
+
+  
+
+  
