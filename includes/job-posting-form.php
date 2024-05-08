@@ -1,8 +1,3 @@
-
-
-
-
-
  <!-- Form -->
  <form id="job-listing-form" style="" action="#husk_prosess_script" method="post" enctype="multipart/form-data">
         <div class="card" style="">
