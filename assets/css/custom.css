@@ -369,6 +369,15 @@ img#logoPreview {
 		transition: opacity 0.3s ease;
 	  }
 
+
+	  /*========================== FAQ ==========================*/
+
+.accordion {
+	
+	font-size: 18px;
+}
+
+
 /*========================== MEDIA QUERIES ==========================*/
 
 /* Min-height for full viewport height on all devices */
