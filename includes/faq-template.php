@@ -1,6 +1,6 @@
 <!-- <body <?php body_class('faq-page'); ?> -->
 
-<div class="container-fluid mb-3" style="white-space: nowrap;">
+<div class="container-fluid mb-3" >
   <h3 class="mb-4">Ofte stilte spørsmål</h3>
   
   <div class="accordion" id="accordion">
@@ -12,7 +12,7 @@
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion">
-      <div class="accordion-body">
+      <div class="accordion-body" style="white-space: nowrap; >
         <strong>Verifiseringskoden er blitt sendt på mail. </strong> Du bør sjekke søppelposten dersom du ikke finner den i innboksen.
       </div>
     </div>
@@ -27,7 +27,7 @@
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
-      <div class="accordion-body">
+      <div class="accordion-body" style="white-space: nowrap;>
       <strong>Bildet må være innenfor den gitte størrelsen.</strong> Bildet må være 60x60.
       </div>
     </div>
@@ -42,7 +42,7 @@
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
-      <div class="accordion-body">
+      <div class="accordion-body" style="white-space: nowrap;>
       <strong>Et banner er vanligvis et stort bilde som vises øverst på en nettside.</strong> Det kan for eksempel være et bilde av bedriften, kampanje eller et slagord. 
       </div>
     </div>
@@ -56,7 +56,7 @@
       </button>
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordion">
-      <div class="accordion-body">
+      <div class="accordion-body" style="white-space: nowrap;>
       <strong></strong> En annonse inneholder informasjon om stillingen som utlyses, som for eksempel stillingstittel, arbeidsoppgaver og arbeidssted. Mens en bedriftside er en dedikert side til å presentere informasjon om din bedrift. Den inneholder vanligvis detaljer om hva bedriften gjør, kontaktinformasjon og historie.
       </div>
     </div>
@@ -71,7 +71,7 @@
       </button>
     </h2>
     <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordion">
-      <div class="accordion-body">
+      <div class="accordion-body" style="white-space: nowrap;>
       <strong>Du kan enkelt lage en profil ved å trykke "Opprett en konto" på hovedsiden.</strong> Deretter følger du stegene og fyller inn nødvendig informasjon. 
       </div>
     </div>
