@@ -3,6 +3,8 @@
 get_header();
 ?>
 
+<?php get_template_part('includes/controlpanel-sidebar'); ?> 
+
 <div id="page-content-wrapper">
     <div class="container">
       <div class="row">
