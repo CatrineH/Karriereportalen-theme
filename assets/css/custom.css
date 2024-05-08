@@ -185,7 +185,7 @@ header {
 
 .login-button,
 .reg-button {
-	background: #9E182F;
+	background: #C61932;
 	color: rgb(255, 255, 255);
 	text-align: center;
 	text-decoration: none;
@@ -376,6 +376,9 @@ h2 {
 	height: 40px;
 }
 
+.progress-bar {
+	background-color: #9E182F;
+}
 
 .container-fluid {
 	padding-top: var(--header-height);

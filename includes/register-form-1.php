@@ -20,8 +20,8 @@
   </div>
 
   <div class="form-action">
-    <div class="form-check form-switch" style="margin-left: 25px">
-      <input class="form-check-input" type="checkbox" id="registrert-i-brreg" name="registrert-i-brreg" value="1" checked>
+    <div class="form-check form-switch" style="margin-left: 25px;">
+      <input class="form-check-input" style="background-color: #C61932;" type="checkbox" id="registrert-i-brreg" name="registrert-i-brreg" value="1" checked>
       <label class="form-check-label" for="registrert-i-brreg">Er du registrert i Brønnøysundregisteret?</label>
     </div>
   </div>
