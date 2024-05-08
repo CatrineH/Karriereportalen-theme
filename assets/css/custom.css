@@ -181,6 +181,7 @@ header {
 	padding: 10px 0;
 	margin-top: 20px;
 	margin-bottom: 10px;
+	width: 95%;
 }
 
 .login-button,
@@ -193,8 +194,19 @@ header {
 	padding: 10px 20px;
 	border-radius: 5px;
 	border: none;
-	width: 95%;
 	margin-top: 10px;
+}
+
+.reg-button {
+	position: relative;
+}
+
+#reg-button-1 {
+	left: -20px;
+}
+
+#reg-button-2 {
+	left: 375px;
 }
 
 .login-button:hover {
@@ -334,6 +346,31 @@ h2 {
 .form-check-label {
 	margin-left: 0.3rem;
 	color: #000;
+}
+
+.form-check-input:not(:checked) {
+	background-color: #C7C9CA;
+	border-color: #C7C9CA;
+}
+
+.form-check-input:checked {
+	background-color: #C61932;
+	border-color: #C61932;
+}
+
+#switch-check,
+#switch-x {
+	position: absolute;
+	pointer-events: none;
+	top: 0.5px;
+}
+
+#switch-check {
+	left: -20px;
+}
+
+#switch-x {
+	left: 0px;
 }
 
 .form-control,

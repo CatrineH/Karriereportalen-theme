@@ -20,14 +20,39 @@
   </div>
 
   <div class="form-action">
-    <div class="form-check form-switch" style="margin-left: 25px;">
-      <input class="form-check-input" style="background-color: #C61932;" type="checkbox" id="registrert-i-brreg" name="registrert-i-brreg" value="1" checked>
-      <label class="form-check-label" for="registrert-i-brreg">Er du registrert i Brønnøysundregisteret?</label>
+    <div class="form-check form-switch" style="left: 32px; top: 6px;">
+      <input style="transform: scale(1.5);" class="form-check-input" type="checkbox" id="registrert-i-brreg" name="registrert-i-brreg" value="1" checked>
+      <div id="switch-check">
+        <i class="fas fa-check"></i>
+      </div>
+      <div id="switch-x">
+        <i class="fas fa-xmark"></i>
+      </div>
+      <label style="margin-left: 10px;" class="form-check-label" for="registrert-i-brreg">Er du registrert i Brønnøysundregisteret?</label>
+    </div>
+    <div class="form-action">
+      <button id="reg-button-1" type="submit" class="reg-button">Lagre</button>
+      <input type="hidden" name="action" value="create_new_user">
     </div>
   </div>
 
-  <div class="form-action">
-    <button type="submit" class="reg-button">Lagre</button>
-    <input type="hidden" name="action" value="create_new_user">
-  </div>
 </form>
+
+<script>
+  // Hide registrert-i-brreg checkbox on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('switch-x').style.visibility = 'hidden';
+  });
+
+  // Add class to registrert-i-brreg checkbox when checked
+  document.getElementById('registrert-i-brreg').addEventListener('change', function() {
+    if (this.checked) {
+      document.getElementById('switch-check').style.visibility = 'visible';
+      document.getElementById('switch-x').style.visibility = 'hidden';
+    }
+    else {
+      document.getElementById('switch-x').style.visibility = 'visible';
+      document.getElementById('switch-check').style.visibility = 'hidden';
+    }
+  });
+</script>

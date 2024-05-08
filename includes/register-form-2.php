@@ -1,9 +1,9 @@
 
   <!-- Registreringsscheme company-->
   <form class="form" id="register" method="post">
-  <h2>Opplysninger om bedriften</h2>
+  <h3>Fyll inn informasjon om bedriften</h3>
   <br>
-      <p>* Fyll inn nødvendig informasjon</p>
+      <!-- <p>Fyll in informasjon om bedriften din.</p> -->
       
       <div class="form-field">
         <label for="name"></label>
@@ -17,7 +17,7 @@
    
       <div class="form-field">
         <label for="postnumber"></label>
-        <input type="postnumber" id="postnumber" placeholder="postnummer" name="company_postal" required>
+        <input type="postnumber" id="postnumber" placeholder="Postnummer" name="company_postal" required>
       </div>
 
       <div class="form-field">
@@ -25,11 +25,12 @@
         <input type="orgnr" id="orgnr" placeholder="Organisasjonsnummer 9-siffer" name="company_orgnr" required>
        
       </div>
-      
-      <div class="form-action">
-      <button type="submit" class="reg-button">Lagre</button>
-      <input type="hidden" name="action" value="save_company_data">
+      <div>
+        <div class="form-action">
+          <button id="reg-button-2" type="submit" class="reg-button">Lagre</button>
+          <input type="hidden" name="action" value="save_company_data">
         </div>
+      </div>
       
     </div>
     </form>
