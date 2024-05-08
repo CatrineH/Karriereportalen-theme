@@ -250,29 +250,6 @@ p {
 	overflow-y: auto;
 }
 
-.hidden-radio {
-	display: none;
-}
-
-.button {
-	background-color: #636566;
-	color: white;
-	border: none;
-	padding: 10px 20px;
-	border-radius: 5px;
-	cursor: pointer;
-	margin: 5px;
-}
-
-.yes-button:hover,
-.no-button:hover {
-	background-color: #9E182F;
-}
-
-.button.selected {
-	background-color: #C61932;
-}
-
 /*========================== BRRG CARD ==========================*/
 
 
