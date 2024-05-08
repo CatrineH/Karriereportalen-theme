@@ -42,7 +42,7 @@
 
    <!--- Card 3 ---> 
 <div class="d-flex justify-content-center">
-<div class="custom-card-1 mb-3 p-2 border"  onclick="location.href='faq';" style="cursor: pointer; background: #cac5dd; border-radius: 10px; max-width: 540px; width: 100%;">
+<div class="custom-card-1 mb-3 p-2 border"  onclick="location.href='faq-page';" style="cursor: pointer; background: #cac5dd; border-radius: 10px; max-width: 540px; width: 100%;">
     <div class="row no-gutters">
 
     <div class="col-4 border-right border-dark"> 

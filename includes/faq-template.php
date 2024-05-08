@@ -1,6 +1,6 @@
-<body <?php body_class('faq-page'); ?>>
+<!-- <body <?php body_class('faq-page'); ?> -->
 
-<div class="container-fluid mb-3">
+<div class="container-fluid mb-3" style="white-space: nowrap;">
   <h3 class="mb-4">Ofte stilte spørsmål</h3>
   
   <div class="accordion" id="accordion">
