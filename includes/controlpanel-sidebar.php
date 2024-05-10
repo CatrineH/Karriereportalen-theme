@@ -21,7 +21,7 @@
                                 <a class="sidebar-link" href="faq"><i class="fa fa-life-ring"></i> Support</a>
                             </li>
                             <li class="nav-item">
-                                <a class="sidebar-link" href="#"><i class="fa fa-cog"></i> Innstillinger</a>
+                                <a class="sidebar-link" href="innstillinger"><i class="fa fa-cog"></i> Innstillinger</a>
                             </li>
                             <li class="nav-item">
                                 <a class="sidebar-link" href="<?php echo wp_logout_url(home_url()); ?>"><i class="fa fa-sign-out"></i> Logg ut</a>

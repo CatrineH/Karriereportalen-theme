@@ -1,4 +1,4 @@
-<!-- Login Form -->
+
 <form class="form" id="login" method="post">
   <h2>Logg inn</h2>
   

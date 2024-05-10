@@ -6,8 +6,6 @@ get_header();
 ?>
 <div class="main-content">
 <div class="row">
-
-    <div class="col-md-8">
         
     <?php get_template_part('includes/controlpanel-sidebar'); ?>
     </div>
@@ -15,9 +13,6 @@ get_header();
     <div class="container mt-4"> 
         <?php get_template_part('includes/job-posting-form'); ?>         
     </div>
- 
-    </div>
-  <?php get_footer(); ?>
- <script>
-    
- </script>
+
+  <?php get_footer(); 
+  ?>
