@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Register-1
+Template Name: Register-API
 */
 get_header();
 ?>
@@ -11,13 +11,13 @@ get_header();
 
     <!-- Back button -->
     <div class="back-button">
-      <a href="login" class="btn btn-light"><i class="fa-solid fa-circle-arrow-left fa-lg"></i></a>
+      <a href="register" class="btn btn-light"><i class="fa-solid fa-circle-arrow-left fa-lg"></i></a>
     </div>
     <div>
       <div>
     <!-- Progress navigation -->
     <div class="progress mb-3">
-      <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 1 av 3</div>
+      <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 1 av 3</div>
     </div>
  
     <!-- Registration Form 1 -->
