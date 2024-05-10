@@ -1,5 +1,5 @@
 <?php
-/* Template Name: FAQ-Page */
+/* Template Name: Instillinger */
 get_header();
 ?>
 
@@ -7,7 +7,7 @@ get_header();
 
     <div class="container">
       <div class="row">
-        <?php get_template_part('includes/faq-template'); ?>         
+        <?php get_template_part('includes/profil-settings-form'); ?>         
           </div>
           </div>
 

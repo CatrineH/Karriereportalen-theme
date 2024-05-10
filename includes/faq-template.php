@@ -1,14 +1,10 @@
-<body <?php body_class('faq-page'); ?>>
 
-<div class="container-fluid mb-3">
-  <h3 class="mb-4">Ofte stilte spørsmål</h3>
-  
-  <div class="accordion" id="accordion">
-
+    <div class="accordion" id="accordion">
+    <h3 class="mb-4 ">Ofte stilte spørsmål</h3>
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Hvor finner jeg verifiseringskoden? 
+      Hvor finner jeg verifiseringskoden? 
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordion">
@@ -17,24 +13,18 @@
       </div>
     </div>
   </div>
-
-
-
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      Hvordan laster jeg opp logo?
+      Hvordan laster jeg opp en logo?
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
       <div class="accordion-body">
-      <strong>Bildet må være innenfor den gitte størrelsen.</strong> Bildet må være 60x60.
+      <strong>Logoen må være innenfor den gitte størrelsen.</strong> Bildet må være 150x150px (pixler).
       </div>
     </div>
   </div>
-
-
-
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -43,13 +33,11 @@
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
       <div class="accordion-body">
-      <strong>Et banner er vanligvis et stort bilde som vises øverst på en nettside.</strong> Det kan for eksempel være et bilde av bedriften, kampanje eller et slagord. 
+      <strong>Et banner er vanligvis et stort bilde som vises øverst på en nettside.</strong> Det kan for eksempel være et bilde som representerer bedriften, kampanje eller et slagord. Husk at banneret må være 1024x200px (pixler) for best resultat. 
       </div>
     </div>
   </div>
-
-
-<div class="accordion-item">
+  <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
       Hva er forskjellen på en annonse og en bedriftside?
@@ -57,14 +45,12 @@
     </h2>
     <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordion">
       <div class="accordion-body">
-      <strong></strong> En annonse inneholder informasjon om stillingen som utlyses, som for eksempel stillingstittel, arbeidsoppgaver og arbeidssted. Mens en bedriftside er en dedikert side til å presentere informasjon om din bedrift. Den inneholder vanligvis detaljer om hva bedriften gjør, kontaktinformasjon og historie.
+      <strong>En annonse inneholder informasjon om stillingen som utlyses, som for eksempel stillingstittel, arbeidsoppgaver og arbeidssted.</strong>
+        <br>  Mens en bedriftside er en dedikert side til å presentere informasjon om din bedrift. Den inneholder vanligvis detaljer om hva bedriften gjør, kontaktinformasjon og historie.
       </div>
     </div>
   </div>
-
-
-
-<div class="accordion-item">
+  <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
       Hvordan lager jeg en profil? 
@@ -76,4 +62,6 @@
       </div>
     </div>
   </div>
+
+
 </div>
