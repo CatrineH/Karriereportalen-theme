@@ -459,9 +459,38 @@ h2 {
 
 /*========================== FAQ ==========================*/
 
-.accordion {
-	
-	font-size: 18px;
+#accordion {
+    width: 90%; /* Bruker prosent av skjermen for responsivitet */
+	width: 900px;
+    margin: auto;
+}
+
+.accordion-item, .accordion-button, .accordion-body {
+    box-sizing: border-box;
+}
+
+/* Grunnleggende stil for hvert accordion-item */
+.accordion-item {
+    background-color: #f8f9fa; /* Endre denne til ønsket bakgrunnsfarge */
+    border: 1px solid #dee2e6; /* Ramme rundt hvert element */
+}
+
+/* Stil for accordion-button når den er ikke-aktiv */
+.accordion-button {
+    background-color: #e9ecef; /* Lys grå bakgrunn for ikke-aktive buttons */
+    color: #495057; /* Mørk grå tekstfarge */
+}
+
+/* Stil for accordion-button når den er aktiv eller ved hover */
+.accordion-button:not(.collapsed) {
+    background-color: #9E182F; /* Mørkere blå for aktive eller hover-tilstand */
+    color: #ffffff; /* Hvit tekst for bedre lesbarhet */
+}
+
+/* Stil for accordion-body for å passe inn med resten av designet */
+.accordion-body {
+    font-size: 16px; 
+    color: #212529; 
 }
 
 
@@ -560,6 +589,8 @@ button:hover {
         max-height: 150px;
 }
 
-  
+#accordion {
+	width: 100%; /* Bruker hele bredden for mindre skjermer */
+}
 }
   

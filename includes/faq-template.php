@@ -1,5 +1,6 @@
-<h3 class="mb-4">Ofte stilte spørsmål</h3>
+
     <div class="accordion" id="accordion">
+    <h3 class="mb-4 ">Ofte stilte spørsmål</h3>
   <div class="accordion-item">
     <h2 class="accordion-header">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -20,7 +21,7 @@
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordion">
       <div class="accordion-body">
-      <strong>Logoen må være innenfor den gitte størrelsen.</strong> Bildet må være 60x60px (pixler).
+      <strong>Logoen må være innenfor den gitte størrelsen.</strong> Bildet må være 150x150px (pixler).
       </div>
     </div>
   </div>
@@ -32,7 +33,7 @@
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordion">
       <div class="accordion-body">
-      <strong>Et banner er vanligvis et stort bilde som vises øverst på en nettside.</strong> Det kan for eksempel være et bilde av bedriften, kampanje eller et slagord. 
+      <strong>Et banner er vanligvis et stort bilde som vises øverst på en nettside.</strong> Det kan for eksempel være et bilde som representerer bedriften, kampanje eller et slagord. Husk at banneret må være 1024x200px (pixler) for best resultat. 
       </div>
     </div>
   </div>
