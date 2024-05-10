@@ -9,16 +9,24 @@
     <div class="card-body col-lg-12">
       <fieldset>
         <legend>Informasjon om stillingen</legend>
-        <!-- BANNER -->
-        <div class="form-group">
-          <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
-          <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3">
-        </div>
-        <!-- LOGO -->
-        <div class="form-group">
-          <img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
-          <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3">
-        </div>
+<!-- BANNER -->
+<div class="form-group">
+    <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
+    <div class="upload-btn-wrapper">
+        <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
+        <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3" style="display: none;">
+    </div>
+</div>
+<!-- LOGO -->
+<div class="form-group">
+    <img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
+    <div class="upload-btn-wrapper">
+        <label for="logoInput" class="custom-file-upload">Last opp logo</label>
+        <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3" style="display: none;">
+    </div>
+</div>
+
+
 
         <!-- Form fields for job advertisement -->
         <!-- --- ANNONSETITTEL ----  -->

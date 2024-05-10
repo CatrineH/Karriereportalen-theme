@@ -238,7 +238,7 @@ h2 {
 /*======================= ANNONSE - FORM ==========================*/
 
 #bannerPreview {
-    width: 1000px;
+    width: 1024px;
     height: 200px;
     object-fit: cover; /* Beskjærer bildet for å dekke området */
     overflow: hidden; /* Hindrer bilde fra å bre seg utenfor rammen */
@@ -284,6 +284,24 @@ h2 {
 	text-align: center;
 	margin: 30px;
 }
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #9E182F;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 15%; 
+	text-align: center;
+	margin-top: 20px;
+}
+
+.custom-file-upload:hover {
+    background-color: #4e0000;
+}
+
 /*======================= ANNONSE - MODAL PREVIEW ==========================*/
   .modal {
     display: none;
