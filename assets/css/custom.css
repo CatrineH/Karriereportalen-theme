@@ -356,57 +356,51 @@ h2 {
 
 .custom-card:hover {
 	transform: scale(1.05);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	background-color: #4e0000;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	background-color: #c61932;
+    color: #f3f3f3; 
 }
-
-/* .card-container {
-
-	width: 100%;
-	margin: auto;
-	padding: 20px;
-	
-} */
 
 .custom-card {
-	background-color: #9e182f
+	border-color: #9e182f;
 }
-.custom-card p, .card-title{
-	color: #F3F3F3;
+.custom-card p, .custom-card .card-title{
+	color: #000;
 	text-align: center;
 }
 
 .container-panel {
     display: flex;
-    justify-content: center; /* Senterer barna horisontalt */
-    align-items: center;     /* Senterer barna vertikalt (om nødvendig) */
-    flex-wrap: wrap;         /* Lar elementene pakke (wrap) på nye linjer */
-    gap: 20px;               /* Avstand mellom kortene */
+    justify-content: center; 
+    align-items: center;     
+    flex-wrap: wrap;        
+    gap: 50px;              
 	margin-left: 9%;
 }
 
 .custom-card {
-    flex: 0 1 300px; /* Flex basis til 300px, men kan krympe om nødvendig, ikke vokse større enn 300px */
-    margin: 10px;    /* Ytterligere mellomrom rundt hvert kort */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Liten skygge for visuell separasjon */
-    transition: transform 0.3s ease; /* Gjør overgangen jevn når kortet klikkes */
+    flex: 0 1 300px;
+    margin: 1px;    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease; 
 }
 
-.custom-card:hover {
-    transform: scale(1.05); /* Lett forstørrelse ved hover */
-}
 
 .custom-card img {
-    width: 100%;    /* Sørger for at bildet fyller bredden av kortet */
-    height: auto;   /* Holder bildets aspekt ratio */
+    width: 100%;    
+    height: auto;   
 }
 
 .custom-card-body {
-    padding: 15px; /* Padding innenfor kortet */
-	text-wrap:pretty;
-	
-
+    padding: 30px; 
+	text-wrap: pretty;
 }
+
+
+.custom-card:hover .card-title, .custom-card:hover .card-text {
+    color: #f3f3f3;
+}
+
 
 
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
