@@ -253,7 +253,6 @@ h2 {
 	border: 1px solid #000000;
 }
 
-
 .input-icon {
     position: relative;
     display: inline-block;
@@ -279,6 +278,11 @@ h2 {
 	width: 1024px;
 	max-height: auto;
 	overflow-y: auto;
+}
+
+.headline-job-ad {
+	text-align: center;
+	margin: 30px;
 }
 /*======================= ANNONSE - MODAL PREVIEW ==========================*/
   .modal {
@@ -460,7 +464,7 @@ h2 {
 /*========================== FAQ ==========================*/
 
 #accordion {
-    width: 90%; /* Bruker prosent av skjermen for responsivitet */
+    width: 90%; 
 	width: 900px;
     margin: auto;
 }
@@ -469,25 +473,23 @@ h2 {
     box-sizing: border-box;
 }
 
-/* Grunnleggende stil for hvert accordion-item */
 .accordion-item {
-    background-color: #f8f9fa; /* Endre denne til ønsket bakgrunnsfarge */
-    border: 1px solid #dee2e6; /* Ramme rundt hvert element */
+    background-color: #f8f9fa; 
+    border: 1px solid #dee2e6; 
 }
 
-/* Stil for accordion-button når den er ikke-aktiv */
+
 .accordion-button {
-    background-color: #e9ecef; /* Lys grå bakgrunn for ikke-aktive buttons */
-    color: #495057; /* Mørk grå tekstfarge */
+    background-color: #e9ecef; 
+    color: #495057; 
 }
 
-/* Stil for accordion-button når den er aktiv eller ved hover */
+
 .accordion-button:not(.collapsed) {
-    background-color: #9E182F; /* Mørkere blå for aktive eller hover-tilstand */
-    color: #ffffff; /* Hvit tekst for bedre lesbarhet */
+    background-color: #9E182F; 
+    color: #ffffff; 
 }
 
-/* Stil for accordion-body for å passe inn med resten av designet */
 .accordion-body {
     font-size: 16px; 
     color: #212529; 
@@ -509,35 +511,6 @@ h2 {
     font-weight: 300;
 }
 
-
-/* .form-group {
-    margin-bottom: 20px;
-} */
-
-/* label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-} */
-
-/* button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-} */
 
 /*========================== MEDIA QUERIES ==========================*/
 

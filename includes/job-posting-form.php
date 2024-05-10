@@ -1,6 +1,5 @@
 
 
-
 <!-- Form -->
 <form id="upload-form" method="post" action="#wp_ajax_job_form_upload" enctype="multipart/form-data">
   <div class="card">
@@ -12,8 +11,8 @@
         <legend>Informasjon om stillingen</legend>
         <!-- BANNER -->
         <div class="form-group">
-          <img id="bannerPreview" src="https://via.placeholder.com/1000x200" alt="Banner Preview" />
-          <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control">
+          <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
+          <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3">
         </div>
         <!-- LOGO -->
         <div class="form-group">
