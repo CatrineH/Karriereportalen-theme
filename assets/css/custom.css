@@ -280,7 +280,7 @@ h2 {
 	overflow-y: auto;
 }
 
-.headline-job-ad {
+.headline-block {
 	text-align: center;
 	margin: 30px;
 }
@@ -417,6 +417,10 @@ h2 {
     margin-left: 9%;
 }
 
+#c-panel-headline {
+	color: #000;
+	padding-top: 30px;
+}
 
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
 .with-line:after {

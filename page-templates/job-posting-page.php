@@ -9,7 +9,7 @@ get_header();
         
     <?php get_template_part('includes/controlpanel-sidebar'); ?>
     </div>
-    <div class="headline-job-ad"> 
+    <div class="headline-block"> 
     <h3>Opprett stillingsannonsen din her, alle detaljer må fylles ut for best resultat.</h3>
 
     </div>

@@ -5,7 +5,9 @@ get_header();
 ?>
 
     <?php get_template_part('includes/controlpanel-sidebar'); ?>
-
+    <div class="headline-block" > 
+    <h2 id="c-panel-headline">Her er stillingsportalen! Hva vil du gjøre?</h2>
+    </div>
         <div class="container">
         <div class="d-flex justify-content-center">
 
