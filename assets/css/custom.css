@@ -423,7 +423,7 @@ h2 {
     left: 0;
     width: 230px;
 	padding-top: 25px;
-    background-color: #9E182F;
+    background-color: #c61932;
     text-align: center;
     overflow-y: auto; 
     height: calc(100vh - var(--header-height));
