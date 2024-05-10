@@ -373,22 +373,39 @@ h2 {
 }
 
 
-/*========================== CONTROLPANEL - CARD 1 ==========================*/
+/*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 
+.custom-card {
+    border-color: #9e182f;
+    flex: 0 1 300px;
+    margin: 1px;    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease, color 0.1s step-end; 
+    color: #000; 
+    background-color: transparent; 
+}
 
 .custom-card:hover {
-	transform: scale(1.05);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-	background-color: #c61932;
+    transform: scale(1.03); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: #c61932;
     color: #f3f3f3; 
 }
 
-.custom-card {
-	border-color: #9e182f;
+.custom-card p, .custom-card .card-title {
+    text-align: center;
+    transition: color 0.1s step-end; 
 }
-.custom-card p, .custom-card .card-title{
-	color: #000;
-	text-align: center;
+
+.custom-card img {
+    width: 100%;    
+    height: auto;
+    transition: transform 0.6s ease; 
+}
+
+.custom-card-body {
+    padding: 30px; 
+    text-wrap: pretty;
 }
 
 .container-panel {
@@ -397,32 +414,8 @@ h2 {
     align-items: center;     
     flex-wrap: wrap;        
     gap: 50px;              
-	margin-left: 9%;
+    margin-left: 9%;
 }
-
-.custom-card {
-    flex: 0 1 300px;
-    margin: 1px;    
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease; 
-}
-
-
-.custom-card img {
-    width: 100%;    
-    height: auto;   
-}
-
-.custom-card-body {
-    padding: 30px; 
-	text-wrap: pretty;
-}
-
-
-.custom-card:hover .card-title, .custom-card:hover .card-text {
-    color: #f3f3f3;
-}
-
 
 
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
