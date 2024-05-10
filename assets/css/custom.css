@@ -357,6 +357,7 @@ h2 {
 .custom-card:hover {
 	transform: scale(1.05);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	background-color: #4e0000;
 }
 
 /* .card-container {
@@ -368,10 +369,10 @@ h2 {
 } */
 
 .custom-card {
-	background-color: #cac5dd;
+	background-color: #9e182f
 }
 .custom-card p, .card-title{
-	
+	color: #F3F3F3;
 	text-align: center;
 }
 
