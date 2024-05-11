@@ -93,14 +93,14 @@ function theme_setup()
     ));
 
     add_image_size('thumbnail', 150, 150, true);
-    add_image_size('medium', 300, 300, true);
-    add_image_size('large', 768, 768, true);
+    // add_image_size('medium', 300, 300, true);
+    // add_image_size('large', 768, 768, true);
     add_image_size('full', 1024, 1024, true);
     add_image_size('full-width', 1024, 0, true);
     add_image_size('full-height', 0, 1024, true);
     add_image_size('banner', 1024, 250, true);
-    add_image_size('banner-mobile', 320, 250, true);
-    add_image_size('banner-mobile-small', 200, 250, true);
+    // add_image_size('banner-mobile', 320, 250, true);
+    // add_image_size('banner-mobile-small', 200, 250, true);
 }
 add_action('after_setup_theme', 'theme_setup');
 
