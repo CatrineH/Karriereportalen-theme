@@ -1,14 +1,6 @@
 
 <!-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage -->
 
-
-
-
-
-
-<!-- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage -->
-
-
 <div class="container ">
 <div class="row justify-content-center mt-5">
     <div class="col-12 col-lg-10 col-xl-9 ">

@@ -318,6 +318,7 @@ function upload_job_post_form() {
         exit;
     }
     $postarr = [
+        'post_author'  => get_current_user_id(),
         'post_title'   => sanitize_text_field($_POST['annonsetittel']),
         'post_content' => sanitize_textarea_field($_POST['editor']),
         'post_status'  => 'draft', 
@@ -349,9 +350,9 @@ function upload_job_post_form() {
     }
 }
 }
+add_action('wp_ajax_upload_job_post_form', 'handle_image_upload_request');
+add_action('wp_ajax_nopriv_upload_job_post_form', 'handle_image_upload_request'); // Hvis ikke innloggete brukere skal få tilgang
 
-
-add_action('wp_ajax_job_form_upload', 'preview_job_ad');
 
 
 
@@ -397,37 +398,82 @@ function preview_job_ad() {
 }
 
 
-function custom_job_ad_fields($user)***
-{
-    $bedriftsnavn = get_user_meta($user->ID, 'company_name', true);
-    $adresse = get_user_meta($user->ID, 'company_address', true);
-    $postnummer = get_user_meta($user->ID, 'company_postal', true);
-    $orgnr = get_user_meta($user->ID, 'company_orgnr', true);
 
+
+
+
+function custom_job_ad_fields($user)
+{
+    $arbeidsgiver = get_user_meta($user->ID, 'employer', true);
+    $stillingstittel = get_user_meta($user->ID, 'job_title', true);
+    $ansettelsesform = get_user_meta($user->ID, 'employment_type', true);
+    $arbeidsted = get_user_meta($user->ID, 'workplace', true);
+    $sektor = get_user_meta($user->ID, 'sector', true);
+    $bransje = get_user_meta($user->ID, 'industry', industry);
+    $frist = get_user_meta($user->ID, 'deadline', true);
+    $antstillinger = get_user_meta($user->ID, 'number_of_positions', true);
+    $søkelink = get_user_meta($user->ID, 'application_link', true);
+    $søkepost = get_user_meta($user->ID, 'application_email', industry);
+    $kontaktperson = get_user_meta($user->ID, 'contact_person', true);
+    $telefon = get_user_meta($user->ID, 'phone', true);
 ?>
-    <h3>Bedriftsinformasjon</h3>
+    <h3>Annonseinformasjon</h3>
     <table class="form-table">
         <tr>
-            <th><label for="company_name">Bedriftsnavn</label></th>
-            <td><input type="text" name="company_name" id="company_name" value="<?php echo $bedriftsnavn; ?>" class="regular-text" /></td>
+            <th><label for="jobTitle">Stillingstittel</label></th>
+            <td><input type="text" name="job_title" id="job_title" value="<?php echo $stillingstittel; ?>" class="regular-text" /></td>
         </tr>
         <tr>
-            <th><label for="company_address">Adresse</label></th>
-            <td><input type="text" name="company_address" id="company_address" value="<?php echo $adresse; ?>" class="regular-text" /></td>
+            <th><label for="employer">Arbeidsgiver</label></th>
+            <td><input type="text" name="employer" id="employer" value="<?php echo $arbeidsgiver; ?>" class="regular-text" /></td>
         </tr>
         <tr>
-            <th><label for="company_postal">Postnummer</label></th>
-            <td><input type="text" name="company_postal" id="company_postal" value="<?php echo $postnummer; ?>" class="regular-text" /></td>
+            <th><label for="sector">Sektor</label></th>
+            <td><input type="text" name="sector" id="sector" value="<?php echo $sektor; ?>" class="regular-text" /></td>
         </tr>
         <tr>
-            <th><label for="company_orgnr">Organisasjonsnummer</label></th>
-            <td><input type="text" name="company_orgnr" id="company_orgnr" value="<?php echo $orgnr; ?>" class="regular-text" /></td>
+            <th><label for="industry">Bransje</label></th>
+            <td><input type="text" name="industry" id="industry" value="<?php echo $bransje; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="employmentType">Ansettelsesform</label></th>
+            <td><input type="text" name="employment_type" id="employment_type" value="<?php echo $ansettelsesform; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="number_of_positions">Antstillinger</label></th>
+            <td><input type="text" name="number_of_positions" id="number_of_positions" value="<?php echo $antstillinger; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="workplace">Arbeidsted</label></th>
+            <td><input type="text" name="workplace" id="workplace" value="<?php echo $arbeidsted; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="application_link">Søkelink</label></th>
+            <td><input type="text" name="application_link" id="application_link" value="<?php echo $søkelink; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="application_email">Søkepost</label></th>
+            <td><input type="text" name="application_email" id="application_email" value="<?php echo $søkepost; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="contact_person">Kontaktperson</label></th>
+            <td><input type="text" name="contact_person" id="contact_person" value="<?php echo $kontaktperson; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="phone">Telefon</label></th>
+            <td><input type="text" name="phone" id="phone" value="<?php echo $telefon; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="deadline">Frist</label></th>
+            <td><input type="text" name="deadline" id="deadline" value="<?php echo $frist; ?>" class="regular-text" /></td>
         </tr>
     </table>
 <?php
 }
 add_action('show_user_profile', 'custom_user_fields');
 add_action('edit_user_profile', 'custom_user_fields');
+
+
 
 
 function save_custom_job_ad_fields($user_id)

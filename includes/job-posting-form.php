@@ -1,7 +1,4 @@
-
-
-<!-- Form -->
-<form id="upload-form" action="<?php echo wp_ajax_job_form_upload(); ?>" method="post" enctype="multipart/form-data">
+<form id="job_form" action="<?php echo upload_job_post_form()?>" method="post" enctype="multipart/form-data">
 
   <div class="card">
     <div class="card-header">
@@ -28,15 +25,12 @@
         <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3" style="display: none;">
     </div>
 </div>
-
-
-
-        <!-- Form fields for job advertisement -->
+<!-- STILLINGSINFO -->
         <!-- --- ANNONSETITTEL ----  -->
         <div class="row">
           <div class="form-group" style="margin-top: 30px;">
             <label class="control-label" for="annonsetittel">Annonsetittel</label>
-            <input id="annonsetittel" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="">
+            <input id="post_title" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="">
           </div>
         </div>
         <div class="w-100">
@@ -45,11 +39,11 @@
           <div class="row">
             <div class="col-lg-6">
               <label for="stillingstittel" class="control-label">Stillingstittel</label>
-              <input id="stillingstittel" name="stillingstittel" type="text" class="form-control" required="">
+              <input id="job_title" name="stillingstittel" type="text" class="form-control" required="">
             </div>
             <div class="col-lg-6">
               <label for="ansettelsesform" class="control-label">Ansettelsesform</label>
-              <select id="ansettelsesform" name="ansettelsesform" class="form-control">
+              <select id="employment_type" name="ansettelsesform" class="form-control">
                 <option value="1">Velg</option>
                 <option value="2">Fulltid</option>
                 <option value="3">Deltid</option>
@@ -66,7 +60,7 @@
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="arbeidsted">Arbeidsted</label>
-                <input id="arbeidsted" name="arbeidsted" type="text" placeholder="" class="form-control input-lg" required="">
+                <input id="workplace" name="arbeidsted" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
             </div>
 
@@ -74,7 +68,7 @@
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="sektor">Velg sektor</label>
-                <select id="sektor" name="sektor" class="form-control">
+                <select id="sector" name="sektor" class="form-control">
                   <option value="1">Velg</option>
                   <option value="2">Privat</option>
                   <option value="3">Offentlig</option>
@@ -85,7 +79,7 @@
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="arbeidsgiver">Arbeidsgiver</label>
-                <input id="arbeidsgiver" name="arbeidsgiver" type="text" placeholder="" class="form-control input-lg" required="">
+                <input id="employer" name="arbeidsgiver" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
             </div>
 
@@ -93,7 +87,7 @@
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="bransje">Bransje</label>
-                <select id="bransje" name="bransje" class="form-control">
+                <select id="industry" name="bransje" class="form-control">
                   <option value="1">Velg</option>
                   <option value="2">Helse og omsorg</option>
                   <option value="3">Varehandel</option>
@@ -114,13 +108,13 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
-                <label class=" control-label" for="frist">Frist for søknad</label>
-                <input id="frist" name="frist" type="text" placeholder="01.01.24" class="form-control input-lg" required="">
+                <label class=" control-label" for="deadline">Frist for søknad</label>
+                <input id="deadline" name="frist" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
             </div>
             <script>
 document.addEventListener('DOMContentLoaded', function() {
-    flatpickr("#frist", {
+    flatpickr("#deadline", {
         "locale": "no", // Angi norsk som språk
         dateFormat: "d.m.Y", // Format på datoen
     });
@@ -178,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-sharp fa-solid fa-link"></i>
                 </span>
               </div>
-              <input id="kontaktperson" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="contact_person" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
 
@@ -193,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-regular fa-envelope"></i>
                 </span>
               </div>
-              <input id="kontaktperson" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="application_email" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
 
@@ -212,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-solid fa-user-group"></i>
                 </span>
               </div>
-              <input id="kontaktperson" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="contact_person" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
           <div class="form-group">
@@ -225,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-solid fa-phone"></i>
                 </span>
               </div>
-              <input id="telefon" name="telefon" type="tel" placeholder="" class="form-control input-md" required="">
+              <input id="phone" name="telefon" type="tel" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
         </div>
@@ -234,11 +228,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="form-group row">
           <div class="col-lg-7">
             <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>
-            <button type="submit" name="publish-btn-job" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
+            <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
           </div>
           <div class="col-lg-12 text-right">
             <button  type="button" id="previewButton" name="draft-btn-job" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
-            <button type="button" name="save-btn-job" class="btn" style="background-color:#7D7DAA; color:#fff;">Lagre til senere</button>
+            <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button>
           </div>
         </div>
       </fieldset>
@@ -248,21 +242,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <!-- Modal HTML struktur -->
-<div id="previewModal" class="modal" style="display:none;">
+<div id="previewModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Forhåndsvisning av Stilling</h2>
-        <div id="modal-body">
-        <div class="col d-flex flex-column align-items-center with-line">
-                        <?php
-                            $current_job_post = wp_get_current_job_ad_fields();
-                            $job_title = get_user_meta($current_user->ID, 'stillingstittel', true);
-                            $employment_type = get_user_meta($current_user->ID, 'ansettelsesform', true);
-                            echo '<h6 class="stillingstittel" style="color: #000;  padding-top:10px;  ">'$current_job_post->job_title</h6>';
-                            echo '<h6 class="stillingstittel" style="color: #000;  padding-top:10px;  ">'$current_job_post->employment_type</h6>';
-                        ?>
+        <div id="modal-body" class="col d-flex flex-column align-items-center with-line">
+                       
             </div>
         </div>
     </div>
-</div>
+
 
