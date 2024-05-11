@@ -1,7 +1,8 @@
 
 
 <!-- Form -->
-<form id="upload-form" method="post" action="#wp_ajax_job_form_upload" enctype="multipart/form-data">
+<form id="upload-form" action="<?php echo wp_ajax_job_form_upload(); ?>" method="post" enctype="multipart/form-data">
+
   <div class="card">
     <div class="card-header">
       <h6 style="color: grey;">Stillingsannonse utkast</h6>
@@ -11,7 +12,9 @@
         <legend>Informasjon om stillingen</legend>
 <!-- BANNER -->
 <div class="form-group">
+  <div class="banner-container"> 
     <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
+    </div>
     <div class="upload-btn-wrapper">
         <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
         <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3" style="display: none;">
@@ -31,7 +34,6 @@
         <!-- Form fields for job advertisement -->
         <!-- --- ANNONSETITTEL ----  -->
         <div class="row">
-
           <div class="form-group" style="margin-top: 30px;">
             <label class="control-label" for="annonsetittel">Annonsetittel</label>
             <input id="annonsetittel" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="">
@@ -124,8 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
-
-
 
             <!-- --- ANT STILLINGER ----  -->
             <div class="col-lg-6">
@@ -253,7 +253,15 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="close">&times;</span>
         <h2>Forhåndsvisning av Stilling</h2>
         <div id="modal-body">
-            <!-- Dynamisk innhold vil bli lastet her -->
+        <div class="col d-flex flex-column align-items-center with-line">
+                        <?php
+                            $current_job_post = wp_get_current_job_ad_fields();
+                            $job_title = get_user_meta($current_user->ID, 'stillingstittel', true);
+                            $employment_type = get_user_meta($current_user->ID, 'ansettelsesform', true);
+                            echo '<h6 class="stillingstittel" style="color: #000;  padding-top:10px;  ">'$current_job_post->job_title</h6>';
+                            echo '<h6 class="stillingstittel" style="color: #000;  padding-top:10px;  ">'$current_job_post->employment_type</h6>';
+                        ?>
+            </div>
         </div>
     </div>
 </div>

@@ -88,3 +88,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+
+$(document).ready(function() {
+    $('#bannerPreview').draggable({
+        axis: 'y',  // Begrenser bevegelsen til vertikal akse
+        cursor: 'ns-resize',  // Endrer markør for bedre visuell indikasjon
+        containment: "parent",  // Holder bevegelsen innenfor bannerområdet
+        drag: function(event, ui) {
+            // Justeringskode for å håndtere hvordan bildet beveger seg
+            var moveY = ui.position.top - $(this).data('startTop');
+            $(this).css('top', moveY + 'px');
+        },
+        start: function(event, ui) {
+            $(this).data('startTop', ui.position.top);
+        },
+        stop: function() {
+            // Kan inkludere kode for å låse inn endelig posisjon ved stopp
+        }
+    });
+
+    $('#bannerInput').change(function(e) {
+        if (e.target.files && e.target.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#bannerPreview').attr('src', e.target.result);
+                // Resentrer bildet for å forhindre uønskede effekter ved nytt bilde
+                $('#bannerPreview').css({
+                    top: '50%',
+                    transform: 'translateY(-50%)'
+                });
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
+});
+
+
+
+
+
+

@@ -111,7 +111,9 @@ function hide_admin_bar_from_non_admins()
 }
 add_filter('show_admin_bar', 'hide_admin_bar_from_non_admins');
 
-// login og reg hooks + funksjoner ...
+
+
+// ------------- CUSTOM login og reg hooks + funksjoner -----------------
 
 
 function handle_user_login()
@@ -160,7 +162,6 @@ function create_new_user()
         $user_id = wp_create_user($username, $password, $email);
 
         if (is_wp_error($user_id)) {
-            wp_die($user_id->get_error_message());
             wp_redirect("register");
             exit;
         } else {
@@ -170,13 +171,8 @@ function create_new_user()
             );
 
             $user = wp_signon($creds, false);
-            if (isset($_POST['registrert-i-brreg']) && $_POST['registrert-i-brreg'] == 1) {
-                wp_redirect("brreg");
-                exit;
-            } else {
-                wp_redirect("register-2");
-                exit;
-            }
+            wp_redirect("register-2");
+            exit;
         }
     }
 }
@@ -235,6 +231,7 @@ function custom_user_fields($user)
 add_action('show_user_profile', 'custom_user_fields');
 add_action('edit_user_profile', 'custom_user_fields');
 
+
 function save_custom_user_fields($user_id)
 {
     if (!current_user_can('edit_user', $user_id)) {
@@ -275,42 +272,6 @@ function update_last_login($user_login, $user) {
 add_action('wp_login', 'update_last_login', 10, 2);
  */
 
-function get_company_data_from_api() {
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'get_company_data_from_api') {
-        if (!isset($_POST['organisationNumber'])) {
-            wp_die('Organisasjonnummer er påkrevd!');
-        }
-
-        $organisationNumber = sanitize_text_field($_POST['organisationNumber']);
-        $url = 'https://data.brreg.no/enhetsregisteret/api/enheter/' . $organisationNumber;
-
-        $response = wp_remote_get($url);
-
-        if (is_wp_error($response)) {
-            wp_die('API request failed!');
-        }
-
-        $body = wp_remote_retrieve_body($response);
-        $data = json_decode($body);
-
-        if (isset($data->navn)) {
-            $company_name = $data->navn;
-            $company_address = $data->forretningsadresse->adresse;
-            $company_postal = $data->forretningsadresse->postnummer;
-            $company_orgnr = $data->organisasjonsnummer;
-
-            echo json_encode(array(
-                'company_name' => $company_name,
-                'company_address' => $company_address,
-                'company_postal' => $company_postal,
-                'company_orgnr' => $company_orgnr
-            ));
-        } else {
-            wp_die('Company not found!');
-        }
-    }
-}
-
 
 
 function handle_image_upload($inputName)
@@ -340,8 +301,7 @@ function handle_image_upload($inputName)
 
 
 
-function upload_job_post_form() 
-{
+function upload_job_post_form() {
     require_once(ABSPATH . 'wp-admin/includes/image.php');
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     require_once(ABSPATH . 'wp-admin/includes/media.php');
@@ -391,7 +351,9 @@ function upload_job_post_form()
 }
 
 
-add_action('wp_ajax_preview_job_ad', 'preview_job_ad');
+add_action('wp_ajax_job_form_upload', 'preview_job_ad');
+
+
 
 function preview_job_ad() {
     check_ajax_referer('nonce', 'security');
@@ -435,3 +397,57 @@ function preview_job_ad() {
 }
 
 
+function custom_job_ad_fields($user)***
+{
+    $bedriftsnavn = get_user_meta($user->ID, 'company_name', true);
+    $adresse = get_user_meta($user->ID, 'company_address', true);
+    $postnummer = get_user_meta($user->ID, 'company_postal', true);
+    $orgnr = get_user_meta($user->ID, 'company_orgnr', true);
+
+?>
+    <h3>Bedriftsinformasjon</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="company_name">Bedriftsnavn</label></th>
+            <td><input type="text" name="company_name" id="company_name" value="<?php echo $bedriftsnavn; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_address">Adresse</label></th>
+            <td><input type="text" name="company_address" id="company_address" value="<?php echo $adresse; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_postal">Postnummer</label></th>
+            <td><input type="text" name="company_postal" id="company_postal" value="<?php echo $postnummer; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="company_orgnr">Organisasjonsnummer</label></th>
+            <td><input type="text" name="company_orgnr" id="company_orgnr" value="<?php echo $orgnr; ?>" class="regular-text" /></td>
+        </tr>
+    </table>
+<?php
+}
+add_action('show_user_profile', 'custom_user_fields');
+add_action('edit_user_profile', 'custom_user_fields');
+
+
+function save_custom_job_ad_fields($user_id)
+{
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+
+    xupdate_user_meta($user_id, 'job_title', sanitize_text_field($_POST['stillingstittel']));
+    xupdate_user_meta($user_id, 'employment_type', sanitize_text_field($_POST['ansettelsesform']));
+    xupdate_user_meta($user_id, 'workplace', sanitize_text_field($_POST['arbeidsted']));
+    xupdate_user_meta($user_id, 'sector', sanitize_text_field($_POST['sektor']));
+    xupdate_user_meta($user_id, 'employer', sanitize_text_field($_POST['arbeidsgiver']));
+    xupdate_user_meta($user_id, 'industry', sanitize_text_field($_POST['bransje']));
+    xupdate_user_meta($user_id, 'deadline', sanitize_text_field($_POST['frist']));
+    xupdate_user_meta($user_id, 'number_of_positions', sanitize_text_field($_POST['antstillinger']));
+    xupdate_user_meta($user_id, 'application_link', sanitize_url($_POST['søkelink']));
+    xupdate_user_meta($user_id, 'application_email', sanitize_email($_POST['søkepost']));
+    update_user_meta($user_id, 'contact_person', sanitize_text_field($_POST['kontaktperson']));
+    update_user_meta($user_id, 'phone', sanitize_text_field($_POST['telefon']));
+}
+add_action('personal_options_update', 'save_custom_job_ad_fields');
+add_action('edit_user_profile_update', 'save_custom_job_ad_fields');
