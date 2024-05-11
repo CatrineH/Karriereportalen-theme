@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Last inn forhåndsvisningsdata
     function loadPreviewData() {
         var formData = new FormData(form);
-        formData.append("action", "preview_job_ad"); // Denne handlingen må håndteres i WordPress
+        formData.append("action", "wp_get_current_job_ad_fields"); // Denne handlingen må håndteres i WordPress
 
         fetch(ajax_object.ajax_url, {
             method: "POST",
