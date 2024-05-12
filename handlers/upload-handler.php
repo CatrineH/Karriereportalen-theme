@@ -50,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Lagre resten av formdata
     $postarr = [
+        'post_author'  => get_current_user_id(),
         'post_title'   => sanitize_text_field($_POST['annonsetittel']),
         'post_content' => sanitize_textarea_field($_POST['editor']),
         'post_status'  => 'draft', 'publish', 'preview', // 'draft' eller 'publish'
