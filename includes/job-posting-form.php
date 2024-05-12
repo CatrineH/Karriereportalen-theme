@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-sharp fa-solid fa-link"></i>
                 </span>
               </div>
-              <input id="contact_person" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="application_link" name="søkelink" type="text" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
 
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-regular fa-envelope"></i>
                 </span>
               </div>
-              <input id="application_email" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="application_email" name="søkepost" type="email" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
 
