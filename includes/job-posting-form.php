@@ -1,28 +1,29 @@
 <form id="job_form" action="<?php echo upload_job_post_form()?>" method="post" enctype="multipart/form-data">
 
-  <div class="card">
+  <div class="card-form">
     <div class="card-header">
       <h6 style="color: grey;">Stillingsannonse utkast</h6>
     </div>
     <div class="card-body col-lg-12">
       <fieldset>
-        <legend>Informasjon om stillingen</legend>
+        <legend>Legg til informasjon om stillingen din</legend>
 <!-- BANNER -->
 <div class="form-group">
   <div class="banner-container"> 
     <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
     </div>
     <div class="upload-btn-wrapper">
-        <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
-        <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3" style="display: none;">
     </div>
 </div>
 <!-- LOGO -->
 <div class="form-group">
     <img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
-    <div class="upload-btn-wrapper">
+    <div class="upload-btn-wrapper" style="margin-top: 80px;">
         <label for="logoInput" class="custom-file-upload">Last opp logo</label>
         <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3" style="display: none;">
+        <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
+        <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3" style="display: none;">
+
     </div>
 </div>
 <!-- STILLINGSINFO -->
@@ -86,8 +87,8 @@
             <!------ ANNSETTELSESFORM---- -->
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
-                <label class="control-label" for="bransje">Bransje</label>
-                <select id="industry" name="bransje" class="form-control">
+                <label class="control-label" for="industry">Bransje</label>
+                <select id="industry" name="industry" class="form-control">
                   <option value="1">Velg</option>
                   <option value="2">Helse og omsorg</option>
                   <option value="3">Varehandel</option>
@@ -115,8 +116,8 @@
             <script>
 document.addEventListener('DOMContentLoaded', function() {
     flatpickr("#deadline", {
-        "locale": "no", // Angi norsk som språk
-        dateFormat: "d.m.Y", // Format på datoen
+        "locale": "no", // Angir norsk som språk
+        dateFormat: "d.m.Y",
     });
 });
 </script>
@@ -124,8 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- --- ANT STILLINGER ----  -->
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
-                <label class="control-label" for="antstillinger">Antall stillinger</label>
-                <select id="antstillinger" name="antstillinger"class="form-control">
+                <label class="control-label" for="numberOfPositions">Antall stillinger</label>
+                <select id="numberOfPositions" name="numberOfPositions"class="form-control">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -148,16 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <textarea class="form-control" id="editor" name="editor" style="height: 400px;"></textarea>
           </div>
           <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                editor.ui.view.editable.element.style.height = '400px';
-            })
-            .catch(error => {
-                console.error('There was a problem initializing the CKEditor:', error);
-            });
-    </script>
+
 
           <!-- --- LENKE TIL SØKNAD ----  -->
           <h6 style=" color: #9E182F; margin: 15px;"> Hvordan skal stillingen søkes?</h6>
@@ -231,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
           </div>
           <div class="col-lg-12 text-right">
-            <button  type="button" id="previewButton" name="draft-btn-job" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
+            <button  type="button" id="previewButton" name="" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
             <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button>
           </div>
         </div>
@@ -241,15 +233,16 @@ document.addEventListener('DOMContentLoaded', function() {
 </form>
 
 
-<!-- Modal HTML struktur -->
+
+<!-- Modal for Preview -->
 <div id="previewModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Forhåndsvisning av Stilling</h2>
-        <div id="modal-body" class="col d-flex flex-column align-items-center with-line">
-                       
-            </div>
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h5 style="color: #000;">Forhåndsvisning</h5>
+        <div id="preview_body" class="job-preview">
+
         </div>
     </div>
+</div>
 
 

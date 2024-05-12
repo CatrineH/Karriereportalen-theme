@@ -21,7 +21,7 @@ get_header();
       <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 2 av 3</div>
     </div>
  
-    <!-- Registration Form 1 -->
+    <!-- Registration Form 2 -->
     <?php get_template_part('includes/register-form-2'); ?>
   </div>
 </main>

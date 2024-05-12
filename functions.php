@@ -348,8 +348,7 @@ function upload_job_post_form() {
     }
 }
 }
-add_action('wp_ajax_upload_job_post_form', 'handle_image_upload_request');
-add_action('wp_ajax_nopriv_upload_job_post_form', 'handle_image_upload_request'); // Hvis ikke innloggete brukere skal få tilgang
+add_action('wp_ajax_upload_job_post_form', 'handle_image_upload');
 
 
 
@@ -361,7 +360,7 @@ function preview_job_ad() {
     $title = sanitize_text_field($_POST['annonsetittel']);
     $employer = sanitize_text_field($_POST['arbeidsgiver']);
     $workplace = sanitize_text_field($_POST['arbeidsted']);
-    $jobType = sanitize_text_field($_POST['ansettelsesform']);
+    $employmentType = sanitize_text_field($_POST['ansettelsesform']);
     $sector = sanitize_text_field($_POST['sektor']);
     $description = sanitize_textarea_field($_POST['editor']);
     $applicationLink = sanitize_url($_POST['søkelink']);
@@ -369,14 +368,14 @@ function preview_job_ad() {
     $contactPerson = sanitize_text_field($_POST['kontaktperson']);
     $phone = sanitize_text_field($_POST['telefon']);
     $frist = sanitize_text_field($_POST['frist']);
-    $antstillinger = sanitize_text_field($_POST['antstillinger']);
+    $numerOfPositions = sanitize_text_field($_POST['antstillinger']);
 
     // Hente bilde-URLer fra vedlegg IDs
     $banner_url = wp_get_attachment_url($_POST['banner_id']);
     $logo_url = wp_get_attachment_url($_POST['logo_id']);
 
     $html = "
-        <div style='font-family: Arial, sans-serif;'>
+        <div style='width: 600px; margin: 0 auto;'>
             <img src='$banner_url' alt='Banner' style='width: 100%; height:200px;'>
             <img src='$logo_url' alt='Logo' style='width: 150px; height: 150px; display: block; margin: 20px auto;'>
             <h1>$title</h1>
