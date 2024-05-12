@@ -1,3 +1,4 @@
+
 <form id="job_form" action="<?php echo upload_job_post_form()?>" method="post" enctype="multipart/form-data">
 
   <div class="card-form">

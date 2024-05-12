@@ -16,8 +16,8 @@ get_header();
     <div>
       <div>
     <!-- Progress navigation -->
-    <div class="progress mb-3">
-      <div class="progress-bar" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 1 av 3</div>
+    <div class="progress mb-3" >
+      <div class="progress-bar"  role="progressbar" style="width: 35%; background-color:#C61932;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 1 av 3</div>
     </div>
  
     <!-- Registration Form 1 -->
