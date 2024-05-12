@@ -306,8 +306,6 @@ function upload_job_post_form() {
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     require_once(ABSPATH . 'wp-admin/includes/media.php');
 
-    header('Content-Type: application/json');
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      // Håndterer bildeopplasting med hooks
         $banner_id = media_handle_upload('imageBanner', 0);  // 'imageBanner' fra formen, '0' betyr ingen tilknyttet post
