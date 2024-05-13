@@ -1,17 +1,17 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $title = $_POST['annonsetittel'];
-    $jobTitle = $_POST['stillingstittel'];
-    $employmentType = $_POST['ansettelsesform'];
-    $workplace = $_POST['arbeidsted'];
-    $sector = $_POST['sektor'];
-    $employer = $_POST['arbeidsgiver'];
-    $industry = $_POST['industry'];
-    $deadline = $_POST['frist'];
-    $numberOfPositions = $_POST['numberOfPositions'];
-    $description = $_POST['editor']; 
+//     $title = $_POST['annonsetittel'];
+//     $jobTitle = $_POST['stillingstittel'];
+//     $employmentType = $_POST['ansettelsesform'];
+//     $workplace = $_POST['arbeidsted'];
+//     $sector = $_POST['sektor'];
+//     $employer = $_POST['arbeidsgiver'];
+//     $industry = $_POST['industry'];
+//     $deadline = $_POST['frist'];
+//     $numberOfPositions = $_POST['numberOfPositions'];
+//     $description = $_POST['editor']; 
 
 
 get_header(); 
