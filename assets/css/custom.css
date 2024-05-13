@@ -136,6 +136,7 @@ footer {
 	text-decoration: none;
 	display: block;
 	text-align: right;
+	margin-right: 18px;
 }
 
 .login-button {
