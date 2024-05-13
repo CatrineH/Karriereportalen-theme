@@ -9,10 +9,12 @@
 	--footer-height: 150px;
 }
 
+
 .main-content {
 	position: relative;
 	background-size: cover;
 	background-position: center;
+
 }
 
 
@@ -134,6 +136,7 @@ footer {
 	text-decoration: none;
 	display: block;
 	text-align: right;
+	margin-right: 18px;
 }
 
 .login-button {
@@ -159,14 +162,7 @@ footer {
 
 .reg-button {
 	position: relative;
-}
-
-#reg-button-1 {
-	left: -20px;
-}
-
-#reg-button-2 {
-	left: 375px;
+	left: 402px;
 }
 
 .login-button:hover {
@@ -222,6 +218,31 @@ p {
 	overflow-y: auto;
 }
 
+.form-check-input:not(:checked) {
+	background-color: #C7C9CA;
+	border-color: #C7C9CA;
+}
+
+.form-check-input:checked {
+	background-color: #C61932;
+	border-color: #C61932;
+}
+
+#switch-check,
+#switch-x {
+	position: absolute;
+	pointer-events: none;
+	top: 0.5px;
+}
+
+#switch-check {
+	left: -20px;
+}
+
+#switch-x {
+	left: 0px;
+}
+
 /*========================== BRRG CARD ==========================*/
 
 h2 {
@@ -248,26 +269,50 @@ h2 {
 }
 
 
-
 /*======================= ANNONSE - FORM ==========================*/
 
-#bannerPreview {
-	width: 1024px;
-	height: 200px;
-	object-fit: cover;
-	/* Beskjærer bildet for å dekke området */
-	overflow: hidden;
-	/* Hindrer bilde fra å bre seg utenfor rammen */
+
+.card-form {
+	transform: scale(90%);
 }
 
+.banner-container {
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #ccc;
+}
+
+#bannerPreview {
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: ns-resize;
+}
+
+
+
 #logoPreview {
+
 	width: 150px;
 	height: 150px;
 	object-fit: contain;
-	/* Sørger for at hele bildet vises, tilpasset størrelsen */
 	border-radius: 50%;
 	overflow: hidden;
 	border: 1px solid #000000;
+
+
+	position: absolute;
+	left: 15px;
+	top: 190px;
+	margin-left: 130px;
+	object-fit: cover;
+	z-index: 10;
+	transform: translateX(-50%);
+	overflow: hidden;
 }
 
 .input-icon {
@@ -286,36 +331,6 @@ h2 {
 	top: 50%;
 	transform: translateY(-50%);
 	color: #4e0000;
-}
-
-.custom-card-2 {
-	border: none;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-	border-bottom: none;
-	color: #d7d7d7;
-}
-
-.card-header h4 {
-	color: #fefefe;
-}
-
-
-.custom-file-label::after {
-	content: "Filen er lastet opp.";
-}
-
-.custom-file-input:lang(en)~.custom-file-label::after {
-	content: "Dra og slipp eller last opp fil.";
-}
-
-.form-control,
-.custom-file-label {
-	background-color: #f8f8f8;
-	border: 1px solid #ced4da;
-	border-radius: 0.25rem;
 }
 
 label {
@@ -351,71 +366,6 @@ label {
 	background-color: #4e0000;
 }
 
-.form-check-input:not(:checked) {
-	background-color: #C7C9CA;
-	border-color: #C7C9CA;
-}
-
-
-.card-header h4,
-.card-body h3 {
-	color: #9E182F;
-}
-
-.ck-editor__editable {
-	min-height: 400px;
-	width: 1024px;
-	max-height: auto;
-	overflow-y: auto;
-}
-
-.headline-block {
-	text-align: center;
-	margin: 30px;
-}
-
-.custom-file-upload {
-	display: inline-block;
-	padding: 6px 12px;
-	cursor: pointer;
-	background-color: #9E182F;
-	color: white;
-	border-radius: 5px;
-	font-size: 16px;
-	width: 15%;
-	text-align: center;
-	margin-top: 20px;
-}
-
-.custom-file-upload:hover {
-	background-color: #4e0000;
-}
-
-.form-check-input:not(:checked) {
-	background-color: #C7C9CA;
-	border-color: #C7C9CA;
-}
-
-.form-check-input:checked {
-	background-color: #C61932;
-	border-color: #C61932;
-}
-
-#switch-check,
-#switch-x {
-	position: absolute;
-	pointer-events: none;
-	top: 0.5px;
-}
-
-#switch-check {
-	left: -20px;
-}
-
-#switch-x {
-	left: 0px;
-}
-
 /*======================= ANNONSE - MODAL PREVIEW ==========================*/
 .modal {
 	display: none;
@@ -427,14 +377,7 @@ label {
 	height: 100%;
 	overflow: auto;
 	background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-	background-color: #fefefe;
-	margin: 10% auto;
-	padding: 20px;
-	border: 1px solid #888;
-	width: 80%;
+	transform: scale(85%);
 }
 
 .close {
@@ -450,6 +393,53 @@ label {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+.modal-content {
+	max-width: 1024px;
+	margin: auto;
+
+	background-color: #fefefe;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 90%;
+}
+
+/* .job-preview img.bannerPreview {
+    width: 50%;
+    height: 200;
+	object-fit:contain;
+} */
+
+.job-preview img.logo {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	position: absolute;
+	left: 15px;
+	top: 190px;
+	margin-left: 50px;
+	object-fit: cover;
+	z-index: 10;
+	transform: translateX(-50%);
+}
+
+.columnPreview {
+	display: flex;
+	justify-content: space-between;
+}
+
+.columnPreview div {
+	flex: 1;
+	padding: 10px;
+}
+
+
+.description {
+	margin-top: 20px;
+	/* Gir plass mellom bildene og tekst */
+}
+
 
 /*====================== REG - LAYOUT 2COL GRID ==========================*/
 
@@ -494,14 +484,6 @@ label {
 	height: 40px;
 }
 
-.progress-bar {
-	background-color: #9E182F;
-}
-
-.container-fluid {
-	padding-top: var(--header-height);
-	padding-bottom: var(--footer-height);
-}
 
 /*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 
@@ -551,6 +533,8 @@ label {
 #c-panel-headline {
 	color: #000;
 	padding-top: 30px;
+	font-size: 2.5rem;
+
 }
 
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/

@@ -1,40 +1,38 @@
 
+<form id="job_form" action="job-published.php" method="post" enctype="multipart/form-data">
 
-<!-- Form -->
-<form id="upload-form" method="post" action="#wp_ajax_job_form_upload" enctype="multipart/form-data">
-  <div class="card">
+  <div class="card-form">
     <div class="card-header">
       <h6 style="color: grey;">Stillingsannonse utkast</h6>
     </div>
     <div class="card-body col-lg-12">
       <fieldset>
-        <legend>Informasjon om stillingen</legend>
+        <legend>Legg til informasjon om stillingen din</legend>
 <!-- BANNER -->
 <div class="form-group">
+  <div class="banner-container"> 
     <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
+    </div>
     <div class="upload-btn-wrapper">
-        <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
-        <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3" style="display: none;">
     </div>
 </div>
 <!-- LOGO -->
 <div class="form-group">
     <img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
-    <div class="upload-btn-wrapper">
+    <div class="upload-btn-wrapper" style="margin-top: 80px;">
         <label for="logoInput" class="custom-file-upload">Last opp logo</label>
         <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3" style="display: none;">
+        <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
+        <input type="file" name="imageBanner" id="bannerInput" accept="image/*" class="form-control mb-3 mt-3" style="display: none;">
+
     </div>
 </div>
-
-
-
-        <!-- Form fields for job advertisement -->
+<!-- STILLINGSINFO -->
         <!-- --- ANNONSETITTEL ----  -->
         <div class="row">
-
-          <div class="form-group" style="margin-top: 30px;">
+          <div class="form-group" >
             <label class="control-label" for="annonsetittel">Annonsetittel</label>
-            <input id="annonsetittel" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="">
+            <input id="post_title" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="" style="margin-top: 50px;">
           </div>
         </div>
         <div class="w-100">
@@ -43,11 +41,11 @@
           <div class="row">
             <div class="col-lg-6">
               <label for="stillingstittel" class="control-label">Stillingstittel</label>
-              <input id="stillingstittel" name="stillingstittel" type="text" class="form-control" required="">
+              <input id="job_title" name="stillingstittel" type="text" class="form-control" required="">
             </div>
             <div class="col-lg-6">
               <label for="ansettelsesform" class="control-label">Ansettelsesform</label>
-              <select id="ansettelsesform" name="ansettelsesform" class="form-control">
+              <select id="employment_type" name="ansettelsesform" class="form-control">
                 <option value="1">Velg</option>
                 <option value="2">Fulltid</option>
                 <option value="3">Deltid</option>
@@ -64,7 +62,7 @@
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="arbeidsted">Arbeidsted</label>
-                <input id="arbeidsted" name="arbeidsted" type="text" placeholder="" class="form-control input-lg" required="">
+                <input id="workplace" name="arbeidsted" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
             </div>
 
@@ -72,7 +70,7 @@
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="sektor">Velg sektor</label>
-                <select id="sektor" name="sektor" class="form-control">
+                <select id="sector" name="sektor" class="form-control">
                   <option value="1">Velg</option>
                   <option value="2">Privat</option>
                   <option value="3">Offentlig</option>
@@ -81,17 +79,17 @@
             </div>
             <!------ STILLINGSTITTEL ---- -->
             <div class="col-lg-6">
-              <div class="form-group" style="margin-top: 30px;">
+              <div class="form-group">
                 <label class="control-label" for="arbeidsgiver">Arbeidsgiver</label>
-                <input id="arbeidsgiver" name="arbeidsgiver" type="text" placeholder="" class="form-control input-lg" required="">
+                <input id="employer" name="arbeidsgiver" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
             </div>
 
             <!------ ANNSETTELSESFORM---- -->
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
-                <label class="control-label" for="bransje">Bransje</label>
-                <select id="bransje" name="bransje" class="form-control">
+                <label class="control-label" for="industry">Bransje</label>
+                <select id="industry" name="industry" class="form-control">
                   <option value="1">Velg</option>
                   <option value="2">Helse og omsorg</option>
                   <option value="3">Varehandel</option>
@@ -112,26 +110,24 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
-                <label class=" control-label" for="frist">Frist for søknad</label>
-                <input id="frist" name="frist" type="text" placeholder="01.01.24" class="form-control input-lg" required="">
+                <label class=" control-label" for="deadline">Frist for søknad</label>
+                <input id="deadline" name="frist" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
             </div>
             <script>
 document.addEventListener('DOMContentLoaded', function() {
-    flatpickr("#frist", {
-        "locale": "no", // Angi norsk som språk
-        dateFormat: "d.m.Y", // Format på datoen
+    flatpickr("#deadline", {
+        "locale": "no", // Angir norsk som språk
+        dateFormat: "d.m.Y",
     });
 });
 </script>
 
-
-
             <!-- --- ANT STILLINGER ----  -->
             <div class="col-lg-6">
               <div class="form-group" style="margin-top: 30px;">
-                <label class="control-label" for="antstillinger">Antall stillinger</label>
-                <select id="antstillinger" name="antstillinger"class="form-control">
+                <label class="control-label" for="numberOfPositions">Antall stillinger</label>
+                <select id="numberOfPositions" name="numberOfPositions"class="form-control">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -154,16 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <textarea class="form-control" id="editor" name="editor" style="height: 400px;"></textarea>
           </div>
           <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                editor.ui.view.editable.element.style.height = '400px';
-            })
-            .catch(error => {
-                console.error('There was a problem initializing the CKEditor:', error);
-            });
-    </script>
+
 
           <!-- --- LENKE TIL SØKNAD ----  -->
           <h6 style=" color: #9E182F; margin: 15px;"> Hvordan skal stillingen søkes?</h6>
@@ -178,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-sharp fa-solid fa-link"></i>
                 </span>
               </div>
-              <input id="kontaktperson" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="application_link" name="søkelink" type="text" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
 
@@ -193,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-regular fa-envelope"></i>
                 </span>
               </div>
-              <input id="kontaktperson" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="application_email" name="søkepost" type="email" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
 
@@ -212,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-solid fa-user-group"></i>
                 </span>
               </div>
-              <input id="kontaktperson" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="contact_person" name="kontaktperson" type="text" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
           <div class="form-group">
@@ -225,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <i class="fa-solid fa-phone"></i>
                 </span>
               </div>
-              <input id="telefon" name="telefon" type="tel" placeholder="" class="form-control input-md" required="">
+              <input id="phone" name="telefon" type="tel" placeholder="" class="form-control input-md" required="">
             </div>
           </div>
         </div>
@@ -234,11 +221,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="form-group row">
           <div class="col-lg-7">
             <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>
-            <button type="submit" name="publish-btn-job" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
+            <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
           </div>
           <div class="col-lg-12 text-right">
-            <button  type="button" id="previewButton" name="draft-btn-job" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
-            <button type="button" name="save-btn-job" class="btn" style="background-color:#7D7DAA; color:#fff;">Lagre til senere</button>
+            <button  type="button" id="previewButton" name="" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
+            <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button>
           </div>
         </div>
       </fieldset>
@@ -247,14 +234,16 @@ document.addEventListener('DOMContentLoaded', function() {
 </form>
 
 
-<!-- Modal HTML struktur -->
-<div id="previewModal" class="modal" style="display:none;">
+
+<!-- Modal for Preview -->
+<div id="previewModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Forhåndsvisning av Stilling</h2>
-        <div id="modal-body">
-            <!-- Dynamisk innhold vil bli lastet her -->
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h5 style="color: #000;">Forhåndsvisning</h5>
+        <div id="preview_body" class="job-preview">
+
         </div>
     </div>
 </div>
+
 

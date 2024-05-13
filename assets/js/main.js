@@ -1,90 +1,119 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("upload-form");
-    const previewBtn = document.getElementById("previewButton");
-    const modal = document.getElementById("previewModal");
-    const closeModal = document.getElementsByClassName("close")[0];
 
-    // Forhåndsvisningsknappen aktiverer modalen og laster data
-    previewBtn.onclick = function () {
-        modal.style.display = "block";
-        loadPreviewData();
-    };
+document.addEventListener('DOMContentLoaded', function () {
+	const previewButton = document.getElementById('previewButton');
+	const modal = document.getElementById('previewModal');
+	const closeModal = modal.querySelector('.close');
 
-    // Lukkeknapper for modalen
-    closeModal.onclick = function () {
-        modal.style.display = "none";
-    };
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
+	previewButton.addEventListener('click', function (event) {
+		event.preventDefault();
+		if (!window.editorInstance) {
+			console.error('Editor has not been initialized.');
+			return;
+		}
 
-    // Last inn forhåndsvisningsdata
-    function loadPreviewData() {
-        var formData = new FormData(form);
-        formData.append("action", "preview_job_ad"); // Denne handlingen må håndteres i WordPress
+		// Dynamically update modal content
+		updatePreviewContent();
 
-        fetch(ajax_object.ajax_url, {
-            method: "POST",
-            body: formData,
-            credentials: "same-origin",
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.success) {
-                document.getElementById("modal-body").innerHTML = data.html;
-            } else {
-                document.getElementById("modal-body").innerHTML =
-                    "<p>Det oppsto en feil under generering av forhåndsvisningen: " +
-                    data.message +
-                    "</p>";
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            document.getElementById("modal-body").innerHTML =
-                "<p>Det oppsto en teknisk feil: " + error.message + "</p>";
-        });
-    }
+		// Display the modal
+		modal.style.display = 'block';
+	});
 
-    // Håndter opplasting av form
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-        formData.append("action", "handle_job_form_upload");
-        formData.append("security", ajax_object.nonce);
+	closeModal.addEventListener('click', function () {
+		modal.style.display = 'none';
+	});
 
-        fetch(ajax_object.ajax_url, {
-            method: "POST",
-            body: formData,
-            credentials: "same-origin",
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.success) {
-                alert("Opplasting vellykket. Banner ID: " + data.ids.banner_id + ", Logo ID: " + data.ids.logo_id);
-            } else {
-                alert("Feil ved opplasting: " + data.message);
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            alert("Feil ved forespørsel: " + error.message);
-        });
-    });
+	window.addEventListener('click', function (event) {
+		if (event.target === modal) {
+			modal.style.display = 'none';
+		}
+	});
 
-    // Bilde forhåndsvisning
-    ["bannerInput", "logoInput"].forEach((id) => {
-        const input = document.getElementById(id);
-        const image = document.getElementById(id.replace("Input", "Preview"));
-        input.addEventListener("change", function () {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => (image.src = e.target.result);
-                reader.readAsDataURL(file);
-            }
-        });
-    });
+	function updatePreviewContent() {
+		const bannerInput = document.getElementById('bannerPreview').src;
+		const logoInput = document.getElementById('logoPreview').src;
+		const title = document.getElementById('post_title').value;
+		const jobTitle = document.getElementById('job_title').value;
+
+		const employmentTypeSelect = document.getElementById('employment_type');
+		const employmentType =
+			employmentTypeSelect.options[employmentTypeSelect.selectedIndex].text;
+
+		const workplace = document.getElementById('workplace').value;
+
+		const sectorSelect = document.getElementById('sector');
+		const sector = sectorSelect.options[sectorSelect.selectedIndex].text;
+
+		const employer = document.getElementById('employer').value;
+
+		const industrySelect = document.getElementById('industry');
+		const industry = industrySelect.options[industrySelect.selectedIndex].text;
+
+		const deadline = document.getElementById('deadline').value;
+
+		const numberOfPositionsSelect =
+			document.getElementById('numberOfPositions');
+		const numberOfPositions =
+			numberOfPositionsSelect.options[numberOfPositionsSelect.selectedIndex]
+				.text;
+
+		const editorData = window.editorInstance.getData();
+
+		const previewBody = document.getElementById('preview_body');
+		previewBody.innerHTML = `
+        <div class="banner-container"> 
+            <img id="bannerPreview" class='banner' src='${bannerInput}' alt='Banner'>
+            </div>
+            <img id="logoPreview" class='logo' src='${logoInput}' alt='Logo'>
+			<div><h1>${title}</h1></div>
+            
+            
+            <hr style='margin-bottom: 50px; margin-top: 50px;'>
+            <p style="font-style:Bold;">Detaljer</p>
+            <div class='columnPreview'>
+           
+                <div><h6>${jobTitle}</h6></div>
+                <div><p>Ansettelsesform: ${employmentType}</p></div>
+                <div><p>Arbeidsted: ${workplace}</p></div>
+            </div>
+          
+            <div class='columnPreview'>
+                <div><p>Sektor: ${sector}</p></div>
+                <div><p>Arbeidsgiver: ${employer}</p></div>
+                <div><p>Bransje: ${industry}</p></div>
+            </div>
+            <hr style='margin-bottom: 20px; margin-top: 20px;'>
+            <div class='full-width description'>
+            <p style="font-style:Bold;">Beskrivelse</p>
+                <div><div>${editorData}</div></div>
+            </div>
+            <div class='columnPreview'>
+                <div><p>Frist: ${deadline}</p></div>
+                <div><p>Antall stillinger: ${numberOfPositions}</p></div>
+            </div>
+        `;
+	}
+
+	ClassicEditor.create(document.querySelector('#editor'))
+		.then((editor) => {
+			window.editorInstance = editor;
+		})
+		.catch((error) => {
+			console.error('Error initializing the CKEditor:', error);
+		});
+
+	// Bilde og logo upload
+	['bannerInput', 'logoInput'].forEach((id) => {
+		const input = document.getElementById(id);
+		const preview = document.getElementById(id.replace('Input', 'Preview'));
+		input.onchange = function () {
+			const file = input.files[0];
+			if (file) {
+				const reader = new FileReader();
+				reader.onload = function (e) {
+					preview.src = e.target.result;
+				};
+				reader.readAsDataURL(file);
+			}
+		};
+	});
 });

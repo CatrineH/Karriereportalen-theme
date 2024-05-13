@@ -93,14 +93,14 @@ function theme_setup()
     ));
 
     add_image_size('thumbnail', 150, 150, true);
-    add_image_size('medium', 300, 300, true);
-    add_image_size('large', 768, 768, true);
+    // add_image_size('medium', 300, 300, true);
+    // add_image_size('large', 768, 768, true);
     add_image_size('full', 1024, 1024, true);
     add_image_size('full-width', 1024, 0, true);
     add_image_size('full-height', 0, 1024, true);
     add_image_size('banner', 1024, 250, true);
-    add_image_size('banner-mobile', 320, 250, true);
-    add_image_size('banner-mobile-small', 200, 250, true);
+    // add_image_size('banner-mobile', 320, 250, true);
+    // add_image_size('banner-mobile-small', 200, 250, true);
 }
 add_action('after_setup_theme', 'theme_setup');
 
@@ -111,7 +111,9 @@ function hide_admin_bar_from_non_admins()
 }
 add_filter('show_admin_bar', 'hide_admin_bar_from_non_admins');
 
-// login og reg hooks + funksjoner ...
+
+
+// ------------- CUSTOM login og reg hooks + funksjoner -----------------
 
 
 function handle_user_login()
@@ -160,7 +162,6 @@ function create_new_user()
         $user_id = wp_create_user($username, $password, $email);
 
         if (is_wp_error($user_id)) {
-            wp_die($user_id->get_error_message());
             wp_redirect("register");
             exit;
         } else {
@@ -174,8 +175,8 @@ function create_new_user()
                 wp_redirect("brreg");
                 exit;
             } else {
-                wp_redirect("register-2");
-                exit;
+            wp_redirect("register-2");
+            exit;
             }
         }
     }
@@ -234,6 +235,7 @@ function custom_user_fields($user)
 }
 add_action('show_user_profile', 'custom_user_fields');
 add_action('edit_user_profile', 'custom_user_fields');
+
 
 function save_custom_user_fields($user_id)
 {
@@ -340,13 +342,10 @@ function handle_image_upload($inputName)
 
 
 
-function upload_job_post_form() 
-{
+function upload_job_post_form() {
     require_once(ABSPATH . 'wp-admin/includes/image.php');
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     require_once(ABSPATH . 'wp-admin/includes/media.php');
-
-    header('Content-Type: application/json');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      // Håndterer bildeopplasting med hooks
@@ -358,6 +357,7 @@ function upload_job_post_form()
         exit;
     }
     $postarr = [
+        'post_author'  => get_current_user_id(),
         'post_title'   => sanitize_text_field($_POST['annonsetittel']),
         'post_content' => sanitize_textarea_field($_POST['editor']),
         'post_status'  => 'draft', 
@@ -369,7 +369,7 @@ function upload_job_post_form()
             'employer'          => sanitize_text_field($_POST['arbeidsgiver']),
             'industry'          => sanitize_text_field($_POST['bransje']),
             'deadline'          => sanitize_text_field($_POST['frist']),
-            'number_of_positions' => sanitize_text_field($_POST['antstillinger']),
+            'number_of_positions' => sanitize_text_field($_POST['numberOfPositions']),
             'application_link'  => sanitize_url($_POST['søkelink']),
             'application_email' => sanitize_email($_POST['søkepost']),
             'contact_person'    => sanitize_text_field($_POST['kontaktperson']),
@@ -389,9 +389,10 @@ function upload_job_post_form()
     }
 }
 }
+add_action('wp_ajax_upload_job_post_form', 'handle_image_upload');
 
 
-add_action('wp_ajax_preview_job_ad', 'preview_job_ad');
+
 
 function preview_job_ad() {
     check_ajax_referer('nonce', 'security');
@@ -400,7 +401,7 @@ function preview_job_ad() {
     $title = sanitize_text_field($_POST['annonsetittel']);
     $employer = sanitize_text_field($_POST['arbeidsgiver']);
     $workplace = sanitize_text_field($_POST['arbeidsted']);
-    $jobType = sanitize_text_field($_POST['ansettelsesform']);
+    $employmentType = sanitize_text_field($_POST['ansettelsesform']);
     $sector = sanitize_text_field($_POST['sektor']);
     $description = sanitize_textarea_field($_POST['editor']);
     $applicationLink = sanitize_url($_POST['søkelink']);
@@ -408,14 +409,14 @@ function preview_job_ad() {
     $contactPerson = sanitize_text_field($_POST['kontaktperson']);
     $phone = sanitize_text_field($_POST['telefon']);
     $frist = sanitize_text_field($_POST['frist']);
-    $antstillinger = sanitize_text_field($_POST['antstillinger']);
+    $numerOfPositions = sanitize_text_field($_POST['antstillinger']);
 
     // Hente bilde-URLer fra vedlegg IDs
     $banner_url = wp_get_attachment_url($_POST['banner_id']);
     $logo_url = wp_get_attachment_url($_POST['logo_id']);
 
     $html = "
-        <div style='font-family: Arial, sans-serif;'>
+        <div style='width: 600px; margin: 0 auto;'>
             <img src='$banner_url' alt='Banner' style='width: 100%; height:200px;'>
             <img src='$logo_url' alt='Logo' style='width: 150px; height: 150px; display: block; margin: 20px auto;'>
             <h1>$title</h1>
@@ -435,3 +436,102 @@ function preview_job_ad() {
 }
 
 
+
+
+
+
+function custom_job_ad_fields($user)
+{
+    $arbeidsgiver = get_user_meta($user->ID, 'employer', true);
+    $stillingstittel = get_user_meta($user->ID, 'job_title', true);
+    $ansettelsesform = get_user_meta($user->ID, 'employment_type', true);
+    $arbeidsted = get_user_meta($user->ID, 'workplace', true);
+    $sektor = get_user_meta($user->ID, 'sector', true);
+    $bransje = get_user_meta($user->ID, 'industry', industry);
+    $frist = get_user_meta($user->ID, 'deadline', true);
+    $antstillinger = get_user_meta($user->ID, 'number_of_positions', true);
+    $søkelink = get_user_meta($user->ID, 'application_link', true);
+    $søkepost = get_user_meta($user->ID, 'application_email', industry);
+    $kontaktperson = get_user_meta($user->ID, 'contact_person', true);
+    $telefon = get_user_meta($user->ID, 'phone', true);
+?>
+    <h3>Annonseinformasjon</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="jobTitle">Stillingstittel</label></th>
+            <td><input type="text" name="job_title" id="job_title" value="<?php echo $stillingstittel; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="employer">Arbeidsgiver</label></th>
+            <td><input type="text" name="employer" id="employer" value="<?php echo $arbeidsgiver; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="sector">Sektor</label></th>
+            <td><input type="text" name="sector" id="sector" value="<?php echo $sektor; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="industry">Bransje</label></th>
+            <td><input type="text" name="industry" id="industry" value="<?php echo $bransje; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="employmentType">Ansettelsesform</label></th>
+            <td><input type="text" name="employment_type" id="employment_type" value="<?php echo $ansettelsesform; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="number_of_positions">Antstillinger</label></th>
+            <td><input type="text" name="number_of_positions" id="number_of_positions" value="<?php echo $antstillinger; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="workplace">Arbeidsted</label></th>
+            <td><input type="text" name="workplace" id="workplace" value="<?php echo $arbeidsted; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="application_link">Søkelink</label></th>
+            <td><input type="text" name="application_link" id="application_link" value="<?php echo $søkelink; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="application_email">Søkepost</label></th>
+            <td><input type="text" name="application_email" id="application_email" value="<?php echo $søkepost; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="contact_person">Kontaktperson</label></th>
+            <td><input type="text" name="contact_person" id="contact_person" value="<?php echo $kontaktperson; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="phone">Telefon</label></th>
+            <td><input type="text" name="phone" id="phone" value="<?php echo $telefon; ?>" class="regular-text" /></td>
+        </tr>
+        <tr>
+            <th><label for="deadline">Frist</label></th>
+            <td><input type="text" name="deadline" id="deadline" value="<?php echo $frist; ?>" class="regular-text" /></td>
+        </tr>
+    </table>
+<?php
+}
+add_action('show_user_profile', 'custom_user_fields');
+add_action('edit_user_profile', 'custom_user_fields');
+
+
+
+
+function save_custom_job_ad_fields($user_id)
+{
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+
+    xupdate_user_meta($user_id, 'job_title', sanitize_text_field($_POST['stillingstittel']));
+    xupdate_user_meta($user_id, 'employment_type', sanitize_text_field($_POST['ansettelsesform']));
+    xupdate_user_meta($user_id, 'workplace', sanitize_text_field($_POST['arbeidsted']));
+    xupdate_user_meta($user_id, 'sector', sanitize_text_field($_POST['sektor']));
+    xupdate_user_meta($user_id, 'employer', sanitize_text_field($_POST['arbeidsgiver']));
+    xupdate_user_meta($user_id, 'industry', sanitize_text_field($_POST['bransje']));
+    xupdate_user_meta($user_id, 'deadline', sanitize_text_field($_POST['frist']));
+    xupdate_user_meta($user_id, 'number_of_positions', sanitize_text_field($_POST['antstillinger']));
+    xupdate_user_meta($user_id, 'application_link', sanitize_url($_POST['søkelink']));
+    xupdate_user_meta($user_id, 'application_email', sanitize_email($_POST['søkepost']));
+    update_user_meta($user_id, 'contact_person', sanitize_text_field($_POST['kontaktperson']));
+    update_user_meta($user_id, 'phone', sanitize_text_field($_POST['telefon']));
+}
+add_action('personal_options_update', 'save_custom_job_ad_fields');
+add_action('edit_user_profile_update', 'save_custom_job_ad_fields');

@@ -24,7 +24,7 @@ get_header();
     <!-- Form column -->
     <div class="col-md-6 mt-4 text-black">
           <!-- Progress navigation -->
-          <div class="progress" style="height: 10px;" >
+          <div class="progress" style="height: 10px; " >
   <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
   <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
 
