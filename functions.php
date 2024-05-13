@@ -328,7 +328,7 @@ function upload_job_post_form() {
             'employer'          => sanitize_text_field($_POST['arbeidsgiver']),
             'industry'          => sanitize_text_field($_POST['bransje']),
             'deadline'          => sanitize_text_field($_POST['frist']),
-            'number_of_positions' => sanitize_text_field($_POST['antstillinger']),
+            'number_of_positions' => sanitize_text_field($_POST['numberOfPositions']),
             'application_link'  => sanitize_url($_POST['søkelink']),
             'application_email' => sanitize_email($_POST['søkepost']),
             'contact_person'    => sanitize_text_field($_POST['kontaktperson']),
