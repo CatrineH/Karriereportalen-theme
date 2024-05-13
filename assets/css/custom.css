@@ -5,30 +5,30 @@
 }
 
 :root {
-    --header-height: 150px; 
-    --footer-height: 150px; 
+	--header-height: 150px;
+	--footer-height: 150px;
 }
 
 
 .main-content {
-	position:relative;
+	position: relative;
 	background-size: cover;
 	background-position: center;
-	
-} 
+
+}
 
 
 .container {
-    flex: 1; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    min-height: calc(100vh - var(--header-height) - var(--footer-height)); 
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .container.txt-center {
-    margin: auto;
-    padding: 1rem;
+	margin: auto;
+	padding: 1rem;
 }
 
 /*======================== NAVIGATION HEADER ========================*/
@@ -70,8 +70,9 @@
 
 /*==============================    FOOTER  ===================================*/
 footer {
-	position: relative; /* Removed fixed positioning */
-  }
+	position: relative;
+	/* Removed fixed positioning */
+}
 
 .bg-black {
 	background-color: #000;
@@ -104,7 +105,7 @@ footer {
 	padding: 50px;
 	display: block;
 	background-color: rgba(241, 241, 241, 0.9);
-	
+
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	color: #000;
 }
@@ -142,6 +143,7 @@ footer {
 	padding: 10px 0;
 	margin-top: 20px;
 	margin-bottom: 10px;
+	width: 95%;
 }
 
 .login-button,
@@ -154,8 +156,19 @@ footer {
 	padding: 10px 20px;
 	border-radius: 5px;
 	border: none;
-	width: 95%;
 	margin-top: 10px;
+}
+
+.reg-button {
+	position: relative;
+}
+
+#reg-button-1 {
+	left: -20px;
+}
+
+#reg-button-2 {
+	left: 375px;
 }
 
 .login-button:hover {
@@ -211,6 +224,31 @@ p {
 	overflow-y: auto;
 }
 
+.form-check-input:not(:checked) {
+	background-color: #C7C9CA;
+	border-color: #C7C9CA;
+}
+
+.form-check-input:checked {
+	background-color: #C61932;
+	border-color: #C61932;
+}
+
+#switch-check,
+#switch-x {
+	position: absolute;
+	pointer-events: none;
+	top: 0.5px;
+}
+
+#switch-check {
+	left: -20px;
+}
+
+#switch-x {
+	left: 0px;
+}
+
 /*========================== BRRG CARD ==========================*/
 
 h2 {
@@ -246,65 +284,67 @@ h2 {
 }
 
 .banner-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid #ccc;  
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #ccc;
 }
 
 #bannerPreview {
-    position: absolute;
-    width: 100%;  
-    min-height: 100%;  
-    top: 50%;  
-    transform: translateY(-50%);  
-    cursor: ns-resize;  
+	position: absolute;
+	width: 100%;
+	min-height: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: ns-resize;
 }
 
 
 
 #logoPreview {
 
-    width: 150px;
-    height: 150px;
-    object-fit:contain; 
-    border-radius: 50%; 
-    overflow: hidden; 
+	width: 150px;
+	height: 150px;
+	object-fit: contain;
+	border-radius: 50%;
+	overflow: hidden;
 	border: 1px solid #000000;
 
 
-    position: absolute;
-    left: 15px;
-    top: 190px;
-	margin-left: 130px; 
+	position: absolute;
+	left: 15px;
+	top: 190px;
+	margin-left: 130px;
 	object-fit: cover;
 	z-index: 10;
 	transform: translateX(-50%);
-	overflow: hidden; 
+	overflow: hidden;
 }
 
 .input-icon {
-    position: relative;
-    display: inline-block;
-  }
-  .input-icon .form-control {
-    padding-left: 30px; 
-	
-  }
-  .input-icon i {
-    position: absolute;
-    left: 25px; 
-    top: 50%;
-    transform: translateY(-50%);
-    color: #4e0000; 
-  }
+	position: relative;
+	display: inline-block;
+}
 
-  label {
+.input-icon .form-control {
+	padding-left: 30px;
+
+}
+
+.input-icon i {
+	position: absolute;
+	left: 25px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #4e0000;
+}
+
+label {
 	color: #9E182F;
-  }
+}
 
-  .ck-editor__editable {
+.ck-editor__editable {
 	min-height: 400px;
 	width: 1024px;
 	max-height: auto;
@@ -317,58 +357,59 @@ h2 {
 }
 
 .custom-file-upload {
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    background-color: #9E182F;
-    color: white;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 15%; 
+	display: inline-block;
+	padding: 6px 12px;
+	cursor: pointer;
+	background-color: #9E182F;
+	color: white;
+	border-radius: 5px;
+	font-size: 16px;
+	width: 15%;
 	text-align: center;
 	margin-top: 20px;
 }
 
 .custom-file-upload:hover {
-    background-color: #4e0000;
+	background-color: #4e0000;
 }
 
 /*======================= ANNONSE - MODAL PREVIEW ==========================*/
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.4);
 	transform: scale(85%);
 }
 
 .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .modal-content {
-    max-width: 1024px; 
-    margin: auto;
+	max-width: 1024px;
+	margin: auto;
 
 	background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 90%;
 }
 
 /* .job-preview img.bannerPreview {
@@ -378,42 +419,47 @@ h2 {
 } */
 
 .job-preview img.logo {
-    width: 150px;
-    height: 150px;
-	border-radius: 50%; 
-    position: absolute;
-    left: 15px;
-    top: 190px;
-	margin-left: 50px; 
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	position: absolute;
+	left: 15px;
+	top: 190px;
+	margin-left: 50px;
 	object-fit: cover;
 	z-index: 10;
 	transform: translateX(-50%);
 }
 
 .columnPreview {
-    display: flex;
-    justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .columnPreview div {
-    flex: 1;
-    padding: 10px;
+	flex: 1;
+	padding: 10px;
 }
 
 
 .description {
-    margin-top: 20px; /* Gir plass mellom bildene og tekst */
+	margin-top: 20px;
+	/* Gir plass mellom bildene og tekst */
 }
 
 
 /*====================== REG - LAYOUT 2COL GRID ==========================*/
 
 .upload-form {
-    display: flex;
-    justify-content: center; /* sentrerer innholdet horisontalt */
-    align-items: center; /* sentrerer innholdet vertikalt */
-    flex-direction: column; /* stakker elementene vertikalt */
-    width: 100%; /* tar full bredde */
+	display: flex;
+	justify-content: center;
+	/* sentrerer innholdet horisontalt */
+	align-items: center;
+	/* sentrerer innholdet vertikalt */
+	flex-direction: column;
+	/* stakker elementene vertikalt */
+	width: 100%;
+	/* tar full bredde */
 }
 
 .form h2 {
@@ -449,45 +495,46 @@ h2 {
 /*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 
 .custom-card {
-    border-color: #9e182f;
-    flex: 0 1 300px;
-    margin: 1px;    
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease, color 0.1s step-end; 
-    color: #000; 
-    background-color: transparent; 
+	border-color: #9e182f;
+	flex: 0 1 300px;
+	margin: 1px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.6s ease, box-shadow 0.6s ease, background-color 0.6s ease, color 0.1s step-end;
+	color: #000;
+	background-color: transparent;
 }
 
 .custom-card:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: #c61932;
-    color: #f3f3f3; 
+	transform: scale(1.03);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	background-color: #c61932;
+	color: #f3f3f3;
 }
 
-.custom-card p, .custom-card .card-title {
-    text-align: center;
-    transition: color 0.1s step-end; 
+.custom-card p,
+.custom-card .card-title {
+	text-align: center;
+	transition: color 0.1s step-end;
 }
 
 .custom-card img {
-    width: 100%;    
-    height: auto;
-    transition: transform 0.6s ease; 
+	width: 100%;
+	height: auto;
+	transition: transform 0.6s ease;
 }
 
 .custom-card-body {
-    padding: 30px; 
-    text-wrap: pretty;
+	padding: 30px;
+	text-wrap: pretty;
 }
 
 .container-panel {
-    display: flex;
-    justify-content: center; 
-    align-items: center;     
-    flex-wrap: wrap;        
-    gap: 50px;              
-    margin-left: 9%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 50px;
+	margin-left: 9%;
 }
 
 #c-panel-headline {
@@ -498,105 +545,108 @@ h2 {
 /*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
 .with-line:after {
 	content: '';
-	width: 250px; 
-	height: 0.5px; 
-	background-color: #fff; 
-	margin-top: 15px; 
-  }
-  
+	width: 250px;
+	height: 0.5px;
+	background-color: #fff;
+	margin-top: 15px;
+}
+
 
 .sidebar {
 	position: fixed;
-    left: 0;
-    width: 230px;
+	left: 0;
+	width: 230px;
 	padding-top: 25px;
-    background-color: #c61932;
-    text-align: center;
-    overflow-y: auto; 
-    height: calc(100vh - var(--header-height));
+	background-color: #c61932;
+	text-align: center;
+	overflow-y: auto;
+	height: calc(100vh - var(--header-height));
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-	  
+
 .sidebar a {
-		display: block;
-		color: #fff;
-		padding: 16px;
-		text-decoration: none;
-		white-space: nowrap;
-		position: relative;
-		
-	  }
-	   
-	  .sidebar a.active {
-		background-color: #9E182F;
-		color: white;
-	  }
-	  
-	  .sidebar a:hover:not(.active)::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		width: 250px;
-		height: 100%; 
-		background-color: #4e0000; 
-		opacity: 0.3; 
-		transition: opacity 0.3s ease;
-	  }
+	display: block;
+	color: #fff;
+	padding: 16px;
+	text-decoration: none;
+	white-space: nowrap;
+	position: relative;
+
+}
+
+.sidebar a.active {
+	background-color: #9E182F;
+	color: white;
+}
+
+.sidebar a:hover:not(.active)::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 250px;
+	height: 100%;
+	background-color: #4e0000;
+	opacity: 0.3;
+	transition: opacity 0.3s ease;
+}
 
 
 /*========================== FAQ ==========================*/
 
 #accordion {
-    width: 90%; 
+	width: 90%;
 	width: 900px;
-    margin: auto;
+	margin: auto;
 }
 
-.accordion-item, .accordion-button, .accordion-body {
-    box-sizing: border-box;
+.accordion-item,
+.accordion-button,
+.accordion-body {
+	box-sizing: border-box;
 }
 
 .accordion-item {
-    background-color: #f8f9fa; 
-    border: 1px solid #dee2e6; 
+	background-color: #f8f9fa;
+	border: 1px solid #dee2e6;
 }
 
 
 .accordion-button {
-    background-color: #e9ecef; 
-    color: #495057; 
+	background-color: #e9ecef;
+	color: #495057;
 }
 
 
 .accordion-button:not(.collapsed) {
-    background-color: #9E182F; 
-    color: #ffffff; 
+	background-color: #9E182F;
+	color: #ffffff;
 }
 
 .accordion-body {
-    font-size: 16px; 
-    color: #212529; 
+	font-size: 16px;
+	color: #212529;
 }
 
 
 /*========================== INNSTILLINGER ==========================*/
 .settings-container {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	width: 300px;
+	margin: 50px auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .text-muted {
-    color: #aeb0b4 !important;
+	color: #aeb0b4 !important;
 }
+
 .text-muted {
-    font-weight: 300;
+	font-weight: 300;
 }
 
 
@@ -636,22 +686,24 @@ h2 {
 	}
 
 	.sidebar {
-        width: 100%; 
-        height: auto;
-        position: relative;
-        top: 0;
-        bottom: auto;
-    }
+		width: 100%;
+		height: auto;
+		position: relative;
+		top: 0;
+		bottom: auto;
+	}
 
-    .content {
-        margin-left: 0; 
-    }
-	#bannerPreview, #logoPreview {
-        max-height: 150px;
-}
+	.content {
+		margin-left: 0;
+	}
 
-#accordion {
-	width: 100%; /* Bruker hele bredden for mindre skjermer */
+	#bannerPreview,
+	#logoPreview {
+		max-height: 150px;
+	}
+
+	#accordion {
+		width: 100%;
+		/* Bruker hele bredden for mindre skjermer */
+	}
 }
-}
-  
