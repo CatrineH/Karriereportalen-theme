@@ -64,7 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
             <img id="bannerPreview" class='banner' src='${bannerInput}' alt='Banner'>
             </div>
             <img id="logoPreview" class='logo' src='${logoInput}' alt='Logo'>
-                <h1 style="margin-top: 50px;>${title}</h1>
+			<div><h1>${title}</h1></div>
+            
             
             <hr style='margin-bottom: 50px; margin-top: 50px;'>
             <p style="font-style:Bold;">Detaljer</p>
