@@ -1,5 +1,5 @@
 
-<form id="job_form" action="<?php echo upload_job_post_form()?>" method="post" enctype="multipart/form-data">
+<form id="job_form" action="job-published.php" method="post" enctype="multipart/form-data">
 
   <div class="card-form">
     <div class="card-header">
@@ -30,9 +30,9 @@
 <!-- STILLINGSINFO -->
         <!-- --- ANNONSETITTEL ----  -->
         <div class="row">
-          <div class="form-group" style="margin-top: 30px;">
+          <div class="form-group" >
             <label class="control-label" for="annonsetittel">Annonsetittel</label>
-            <input id="post_title" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="">
+            <input id="post_title" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="" style="margin-top: 50px;">
           </div>
         </div>
         <div class="w-100">
