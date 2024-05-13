@@ -28,13 +28,13 @@
       <div id="switch-x">
         <i class="fas fa-xmark"></i>
       </div>
-      <label style="margin-left: 10px;" class="form-check-label" for="registrert-i-brreg">Er du registrert i Brønnøysundregisteret?</label>
+      <label style="margin-left: 10px; color: black;" class="form-check-label" for="registrert-i-brreg">Er du registrert i Brønnøysundregisteret?</label>
     </div>
     <div class="form-action">
-      <button id="reg-button-1" type="submit" class="reg-button">Lagre</button>
       <input type="hidden" name="action" value="create_new_user">
     </div>
   </div>
+  <button id="reg-button-1" type="submit" class="reg-button fa-solid fa-arrow-right"></button>
 
 </form>
 

@@ -27,7 +27,7 @@
       </div>
       <div>
         <div class="form-action">
-          <button id="reg-button-2" type="submit" class="reg-button">Lagre</button>
+          <button id="reg-button-2" type="submit" class="reg-button fa-solid fa-arrow-right"></button>
           <input type="hidden" name="action" value="save_company_data">
         </div>
       </div>

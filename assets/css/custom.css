@@ -162,14 +162,7 @@ footer {
 
 .reg-button {
 	position: relative;
-}
-
-#reg-button-1 {
-	left: -20px;
-}
-
-#reg-button-2 {
-	left: 375px;
+	left: 402px;
 }
 
 .login-button:hover {
