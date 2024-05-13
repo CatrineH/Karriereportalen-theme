@@ -79,7 +79,7 @@
             </div>
             <!------ STILLINGSTITTEL ---- -->
             <div class="col-lg-6">
-              <div class="form-group" style="margin-top: 30px;">
+              <div class="form-group">
                 <label class="control-label" for="arbeidsgiver">Arbeidsgiver</label>
                 <input id="employer" name="arbeidsgiver" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
