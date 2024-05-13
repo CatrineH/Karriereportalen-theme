@@ -149,7 +149,7 @@ footer {
 
 .login-button,
 .reg-button {
-	background: #9E182F;
+	background: #C61932;
 	color: rgb(255, 255, 255);
 	text-align: center;
 	text-decoration: none;
@@ -540,7 +540,7 @@ label {
 #c-panel-headline {
 	color: #000;
 	padding-top: 30px;
-	font-size: 2.5rem;	
+	font-size: 2.5rem;
 
 }
 
