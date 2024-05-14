@@ -1,7 +1,7 @@
 <aside>
     <div class="sidebar"> 
       <div class="col ">
-            <div class="col d-flex flex-column align-items-center with-line">
+            <div class="col d-flex flex-column align-items-center with-line" style="padding-top: 10px; text-align: center;">
                         <?php
                             $current_user = wp_get_current_user();
                             $company_name = get_user_meta($current_user->ID, 'company_name', true);
@@ -15,13 +15,13 @@
                                 <a class="sidebar-link" href="kontrollpanel"><i class="fa fa-dashboard"></i> Kontrollpanel</a>
                             </li>
                             <li class="nav-item">
-                                <a class="sidebar-link" href="annonsering"><i class="fa-solid fa-box-archive"></i> Annonse Arkiv</a>
+                                <a class="sidebar-link" href="din-annonse"><i class="fa-solid fa-box-archive"></i> Annonse Arkiv</a>
                             </li>
                             <li class="nav-item">
                                 <a class="sidebar-link" href="faq"><i class="fa fa-life-ring"></i> Support</a>
                             </li>
                             <li class="nav-item">
-                                <a class="sidebar-link" href="innstillinger"><i class="fa fa-cog"></i> Innstillinger</a>
+                                <a class="sidebar-link" href="instillinger"><i class="fa fa-cog"></i> Instillinger</a>
                             </li>
                             <li class="nav-item">
                                 <a class="sidebar-link" href="<?php echo wp_logout_url(home_url()); ?>"><i class="fa fa-sign-out"></i> Logg ut</a>

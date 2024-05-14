@@ -1,5 +1,5 @@
 
-<form id="job_form" action="job-published.php" method="post" enctype="multipart/form-data">
+<form id="job_form" action="job-published-page.php" method="post" enctype="multipart/form-data">
 
   <div class="card-form">
     <div class="card-header">
@@ -8,17 +8,19 @@
     <div class="card-body col-lg-12">
       <fieldset>
         <legend>Legg til informasjon om stillingen din</legend>
+        
 <!-- BANNER -->
 <div class="form-group">
   <div class="banner-container"> 
     <img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
     </div>
-    <div class="upload-btn-wrapper">
-    </div>
+    
 </div>
+
 <!-- LOGO -->
 <div class="form-group">
     <img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
+
     <div class="upload-btn-wrapper" style="margin-top: 80px;">
         <label for="logoInput" class="custom-file-upload">Last opp logo</label>
         <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3" style="display: none;">
@@ -27,12 +29,14 @@
 
     </div>
 </div>
+
 <!-- STILLINGSINFO -->
         <!-- --- ANNONSETITTEL ----  -->
         <div class="row">
-          <div class="form-group" >
+          
+          <div class="form-group">
             <label class="control-label" for="annonsetittel">Annonsetittel</label>
-            <input id="post_title" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="" style="margin-top: 50px;">
+            <input id="post_title" name="annonsetittel" type="text" placeholder="" class="form-control input-lg" required="">
           </div>
         </div>
         <div class="w-100">
@@ -79,7 +83,7 @@
             </div>
             <!------ STILLINGSTITTEL ---- -->
             <div class="col-lg-6">
-              <div class="form-group">
+              <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="arbeidsgiver">Arbeidsgiver</label>
                 <input id="employer" name="arbeidsgiver" type="text" placeholder="" class="form-control input-lg" required="">
               </div>
@@ -146,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           <!-- --- BESKRIVELSE----  -->
           <div class="form-group">
-            <label for="editor" class="col-lg-10 control-label" style="padding-top:30px;">Stillingsbeskrivelse</label>
+            <label for="editor" class="col-lg-11 control-label" style="padding-top:30px;">Stillingsbeskrivelse</label>
             <textarea class="form-control" id="editor" name="editor" style="height: 400px;"></textarea>
           </div>
           <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
@@ -185,8 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
 
           <hr style="padding: 30px;">
-          <!-- --- KONTAKT ----  -->
 
+          <!-- --- KONTAKT ----  -->
           <h6 style="color: #9E182F; margin: 15px;">Kontaktinformasjon</h6>
 
           <div class="form-group" style="margin-top: 10px;">
@@ -217,15 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
 
-        <!-- Submission buttons -->
+        <!-- Buttons -->
         <div class="form-group row">
           <div class="col-lg-7">
             <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>
-            <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
+            <button type="submit" name="publish-btn" id="publishButton" class="btn" onclick="location.href='din-annonse';" style="background-color:#9E182F; color:#fff;">Publiser</button>
           </div>
           <div class="col-lg-12 text-right">
-            <button  type="button" id="previewButton" name="" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
-            <button type="submit" name="publish-btn-job" id="saveBtnJobAd" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button>
+            <button  type="button" id="previewButton" name="" class="btn"  style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
+            <button type="submit" name="draft-btn" id="draftButton" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button>
           </div>
         </div>
       </fieldset>

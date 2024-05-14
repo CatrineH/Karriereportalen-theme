@@ -1,119 +1,204 @@
+// PREVIEW ANNONSE
 
-document.addEventListener('DOMContentLoaded', function () {
-	const previewButton = document.getElementById('previewButton');
-	const modal = document.getElementById('previewModal');
-	const closeModal = modal.querySelector('.close');
+document.addEventListener("DOMContentLoaded", function() {
+    const previewButton = document.getElementById("previewButton");
+    const modal = document.getElementById("previewModal");
+    const closeModal = modal.querySelector(".close");
 
-	previewButton.addEventListener('click', function (event) {
-		event.preventDefault();
-		if (!window.editorInstance) {
-			console.error('Editor has not been initialized.');
-			return;
-		}
 
-		// Dynamically update modal content
-		updatePreviewContent();
+    previewButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        if (!window.editorInstance) {
+            console.error("Editor has not been initialized.");
+            return;
+        }
 
-		// Display the modal
-		modal.style.display = 'block';
-	});
+        // Dynamically update modal content
+        updatePreviewContent();
 
-	closeModal.addEventListener('click', function () {
-		modal.style.display = 'none';
-	});
+        // Display the modal
+        modal.style.display = "block";
+    });
 
-	window.addEventListener('click', function (event) {
-		if (event.target === modal) {
-			modal.style.display = 'none';
-		}
-	});
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
 
-	function updatePreviewContent() {
-		const bannerInput = document.getElementById('bannerPreview').src;
-		const logoInput = document.getElementById('logoPreview').src;
-		const title = document.getElementById('post_title').value;
-		const jobTitle = document.getElementById('job_title').value;
+    window.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 
-		const employmentTypeSelect = document.getElementById('employment_type');
-		const employmentType =
-			employmentTypeSelect.options[employmentTypeSelect.selectedIndex].text;
+    function updatePreviewContent() {
+        const bannerInput = document.getElementById("bannerPreview").src;
+        const logoInput = document.getElementById("logoPreview").src;
+        const title = document.getElementById("post_title").value;
+        const jobTitle = document.getElementById("job_title").value;
+       
+        const employmentTypeSelect = document.getElementById("employment_type");
+        const employmentType = employmentTypeSelect.options[employmentTypeSelect.selectedIndex].text;
+    
+        const workplace = document.getElementById("workplace").value;
+    
+        const sectorSelect = document.getElementById("sector");
+        const sector = sectorSelect.options[sectorSelect.selectedIndex].text;
+    
+        const employer = document.getElementById("employer").value;
+    
+        const industrySelect = document.getElementById("industry");
+        const industry = industrySelect.options[industrySelect.selectedIndex].text;
+    
+        const deadline = document.getElementById("deadline").value;
+    
+        const numberOfPositionsSelect = document.getElementById("numberOfPositions");
+        const numberOfPositions = numberOfPositionsSelect.options[numberOfPositionsSelect.selectedIndex].text;
+    
+        const editorData = window.editorInstance.getData();
+    
+        const previewBody = document.getElementById("preview_body");
+        previewBody.innerHTML = `
+		<div class="banner-container">
+		<img id="bannerPreview" class="banner" src="${bannerInput}" alt="Banner">
+	</div>
+	<img id="logoPreview" class="logo" src="${logoInput}" alt="Logo">
+	
+	<hr style="margin-bottom: 50px; margin-top: 50px;">
+	<div><h1>${title}</h1></div>
+	<div><h5>${jobTitle}</h5></div>
+	<div class="columnPreview">
+		
+		<div>
+			<div><p style="font-weight: bold;>Søknadsfrist: ${deadline}</p></div>
+			<div><p style="font-weight: bold;">Ansettelsesform: ${employmentType}</p></div>
+			<div><p style="font-weight: bold;">Arbeidsted: ${workplace}</p></div>
+		</div>
+	</div>
+	
+	<div class="columnPreview">
+		<div><p style="font-weight: bold;>Sektor: ${sector}</p></div>
+		<div><p style="font-weight: bold;>Arbeidsgiver: ${employer}</p></div>
+		<div><p style="font-weight: bold;>Bransje: ${industry}</p></div>
+		<div><p style="font-weight: bold;>Antall stillinger: ${numberOfPositions}</p></div>
+	</div>
+	
+	<hr style="margin-bottom: 20px; margin-top: 20px;">
+	<div class="full-width description">
+		<p style="font-weight: bold;">Beskrivelse</p>
+		<div>${editorData}</div>
+	</div>
+	
+	<div class="columnPreview">
+		<div><p style="font-weight: bold;>Antall stillinger: ${numberOfPositions}</p></div>
+	</div>
+	`;
+    }
 
-		const workplace = document.getElementById('workplace').value;
+ClassicEditor.create(document.querySelector('#editor'))
+    .then(editor => {
+        window.editorInstance = editor;
+    })
+    .catch(error => {
+        console.error('Error initializing the CKEditor:', error);
+    });
 
-		const sectorSelect = document.getElementById('sector');
-		const sector = sectorSelect.options[sectorSelect.selectedIndex].text;
-
-		const employer = document.getElementById('employer').value;
-
-		const industrySelect = document.getElementById('industry');
-		const industry = industrySelect.options[industrySelect.selectedIndex].text;
-
-		const deadline = document.getElementById('deadline').value;
-
-		const numberOfPositionsSelect =
-			document.getElementById('numberOfPositions');
-		const numberOfPositions =
-			numberOfPositionsSelect.options[numberOfPositionsSelect.selectedIndex]
-				.text;
-
-		const editorData = window.editorInstance.getData();
-
-		const previewBody = document.getElementById('preview_body');
-		previewBody.innerHTML = `
-        <div class="banner-container"> 
-            <img id="bannerPreview" class='banner' src='${bannerInput}' alt='Banner'>
-            </div>
-            <img id="logoPreview" class='logo' src='${logoInput}' alt='Logo'>
-			<div><h1>${title}</h1></div>
-            
-            
-            <hr style='margin-bottom: 50px; margin-top: 50px;'>
-            <p style="font-style:Bold;">Detaljer</p>
-            <div class='columnPreview'>
-           
-                <div><h6>${jobTitle}</h6></div>
-                <div><p>Ansettelsesform: ${employmentType}</p></div>
-                <div><p>Arbeidsted: ${workplace}</p></div>
-            </div>
-          
-            <div class='columnPreview'>
-                <div><p>Sektor: ${sector}</p></div>
-                <div><p>Arbeidsgiver: ${employer}</p></div>
-                <div><p>Bransje: ${industry}</p></div>
-            </div>
-            <hr style='margin-bottom: 20px; margin-top: 20px;'>
-            <div class='full-width description'>
-            <p style="font-style:Bold;">Beskrivelse</p>
-                <div><div>${editorData}</div></div>
-            </div>
-            <div class='columnPreview'>
-                <div><p>Frist: ${deadline}</p></div>
-                <div><p>Antall stillinger: ${numberOfPositions}</p></div>
-            </div>
-        `;
-	}
-
-	ClassicEditor.create(document.querySelector('#editor'))
-		.then((editor) => {
-			window.editorInstance = editor;
-		})
-		.catch((error) => {
-			console.error('Error initializing the CKEditor:', error);
-		});
-
-	// Bilde og logo upload
-	['bannerInput', 'logoInput'].forEach((id) => {
-		const input = document.getElementById(id);
-		const preview = document.getElementById(id.replace('Input', 'Preview'));
-		input.onchange = function () {
-			const file = input.files[0];
-			if (file) {
-				const reader = new FileReader();
-				reader.onload = function (e) {
-					preview.src = e.target.result;
-				};
-				reader.readAsDataURL(file);
-			}
-		};
-	});
+// Bilde og logo upload
+["bannerInput", "logoInput"].forEach(id => {
+    const input = document.getElementById(id);
+    const preview = document.getElementById(id.replace("Input", "Preview"));
+    input.onchange = function() {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        };
+    }
 });
+});
+
+
+// PROGRESS STEPPER ANNONSE
+
+const progress = document.getElementById('progress-stepper');
+const circles = document.querySelectorAll('.circle');
+const previewButton = document.getElementById('previewButton');
+const publishButton = document.getElementById('publishButton');
+const draftButton = document.getElementById('draftButton');
+const closeButton = document.getElementById('closeModal'); 
+
+let currentActive = 1;
+
+draftButton.addEventListener('click', () => {
+  currentActive = 1;
+  update();
+});
+
+previewButton.addEventListener('click', () => {
+  currentActive = 2;
+  update();
+});
+
+closeButton.addEventListener('click', () => {
+  currentActive = 1; 
+  update();
+});
+
+publishButton.addEventListener('click', () => {
+  currentActive = 3;
+  update();
+});
+
+function update() {
+  circles.forEach((circle, idx) => {
+    if (idx < currentActive) {
+      circle.classList.add('active');
+    } else {
+      circle.classList.remove('active');
+    }
+  });
+
+  const actives = document.querySelectorAll('.active');
+  progress.style.width = ((actives.length - 1) / (circles.length - 1) * 100) + '%';
+
+
+  draftButton.disabled = currentActive === 1;
+  previewButton.disabled = currentActive === 2;
+  publishButton.disabled = currentActive === 3;
+}
+
+update(); 
+
+
+
+	// PROGRESS STEPPER BEHAVIOR
+	document.addEventListener('DOMContentLoaded', function() {
+		const header = document.querySelector('header.container-fluid.sticky-top'); 
+		const stepper = document.querySelector('.progress-container-stepper');
+		
+		function adjustStepper() {
+			const headerWidth = header.offsetWidth;
+			
+			if (window.scrollY > header.offsetHeight) {
+				stepper.style.width = headerWidth + 'px';
+				stepper.style.position = 'fixed';
+				stepper.style.top = '0';
+				stepper.style.left = '0';
+				stepper.style.right = '0';
+			} else {
+				stepper.style.width = '100%'; 
+				stepper.style.position = 'static';
+			}
+		}
+		
+	
+		adjustStepper();
+		window.addEventListener('resize', adjustStepper);
+		window.addEventListener('scroll', adjustStepper);
+	
+	});
+	
+
+	  

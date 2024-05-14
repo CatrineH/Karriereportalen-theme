@@ -473,24 +473,80 @@ add_action('edit_user_profile', 'custom_user_fields');
 
 
 
-function save_custom_job_ad_fields($user_id)
-{
-    if (!current_user_can('edit_user', $user_id)) {
-        return false;
-    }
+ 
 
-    xupdate_user_meta($user_id, 'job_title', sanitize_text_field($_POST['stillingstittel']));
-    xupdate_user_meta($user_id, 'employment_type', sanitize_text_field($_POST['ansettelsesform']));
-    xupdate_user_meta($user_id, 'workplace', sanitize_text_field($_POST['arbeidsted']));
-    xupdate_user_meta($user_id, 'sector', sanitize_text_field($_POST['sektor']));
-    xupdate_user_meta($user_id, 'employer', sanitize_text_field($_POST['arbeidsgiver']));
-    xupdate_user_meta($user_id, 'industry', sanitize_text_field($_POST['bransje']));
-    xupdate_user_meta($user_id, 'deadline', sanitize_text_field($_POST['frist']));
-    xupdate_user_meta($user_id, 'number_of_positions', sanitize_text_field($_POST['antstillinger']));
-    xupdate_user_meta($user_id, 'application_link', sanitize_url($_POST['søkelink']));
-    xupdate_user_meta($user_id, 'application_email', sanitize_email($_POST['søkepost']));
-    update_user_meta($user_id, 'contact_person', sanitize_text_field($_POST['kontaktperson']));
-    update_user_meta($user_id, 'phone', sanitize_text_field($_POST['telefon']));
+
+// function save_custom_job_ad_fields($user_id)
+// {
+//     if (!current_user_can('edit_user', $user_id)) {
+//         return false;
+//     }
+
+//     xupdate_user_meta($user_id, 'job_title', sanitize_text_field($_POST['stillingstittel']));
+//     xupdate_user_meta($user_id, 'employment_type', sanitize_text_field($_POST['ansettelsesform']));
+//     xupdate_user_meta($user_id, 'workplace', sanitize_text_field($_POST['arbeidsted']));
+//     xupdate_user_meta($user_id, 'sector', sanitize_text_field($_POST['sektor']));
+//     xupdate_user_meta($user_id, 'employer', sanitize_text_field($_POST['arbeidsgiver']));
+//     xupdate_user_meta($user_id, 'industry', sanitize_text_field($_POST['bransje']));
+//     xupdate_user_meta($user_id, 'deadline', sanitize_text_field($_POST['frist']));
+//     xupdate_user_meta($user_id, 'number_of_positions', sanitize_text_field($_POST['antstillinger']));
+//     xupdate_user_meta($user_id, 'application_link', sanitize_url($_POST['søkelink']));
+//     xupdate_user_meta($user_id, 'application_email', sanitize_email($_POST['søkepost']));
+//     update_user_meta($user_id, 'contact_person', sanitize_text_field($_POST['kontaktperson']));
+//     update_user_meta($user_id, 'phone', sanitize_text_field($_POST['telefon']));
+// }
+// add_action('personal_options_update', 'save_custom_job_ad_fields');
+// add_action('edit_user_profile_update', 'save_custom_job_ad_fields');
+
+
+
+// Start the session to store data from the form
+session_start();
+
+
+function uploadImage($fileInput, $defaultImage, $uploadPath) {
+    if (isset($fileInput) && $fileInput['error'] === UPLOAD_ERR_OK) {
+        $tmpName = $fileInput['tmp_name'];
+        $newName = $uploadPath . basename($fileInput['name']);
+        move_uploaded_file($tmpName, $newName);
+        return $newName;
+    } else {
+        return $defaultImage;
+    }
 }
-add_action('personal_options_update', 'save_custom_job_ad_fields');
-add_action('edit_user_profile_update', 'save_custom_job_ad_fields');
+
+
+$uploadDir = 'uploads/';  
+$defaultBanner = 'path/to/default-banner.jpg';  
+$defaultLogo = 'path/to/default-logo.jpg';  
+
+// function handling uploads
+$_SESSION['bannerSrc'] = uploadImage($_FILES['imageBanner'] ?? null, $defaultBanner, $uploadDir);
+$_SESSION['logoSrc'] = uploadImage($_FILES['imageLogo'] ?? null, $defaultLogo, $uploadDir);
+
+// Storing other form data in session
+$_SESSION['title'] = $_POST['title'] ?? 'Annonsetittel er ikke definert';
+$_SESSION['jobTitle'] = $_POST['jobTitle'] ?? 'Stillingstittel er ikke definert';
+$_SESSION['deadline'] = $_POST['deadline'] ?? 'Ingen frist er definert';
+$_SESSION['employmentType'] = $_POST['ansettelsesform'] ?? 'Ingen ansettelsesform er definert';
+$_SESSION['workplace'] = $_POST['arbeidsted'] ?? 'Ingen arbeidsted er definert';
+$_SESSION['sector'] = $_POST['sektor'] ?? 'Ingen sektor valgt';
+$_SESSION['employer'] = $_POST['arbeidsgiver'] ?? 'Ingen arbeidsgiver er definert';
+$_SESSION['industry'] = $_POST['industry'] ?? 'Ingen industri valgt';
+$_SESSION['numberOfPositions'] = $_POST['numberOfPositions'] ?? '0';
+$_SESSION['description'] = $_POST['editor'] ?? 'Ingen beskrivelse av stillingen er definert';
+
+// Retrieving variables for use on the page
+$imageBanner = $_SESSION['bannerSrc'];
+$imageLogo = $_SESSION['logoSrc'];
+$title = $_SESSION['title'];
+$jobTitle = $_SESSION['jobTitle'];
+$deadline = $_SESSION['deadline'];
+$employmentType = $_SESSION['employmentType'];
+$workplace = $_SESSION['workplace'];
+$sector = $_SESSION['sector'];
+$employer = $_SESSION['employer'];
+$industry = $_SESSION['industry'];
+$numberOfPositions = $_SESSION['numberOfPositions'];
+$description = $_SESSION['description'];
+?>
