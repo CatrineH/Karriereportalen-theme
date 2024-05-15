@@ -4,7 +4,7 @@ Template Name: Register-API
 */
 get_header();
 ?>
-<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img2.png'); background-position-y: -5vh;">
+<main class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/brrg-check-form.png');">
   <div class="container-fluid" style="height: 80vh;">
     <div class="row h-100 align-items-start">
   <div class="overlay-content">
@@ -17,11 +17,13 @@ get_header();
       <div>
     <!-- Progress navigation -->
     <div class="progress mb-3">
-      <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 1 av 3</div>
+    <div class="progress-bar" role="progressbar" style="width: 35%; background-color:#C61932"" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar" role="progressbar" style="width: 35%; background-color:#C61932"" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Steg 2 av 3</div>
+    </div>
     </div>
  
     <!-- Registration Form 1 -->
-    <?php get_template_part('includes/login/register-form-1'); ?>
+    <?php get_template_part('includes/reg-api-form'); ?>
   </div>
 </div>
 </div>

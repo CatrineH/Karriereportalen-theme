@@ -1,5 +1,5 @@
 <!-- API Interaction Form -->
-<form id="apiForm" id="register" method="post">
+<form class="form" id="register" method="post">
   <div class="form-group">
     <label for="organisationNumber">Organisasjonsnummer</label>
     <input type="text" id="organisationNumber" name="organisationNumber" class="form-control mb-3" placeholder="9-siffer">
