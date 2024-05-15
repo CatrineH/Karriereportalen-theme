@@ -122,3 +122,49 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+
+// PROGRESS BAR JOB AD FORM BEHAVIOR
+document.addEventListener('DOMContentLoaded', function() {
+    const previewButton = document.getElementById('previewButton');
+    const closeModalButton = document.querySelector('.modal .close'); 
+    const progressBars = document.querySelectorAll('.progress-bar');
+    const modal = document.getElementById('previewModal');
+
+    // Function to update progress bar styling
+    function updateProgressBar(stepIndex) {
+        progressBars.forEach((bar, index) => {
+            if (index < stepIndex) {
+                bar.style.backgroundColor = '#C61932'; // Active color
+                bar.style.color = 'white';
+            } else {
+                bar.style.backgroundColor = '#fff'; // Inactive color
+                bar.style.color = 'black';
+            }
+        });
+    }
+
+    // Event listener to open modal and update progress bar
+    previewButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+        updateProgressBar(2); // Assuming index 0 is 'Ny stillingsannonse', 1 is 'Forhåndsvis'
+    });
+
+    // Event listener to close modal and revert progress bar
+    closeModalButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+        updateProgressBar(1); // Revert to 'Ny stillingsannonse'
+    });
+
+    // If clicking outside the modal content closes the modal
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            updateProgressBar(0); // Revert to 'Ny stillingsannonse'
+        }
+    });
+});
+
+const publishButton = document.getElementById('publishButton');
+publishButton.addEventListener('click', function() {
+    updateProgressBar(3); 
+});
