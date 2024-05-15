@@ -1,3 +1,4 @@
+<!-- // id="job_form" action="job-published-page.php" method="post" enctype="multipart/form-data">  må vi ha en sånn her kanskje --> 
 <div class="job-published-container">
 <div class="container-fluid mt-4">
 <?php get_template_part('includes/image-upload'); ?>
