@@ -4,7 +4,7 @@
         <div class="custom-card" onclick="location.href='annonsering';" style="cursor: pointer;">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/animations/Content-Manger.gif" alt="Content Manager">
             <div class="custom-card-body text-center">
-                <h5 class="card-title">Opprett annonse</h5>
+                <h5 class="card-title">Opprett ny annonse</h5>
                 <p class="card-text">Kom i gang nå, start med å utlyse stillingen din.</p>
             </div>
         </div>

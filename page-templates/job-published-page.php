@@ -5,14 +5,23 @@
 get_header(); 
 ?>
 
-
-<div class="col mt-4 mr-4">
-        <button class="btn" style="background-color:#9E182F; color:#fff;" onclick="location.href='kontrollpanel';">Tilbake</button>
-     </div>
-
-    <div class="col sticky-top">
-        <?php get_template_part('includes/progress-stepper'); ?>
+<div class="container-fluid " style="">
+    <!-- Button og progress bar section -->
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-back-publish" style="" onclick="location.href='kontrollpanel';">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            </div>
+        </div>
+    <!-- Content section -->
+    <div class="row justify-content-center align-items-center ">
+        <div class="col">
+            <div class="job-published-container"> 
+                <?php get_template_part('includes/job-advertising/publish-job-ad'); ?>
+            </div>
+        </div>
     </div>
-  
- <?php get_template_part('includes/job-advertising/publish-job-ad'); ?>  
+</div>
 
+<?php get_footer(); ?>

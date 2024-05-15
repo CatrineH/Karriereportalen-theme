@@ -3,11 +3,11 @@
 
   <div class="card-form">
     <div class="card-header">
-      <h6 style="color: grey;">Stillingsannonse utkast</h6>
+      <h6 style="color: grey; height: 12px;"><legend>Registrering av annonse</legend></h6>
     </div>
     <div class="card-body col-lg-12">
       <fieldset>
-        <legend>Legg til informasjon om stillingen din</legend>
+        
         
 <!-- BANNER -->
 <div class="form-group">
@@ -21,7 +21,7 @@
 <div class="form-group">
     <img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
 
-    <div class="upload-btn-wrapper" style="margin-top: 80px;">
+    <div class="upload-btn-wrapper" style="margin-top: 100px;">
         <label for="logoInput" class="custom-file-upload">Last opp logo</label>
         <input type="file" name="imageLogo" id="logoInput" accept="image/*" class="form-control mt-3" style="display: none;">
         <label for="bannerInput" class="custom-file-upload">Last opp banner</label>
@@ -50,13 +50,15 @@
             <div class="col-lg-6">
               <label for="ansettelsesform" class="control-label">Ansettelsesform</label>
               <select id="employment_type" name="ansettelsesform" class="form-control">
-                <option value="1">Velg</option>
-                <option value="2">Fulltid</option>
-                <option value="3">Deltid</option>
-                <option value="4">Vikariat</option>
-                <option value="5">Intern</option>
-                <option value="6">Frivillig</option>
-                <option value="7">Annet</option>
+                <option value="1"> Velg</option>
+                <option value="2"> Fast</option>
+                <option value="3"> Deltid</option>
+                <option value="4"> Vikariat</option>
+                <option value="5"> Intern</option>
+                <option value="6"> Engasjement</option>
+                <option value="7"> Prosjekt</option>
+                <option value="8"> Lærling</option>
+                <option value="9"> Bemanningsbyrå</option>
               </select>
             </div>
           </div>
@@ -75,9 +77,9 @@
               <div class="form-group" style="margin-top: 30px;">
                 <label class="control-label" for="sektor">Velg sektor</label>
                 <select id="sector" name="sektor" class="form-control">
-                  <option value="1">Velg</option>
-                  <option value="2">Privat</option>
-                  <option value="3">Offentlig</option>
+                  <option value="1"> Velg</option>
+                  <option value="2"> Privat</option>
+                  <option value="3"> Offentlig</option>
                 </select>
               </div>
             </div>
@@ -226,10 +228,11 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="col-lg-7">
             <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>
             <button type="submit" name="publish-btn" id="publishButton" class="btn" onclick="location.href='din-annonse';" style="background-color:#9E182F; color:#fff;">Publiser</button>
+            <button  type="button" id="previewButton" name="" class="btn"  style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
           </div>
           <div class="col-lg-12 text-right">
-            <button  type="button" id="previewButton" name="" class="btn"  style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
-            <button type="submit" name="draft-btn" id="draftButton" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button>
+            <!-- <button  type="button" id="previewButton" name="" class="btn"  style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button> -->
+            <!-- <button type="submit" name="draft-btn" id="draftButton" class="btn" style="background-color:#9E182F; color:#fff;">Lagre til senere</button> -->
           </div>
         </div>
       </fieldset>

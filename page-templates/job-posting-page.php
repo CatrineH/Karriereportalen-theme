@@ -4,37 +4,26 @@ Template Name: Job Posting Page
 */
 get_header();
 ?>
-         
-<div class="container-fluid mt-4">
-    
-    <div class="row">
-        
-        <!-- Sidebar Navigation -->
+
+<div class="container-fluid">
+
         <div class="col-md-2">
             <?php get_template_part('includes/c-panel/controlpanel-sidebar'); ?>
         </div>
 
         <!-- Main Content -->
-        <div class="col sticky-top ">
-          <?php get_template_part('includes/progress-stepper'); ?>
-        </div>
         <div class="col-8 offset-2">
-            <?php get_template_part('includes/job-advertising/job-posting-form'); ?>
-        </div>
-
-        <!-- Tips Column -->
-        <div class="col-md-2" style="margin-top: 7rem; margin-left: -4rem;">
-            <div class="card mb-3"style="max-width: 18rem; background-color: #CAC5DD;">
-                <div class="card-header">Tips</div>
-                <div class="card-body">
-                    <p class="card-text">Få med alle detaljer til annonsen din for best resultat.</p>
+            <!-- Progress Bar Container -->
+            <div class="progress-container">
+                <div class="progress">    
+                    <div class="progress-bar" role="progressbar" style="width: 35%; background-color:#C61932; font-size: 15px; " aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Ny stillingsannonse</div>
+                    <div class="progress-bar" role="progressbar" style="width: 35%; background-color:#ffff; color:black; font-size: 15px; " aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">Forhåndsvis</div>
+                    <div class="progress-bar" role="progressbar" style="width: 30%; background-color:#ffff; color:black; font-size: 15px; " aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">Publiser</div>
                 </div>
             </div>
+            <?php get_template_part('includes/job-advertising/job-posting-form'); ?>
         </div>
-    </div>
+    
 </div>
-     
-</div>
-</div>
-  <?php get_footer(); 
-  ?>
+
+<?php get_footer(); ?>

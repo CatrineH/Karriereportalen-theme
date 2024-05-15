@@ -302,53 +302,56 @@ function handle_image_upload($inputName)
 
 
 function upload_job_post_form() {
+    // Security checks: verify nonce and user capabilities if needed
+    check_ajax_referer('ajax_nonce', 'security');
+
     require_once(ABSPATH . 'wp-admin/includes/image.php');
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     require_once(ABSPATH . 'wp-admin/includes/media.php');
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-     // Håndterer bildeopplasting med hooks
-        $banner_id = media_handle_upload('imageBanner', 0);  // 'imageBanner' fra formen, '0' betyr ingen tilknyttet post
-        $logo_id = media_handle_upload('imageLogo', 0);   // 'imageLogo' fra formen
+    // Handling image uploads
+    $banner_id = media_handle_upload('imageBanner', 0);
+    $logo_id = media_handle_upload('imageLogo', 0);
 
     if (is_wp_error($banner_id) || is_wp_error($logo_id)) {
-        echo json_encode(['error' => 'Bildeopplasting feilet', 'details' => is_wp_error($banner_id) ? $banner_id->get_error_messages() : $logo_id->get_error_messages()]);
-        exit;
+        wp_send_json_error(['message' => 'Image upload failed', 'errors' => ['banner' => $banner_id->get_error_messages(), 'logo' => $logo_id->get_error_messages()]]);
+        return;  // Exit the function after sending JSON error
     }
+
+    // Preparing post data
     $postarr = [
         'post_author'  => get_current_user_id(),
-        'post_title'   => sanitize_text_field($_POST['annonsetittel']),
+        'post_title'   => sanitize_text_field($_POST['post_title']),
         'post_content' => sanitize_textarea_field($_POST['editor']),
-        'post_status'  => 'draft', 
+        'post_status'  => 'draft',
         'meta_input'   => [
-            'job_title'         => sanitize_text_field($_POST['stillingstittel']),
-            'employment_type'   => sanitize_text_field($_POST['ansettelsesform']),
-            'workplace'         => sanitize_text_field($_POST['arbeidsted']),
-            'sector'            => sanitize_text_field($_POST['sektor']),
-            'employer'          => sanitize_text_field($_POST['arbeidsgiver']),
-            'industry'          => sanitize_text_field($_POST['bransje']),
-            'deadline'          => sanitize_text_field($_POST['frist']),
-            'number_of_positions' => sanitize_text_field($_POST['numberOfPositions']),
-            'application_link'  => sanitize_url($_POST['søkelink']),
-            'application_email' => sanitize_email($_POST['søkepost']),
-            'contact_person'    => sanitize_text_field($_POST['kontaktperson']),
-            'phone'             => sanitize_text_field($_POST['telefon']),
+            'job_title'            => sanitize_text_field($_POST['job_title']),
+            'employment_type'      => sanitize_text_field($_POST['employment_type']),
+            'workplace'            => sanitize_text_field($_POST['workplace']),
+            'sector'               => sanitize_text_field($_POST['sector']),
+            'employer'             => sanitize_text_field($_POST['employer']),
+            'industry'             => sanitize_text_field($_POST['industry']),
+            'deadline'             => sanitize_text_field($_POST['deadline']),
+            'number_of_positions'  => sanitize_text_field($_POST['number_of_positions']),
+            'application_link'     => sanitize_url($_POST['application_link']),
+            'application_email'    => sanitize_email($_POST['application_email']),
+            'contact_person'       => sanitize_text_field($_POST['contact_person']),
+            'phone'                => sanitize_text_field($_POST['phone']),
+            'banner_image_id'      => $banner_id,
+            'logo_image_id'        => $logo_id
         ]
     ];
-    
 
-    $post_id = wp_insert_post($postarr);  // Oppretter en ny post (annonse)
-
-    if ($post_id == 0) {
-        echo json_encode(['error' => 'Kunne ikke opprette annonsepost']);
+    // Inserting the post
+    $post_id = wp_insert_post($postarr);
+    if (is_wp_error($post_id)) {
+        wp_send_json_error(['message' => 'Failed to create post', 'error' => $post_id->get_error_messages()]);
     } else {
-        update_post_meta($post_id, 'banner_image_id', $banner_id);
-        update_post_meta($post_id, 'logo_image_id', $logo_id);
-        echo json_encode(['success' => true, 'post_id' => $post_id]);
+        wp_send_json_success(['message' => 'Post created successfully', 'post_id' => $post_id]);
     }
 }
-}
-add_action('wp_ajax_upload_job_post_form', 'handle_image_upload');
+add_action('wp_ajax_upload_job_post_form', 'upload_job_post_form');  
+
 
 
 

@@ -59,42 +59,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		const editorData = window.editorInstance.getData();
 
-		const previewBody = document.getElementById('preview_body');
-		previewBody.innerHTML = `
-		<div class="banner-container">
-		<img id="bannerPreview" class="banner" src="${bannerInput}" alt="Banner">
+
+	// ------------------------ TESTING --------------------------//
+	const previewBody = document.getElementById('preview_body');
+	previewBody.innerHTML = `
+	<div class="banner-container">
+	<img id="bannerPreview" class="banner" src="${bannerInput}" alt="Banner">
+</div>
+<img id="logoPreview" class="logo" src="${logoInput}" alt="Logo">
+	<div class="container" style="padding-top: 50px;">
+	<div class="row" >
+	<h2 style="padding: 25px;">${title} </h2> 
+	<h4 style="padding: 25px;">${jobTitle}</h4>
+	<p style="padding: 25px; font-weight: bold;">Søknadsfrist: ${deadline} </p>
+
+	<div class="col-6 col-sm-4 mt-4">
+		<ul>
+		<p style="font-weight: bold;">Arbeidsgiver: ${employer} </p>
+		<p style="font-weight: bold;"> Sted: ${workplace}</p>
+		<p style="font-weight: bold;">Antall stillinger: ${numberOfPositions} </p>
+		</ul>
 	</div>
-	<img id="logoPreview" class="logo" src="${logoInput}" alt="Logo">
-	
-	<hr style="margin-bottom: 50px; margin-top: 50px;">
-	<div><h1>${title}</h1></div>
-	<div><h5>${jobTitle}</h5></div>
-	<div class="columnPreview">
-		
-		<div>
-			<div><p style="font-weight: bold;>Søknadsfrist: ${deadline}</p></div>
-			<div><p style="font-weight: bold;">Ansettelsesform: ${employmentType}</p></div>
-			<div><p style="font-weight: bold;">Arbeidsted: ${workplace}</p></div>
-		</div>
-	</div>
-	
-	<div class="columnPreview">
-		<div><p style="font-weight: bold;>Sektor: ${sector}</p></div>
-		<div><p style="font-weight: bold;>Arbeidsgiver: ${employer}</p></div>
-		<div><p style="font-weight: bold;>Bransje: ${industry}</p></div>
-		<div><p style="font-weight: bold;>Antall stillinger: ${numberOfPositions}</p></div>
-	</div>
-	
-	<hr style="margin-bottom: 20px; margin-top: 20px;">
-	<div class="full-width description">
-		<p style="font-weight: bold;">Beskrivelse</p>
-		<div>${editorData}</div>
+
+	<div class="col-6 col-sm-3 mt-4" >
+		<ul> 
+		<p style="font-weight: bold;">Ansettelsesform: ${employmentType} </p>
+		<p style="font-weight: bold;">Sektor: ${sector} </p>
+		<p style="font-weight: bold;">Bransje: ${industry} </p>
+		</ul>
 	</div>
 	
-	<div class="columnPreview">
-		<div><p style="font-weight: bold;>Antall stillinger: ${numberOfPositions}</p></div>
-	</div>
-	`;
+<hr>
+
+<div class="full-width description">
+	<p style="font-weight: bold;><strong>Beskrivelse: </strong></p>
+	   <h5 style="font-weight: bold;">Beskrivelse: ${editorData} </h5>
+	<!-- <div><?= nl2br(htmlspecialchars($description)) ?></div> -->
+</div>
+
+
+<hr>
+<!-- Google Maps Embed -->
+<div>
+	<div class="job-address">
+		<h6>Addresse: ${workplace}</h6>
+<iframe width="80%"
+		height="300"
+		style="border:0"
+		loading="lazy"
+		allowfullscreen
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1995.9878953729372!2d10.753945316406016!3d59.90924448187622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e61f267f039%3A0x7e92605fd3231e9a!2sDronning%20Eufemias%20gate%2010%2C%200191%20Oslo%2C%20Norway!5e0!3m2!1sen!2sus!4v1609435345436!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+		 <!-- src="<?= $mapsUrl ?>">  -->
+</iframe>
+	`	
+	;
 	}
 
 	ClassicEditor.create(document.querySelector('#editor'))
@@ -124,107 +142,83 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // PROGRESS STEPPER ANNONSE
 
-// Define HTML elements for control and display
-const progress = document.getElementById('progress-stepper');
-const circles = document.querySelectorAll('.circle');
-const steps = document.getElementById([
-	'draftButton',
-	'previewButton',
-	'publishButton',
-	'close',
-]);
-const stepButtons = steps.map((step) => document.getElementById(step));
+document.addEventListener('DOMContentLoaded', function() {
+    const previewButton = document.getElementById('previewButton');
+    const closeModalButton = document.querySelector('.modal .close'); 
+    const progressBars = document.querySelectorAll('.progress-bar');
+    const modal = document.getElementById('previewModal');
 
-let currentActive = 0; // Initialize current step at the first step
+    // Function to update progress bar styling
+    function updateProgressBar(stepIndex) {
+        progressBars.forEach((bar, index) => {
+            if (index < stepIndex) {
+                bar.style.backgroundColor = '#C61932'; // Active color
+                bar.style.color = 'white';
+            } else {
+                bar.style.backgroundColor = '#fff'; // Inactive color
+                bar.style.color = 'black';
+            }
+        });
+    }
 
-// Update the stepper status based on the current step
-function updateStep(newStepIndex) {
-	currentActive = newStepIndex;
-	circles.forEach((circle, idx) => {
-		if (idx <= currentActive) {
-			circle.classList.add('active');
-		} else {
-			circle.classList.remove('active');
-		}
-	});
+    // Event listener to open modal and update progress bar
+    previewButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+        updateProgressBar(2); // Assuming index 0 is 'Ny stillingsannonse', 1 is 'Forhåndsvis'
+    });
 
-	// Update progress bar width
-	const activeCircles = document.querySelectorAll('.active');
-	progress.style.width =
-		((activeCircles.length - 1) / (circles.length - 1)) * 100 + '%';
+    // Event listener to close modal and revert progress bar
+    closeModalButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+        updateProgressBar(1); // Revert to 'Ny stillingsannonse'
+    });
 
-	// Update button states
-	stepButtons.forEach((button, idx) => {
-		button.disabled = idx === currentActive;
-	});
-}
-
-// Attach event listeners to step buttons to handle navigation
-stepButtons.forEach((button, idx) => {
-	button.addEventListener('click', () => updateStep(idx));
+    // If clicking outside the modal content closes the modal
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            updateProgressBar(1); // Revert to 'Ny stillingsannonse'
+        }
+    });
 });
 
-// Initial update to set default states
-updateStep(0);
 
-// Sticky progress stepper logic
-document.addEventListener('DOMContentLoaded', function () {
-	const header = document.querySelector('header.container-fluid.sticky-top');
-	const stepper = document.querySelector('.progress-container-stepper');
+// PUBLISERE ANNONSE
 
-	function adjustStepper() {
-		const headerWidth = header.offsetWidth;
+const publishButton = document.getElementById('publishButton');
+publishButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const formData = new FormData();
+	updateProgressBar(3); 
+    // Legge til form data til formData object
+    formData.append('action', 'upload_job_post_form');  // Matcher action hook in WordPress
+    formData.append('security', ajax_object.nonce);  // Security nonce
+    formData.append('title', document.getElementById('post_title').value);
+   	formData.append('jobTitle', document.getElementById('jobTitle').value);
+   	formData.append('employer', document.getElementById('employer').value);
+   	formData.append('workplace', document.getElementById('workplace').value);
+	formData.append('numberOfPositions', document.getElementById('numberOfPositions').value);
+	formData.append('employmentType', document.getElementById('employmentType').value);
+	formData.append('sector', document.getElementById('sector').value);
+	formData.append('industry', document.getElementById('industry').value);
+	formData.append('description', document.getElementById('editor').value);
+	formData.append('banner', document.getElementById('bannerInput').files[0]);
+	formData.append('logo', document.getElementById('logoInput').files[0]);
 
-		if (window.scrollY > header.offsetHeight) {
-			stepper.style.width = headerWidth + 'px';
-			stepper.style.position = 'fixed';
-			stepper.style.top = '0';
-			stepper.style.left = '0';
-			stepper.style.right = '0';
-		} else {
-			stepper.style.width = '100%';
-			stepper.style.position = 'static';
-		}
-	}
 
-	adjustStepper();
-	window.addEventListener('resize', adjustStepper);
-	window.addEventListener('scroll', adjustStepper);
+    
+    fetch(ajax_object.ajax_url, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.success) {
+            console.log('Annonsen ble publisert:', data);
+            
+        } else {
+            console.error('Det har skjedd en feil:', data);
+            // Handle errors here
+        }
+    });
 });
-// Function to update the stepper to a specific step
-function updateStep(newStepIndex) {
-	currentActive = newStepIndex;
-	circles.forEach((circle, idx) => {
-		if (idx <= currentActive) {
-			circle.classList.add('active');
-		} else {
-			circle.classList.remove('active');
-		}
-	});
-
-	const activeCircles = document.querySelectorAll('.active');
-	progress.style.width =
-		((activeCircles.length - 1) / (circles.length - 1)) * 100 + '%';
-
-	stepButtons.forEach((button, idx) => {
-		button.disabled = idx === currentActive;
-	});
-}
-
-// Function to handle closing the modal
-function closeModal() {
-	// Your modal close logic here
-	// Example: if using Bootstrap, you might use:
-	$('#myModal').modal('hide');
-
-	// After closing the modal, reset the stepper to the first step
-	updateStep(0);
-}
-
-// Add event listener for modal close button
-document
-	.getElementById('closeModalButton')
-	.addEventListener('click', closeModal);
-
-// Initialize the stepper to the first step
-updateStep(0);
