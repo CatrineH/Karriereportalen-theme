@@ -272,6 +272,42 @@ function update_last_login($user_login, $user) {
 add_action('wp_login', 'update_last_login', 10, 2);
  */
 
+function get_company_data_from_api() {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'get_company_data_from_api') {
+        if (!isset($_POST['organisationNumber'])) {
+            wp_die('Organisasjonnummer er påkrevd!');
+        }
+
+        $organisationNumber = sanitize_text_field($_POST['organisationNumber']);
+        $url = 'https://data.brreg.no/enhetsregisteret/api/enheter/' . $organisationNumber;
+
+        $response = wp_remote_get($url);
+
+        if (is_wp_error($response)) {
+            wp_die('API request failed!');
+        }
+
+        $body = wp_remote_retrieve_body($response);
+        $data = json_decode($body);
+
+        if (isset($data->navn)) {
+            $company_name = $data->navn;
+            $company_address = $data->forretningsadresse->adresse;
+            $company_postal = $data->forretningsadresse->postnummer;
+            $company_orgnr = $data->organisasjonsnummer;
+
+            update_user_meta(get_current_user_id(), 'company_name', $company_name);
+            update_user_meta(get_current_user_id(), 'company_address', $company_address);
+            update_user_meta(get_current_user_id(), 'company_postal', $company_postal);
+            update_user_meta(get_current_user_id(), 'company_orgnr', $company_orgnr);
+
+            wp_redirect("register-3");
+        } else {
+            wp_die('Company not found!');
+        }
+    }
+}
+
 
 
 function handle_image_upload($inputName)
