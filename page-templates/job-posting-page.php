@@ -4,21 +4,22 @@ Template Name: Job Posting Page
 */
 get_header();
 ?>
-  
+         
 <div class="container-fluid mt-4">
     
     <div class="row">
+        
         <!-- Sidebar Navigation -->
         <div class="col-md-2">
-            <?php get_template_part('includes/controlpanel-sidebar'); ?>
+            <?php get_template_part('includes/c-panel/controlpanel-sidebar'); ?>
         </div>
 
         <!-- Main Content -->
-        <div class="col-md-8 sticky-top ">
-        <?php get_template_part('includes/progress-stepper'); ?>
+        <div class="col sticky-top ">
+          <?php get_template_part('includes/progress-stepper'); ?>
         </div>
         <div class="col-8 offset-2">
-            <?php get_template_part('includes/job-posting-form'); ?>
+            <?php get_template_part('includes/job-advertising/job-posting-form'); ?>
         </div>
 
         <!-- Tips Column -->

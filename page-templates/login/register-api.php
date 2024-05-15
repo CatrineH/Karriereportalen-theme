@@ -21,7 +21,7 @@ get_header();
     </div>
  
     <!-- Registration Form 1 -->
-    <?php get_template_part('includes/register-form-1'); ?>
+    <?php get_template_part('includes/login/register-form-1'); ?>
   </div>
 </div>
 </div>

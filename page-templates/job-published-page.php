@@ -5,14 +5,14 @@
 get_header(); 
 ?>
 
- 
-<!-- <div class="container-fluid mt-4">
-    <div class="row"> -->
-        <div class="job-published-container">
+
+<div class="col mt-4 mr-4">
         <button class="btn" style="background-color:#9E182F; color:#fff;" onclick="location.href='kontrollpanel';">Tilbake</button>
+     </div>
 
- <?php get_template_part('includes/publish-job-ad'); ?>  
+    <div class="col sticky-top">
+        <?php get_template_part('includes/progress-stepper'); ?>
+    </div>
+  
+ <?php get_template_part('includes/job-advertising/publish-job-ad'); ?>  
 
-</div>
-<!-- </div>
-</div> -->

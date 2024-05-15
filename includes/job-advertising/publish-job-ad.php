@@ -1,22 +1,7 @@
-
-<!-- <div class="banner-container" style="margin-top: 30px;"> 
-<img id="bannerPreview" src="https://via.placeholder.com/1024x200" alt="Banner Preview" />
-<img id="logoPreview" src="https://via.placeholder.com/150x150" alt="Logo Preview" />
-
-
-</div> -->
+<div class="job-published-container">
 <div class="container-fluid mt-4">
-    
-
 <?php get_template_part('includes/image-upload'); ?>
 </div>
-
-<div class="col sticky-top ">
-        <?php get_template_part('includes/progress-stepper'); ?>
-        </div>
-
-<div class="job-published-container">
-
     <div class="header-section">
     <div><h2>Annonsetittel: <?= htmlspecialchars ($title) ?></h2></div>
     </div>
@@ -24,6 +9,7 @@
     
     <div class="columnPreview">
     <p style="font-weight: bold;">Arbeidsgiver: <?= htmlspecialchars($employer) ?></p>
+    <p style="font-weight: bold;>>">Arbeidsted: <?= htmlspecialchars($workplace) ?></p>
         <p style="font-weight: bold;">Ansettelsesform: <?= htmlspecialchars($employmentType) ?></p>
       
     </div>
@@ -39,16 +25,17 @@
 
     <div class="full-width description">
         <p style="font-weight: bold;><strong>Beskrivelse:</strong></p>
-        <div><?= nl2br(htmlspecialchars($description)) ?></div>
+           <h5 style="font-weight: bold;">Beskrivelse: <?= htmlspecialchars($description) ?></h5>
+        <!-- <div><?= nl2br(htmlspecialchars($description)) ?></div> -->
     </div>
 
     
-
+  <hr>
     <!-- Google Maps Embed -->
     <div>
     <div class="job-address">
     <h2>Addresse</h2>
-    <p>Arbeidsted: <?= htmlspecialchars($workplace) ?></p>
+
    
     <iframe width="80%"
             height="300"

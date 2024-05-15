@@ -3,11 +3,11 @@
 get_header();
 ?>
 
-<?php get_template_part('includes/controlpanel-sidebar'); ?> 
+<?php get_template_part('includes/c-panel/controlpanel-sidebar'); ?> 
 
     <div class="container">
       <div class="row">
-        <?php get_template_part('includes/profil-settings-form'); ?>         
+        <?php get_template_part('includes/settings/profil-settings-form'); ?>         
           </div>
           </div>
 

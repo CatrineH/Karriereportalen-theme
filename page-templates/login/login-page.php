@@ -18,7 +18,7 @@ get_header();
 
       <!-- <div class="col-md-5" style="padding-top: 12rem;"> -->
       <div class="right-side-content">
-          <?php get_template_part('includes/login-form'); ?>
+          <?php get_template_part('includes/login/login-form'); ?>
         </div>
         </div>
       </div>
