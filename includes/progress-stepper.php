@@ -1,8 +1,11 @@
-    <div class="progress-container-stepper">
-      <div class="progress-stepper" id="progress-stepper"></div>
-      <div class="circle active"> <h6 class="circle-subtitle">Stillingsdetaljer</h6></div>
-      <div class="circle"> <h6 class="circle-subtitle">Forhåndsvisning</h6></div>
-      <div class="circle"><h6 class="circle-subtitle">Publisert</h6></div>
+
+  <div style=margin-right: 550px; margin-left: 550px;"> 
+    <div class="progress mb-3 fixed-top" >    
+        <div class="progress-bar" role="progressbar" style="width: 35%; background-color:#C61932"" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" role="progressbar" style="width: 35%; background-color:#C61932"" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" role="progressbar" style="width: 30%; background-color:#C61932"" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">Steg 3 av 3</div>
     </div>
+
+</div>        
 
  

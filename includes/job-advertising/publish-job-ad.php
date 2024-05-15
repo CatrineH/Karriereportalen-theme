@@ -1,32 +1,33 @@
 <!-- // id="job_form" action="job-published-page.php" method="post" enctype="multipart/form-data">  må vi ha en sånn her kanskje --> 
-<div class="job-published-container">
-<div class="container-fluid mt-4">
-<?php get_template_part('includes/image-upload'); ?>
-</div>
+
+
+<button class="btn btn-apply" style="" onclick="location.href='kontrollpanel';">Søk her</button></div>
+
     <div class="header-section">
-    <div><h2>Annonsetittel: <?= htmlspecialchars ($title) ?></h2></div>
+    <div><h2>Annonsetittel: </h2>
+    
     </div>
-    <div><h4>Stillingstittel:<?= htmlspecialchars($jobTitle) ?></h4></div>
+    <div><h4>Stillingstittel:</h4></div>
     
     <div class="columnPreview">
-    <p style="font-weight: bold;">Arbeidsgiver: <?= htmlspecialchars($employer) ?></p>
-    <p style="font-weight: bold;>>">Arbeidsted: <?= htmlspecialchars($workplace) ?></p>
-        <p style="font-weight: bold;">Ansettelsesform: <?= htmlspecialchars($employmentType) ?></p>
+    <p style="font-weight: bold;">Arbeidsgiver: </p>
+    <p style="font-weight: bold;>>">Arbeidsted:</p>
+        <p style="font-weight: bold;">Ansettelsesform: </p>
       
     </div>
 
     <div class="columnPreview">
-        <p style="font-weight: bold;">Sektor: <?= htmlspecialchars($sector) ?></p>
-        <p style="font-weight: bold;">Bransje: <?= htmlspecialchars($industry) ?></p>
-        <p style="font-weight: bold;">Antall stillinger: <?= htmlspecialchars($numberOfPositions) ?></p>
-        <p style="font-weight: bold;">Søknadsfrist: <?= htmlspecialchars($deadline) ?></p>
+        <p style="font-weight: bold;">Sektor: </p>
+        <p style="font-weight: bold;">Bransje: </p>
+        <p style="font-weight: bold;">Antall stillinger: </p>
+        <p style="font-weight: bold;">Søknadsfrist: </p>
     </div>
 
     <hr>
 
     <div class="full-width description">
         <p style="font-weight: bold;><strong>Beskrivelse:</strong></p>
-           <h5 style="font-weight: bold;">Beskrivelse: <?= htmlspecialchars($description) ?></h5>
+           <h5 style="font-weight: bold;">Beskrivelse: </h5>
         <!-- <div><?= nl2br(htmlspecialchars($description)) ?></div> -->
     </div>
 
@@ -49,8 +50,7 @@
        
          </div>  
     </div>
-</div>
-</div>
+
 
 
 

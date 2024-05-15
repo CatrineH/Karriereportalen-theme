@@ -7,13 +7,6 @@
 :root {
 	--header-height: 150px;
 	--footer-height: 150px;
-
-	--bg-color: #FFFFFF;
-	--bg-color2: #f9fafb;
-	--line-color: #D9D9D9;
-	--steps-color: #C61932;
-	--active-steps-color: #C61932;
-	--active-content: content: '✔'; 
 }
 
 
@@ -280,82 +273,7 @@ p {
 	margin: 15px;
 }
 
-/*================= PROGRESSSTEPPER JOB AD ==============*/
 
-.progress-stepper {
-	background-color: var(--active-steps-color);
-	position: absolute;
-	left: 0;
-	height: 1.5px;
-	width: 0%;
-	max-width: 100%;
-	z-index: -1;
-	transition: 0.4s ease;
-}
-
-  .progress-container-stepper {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #ffffff;
-	width: 100%;
-	padding: 40px;
-	padding-left: 0px;
-	padding-right: 0px;
-    transition: width 0.3s ease; 
-  
-}
-
-  .progress-container-stepper:before {
-	content: ''; 
-	background-color: var(--line-color);
-	position: absolute;
-	left: 0;
-	height: 1.5px;
-	
-  }
-
-
-  .circle {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--bg-color2);
-	height: 50px;
-	width: 50px;
-	border: 2px solid var(--steps-color);
-	border-radius: 50%;
-	color: var(--bg-color2);
-	position: relative;
-  }
-  
-  .circle:before {
-	content: "";
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 40px;
-	width: 40px;
-	border: 6px solid var(--bg-color);
-	border-radius: 50%;
-  }
-  
-  .circle-subtitle {
-	position: absolute;
-	top: 50px;
-	color: #000000;
-  }
-  .circle.active {
-	border-color: var(--active-steps-color);
-	background-color: var(--active-steps-color);
-	transition: 0.4s ease 0.2s;
-	color: #000000;
-  }
-  
-  .steps-container {
-	display: flex;
-  }
 /*======================= JOB AD - FORM ==========================*/
 
 
@@ -594,6 +512,16 @@ iframe {
 }
 
 
+.progress-container {
+	position: fixed;
+	top: 20;
+	width: 60%;
+	left: 50%;
+	z-index: 1030;
+	transform: translateX(-50%);
+
+}
+
 /*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 
 .custom-card {
@@ -651,10 +579,10 @@ iframe {
 	text-align: center;
 }
 
-/*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
+/*========================== SIDEBAR NAV ALL PAGES ==========================*/
 .with-line:after {
 	content: '';
-	width: 255px;
+	width: 155px;
 	height: 0.5px;
 	background-color: #fff;
 	margin-top: 15px;
@@ -665,7 +593,7 @@ iframe {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 270px;
+	width: 170px;
 	padding-top: 230px;
 	background-color: #c61932;
 	height: calc(150vh - var(--header-height));
@@ -674,7 +602,7 @@ iframe {
 .sidebar a {
 	display: block;
 	color: #fff;
-	padding: 20px;
+	padding: 15px;
 	text-decoration: none;
 	position: relative;
 	margin: 0;
@@ -693,26 +621,51 @@ iframe {
 	top: 0;
 	left: 0;
 	right: 0;
-	width: 252px;
+	width: auto;
 	height: 95%;
 	background-color: #4e0000;
 	opacity: 0.3;
 	transition: opacity 0.3s ease;
 }
 
-.sidebar .nav-item {
-    width: 100%; 
-    display: block; 
-}
-
-.sidebar .nav {
+.nav-item .sidebar-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; 
-    margin-top: 20px; 
+    justify-content: center;
+    text-decoration: none;
+	color: #f3f3f3;
+    font-size: 14px; 
 }
 
+.nav-item .sidebar-link i {
+    margin-bottom: 5px; /* Space mellom ikon og tekst */
+}
+
+
+/*========================== PUBLISHED - PAGE ==========================*/
+.btn-back-publish , .btn-apply{
+	margin-top: 50px;
+	background: #9E182F;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	margin-top: 40px;
+	margin-left: 170px;
+	
+}
+
+.btn-apply {
+float: right;
+margin-right: 170px;
+margin-bottom: 50px;
+
+	
+}
 /*========================== FAQ ==========================*/
 
 #accordion {

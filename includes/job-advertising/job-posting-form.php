@@ -3,11 +3,11 @@
 
   <div class="card-form">
     <div class="card-header">
-      <h6 style="color: grey;">Stillingsannonse utkast</h6>
+      <h6 style="color: grey;"></h6>
     </div>
     <div class="card-body col-lg-12">
       <fieldset>
-        <legend>Legg til informasjon om stillingen din</legend>
+        <legend>Registrer din annonse</legend>
         
 <!-- BANNER -->
 <div class="form-group">
