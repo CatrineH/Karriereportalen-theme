@@ -12,25 +12,25 @@
                         
         <ul class="nav flex-column">
             <li class="nav-item text-center">
-                <a class="sidebar-link" href="kontrollpanel">
+                <a class="sidebar-link" href="/kontrollpanel">
                     <i class="fa fa-dashboard fa-2x"></i>
                     <span>Kontrollpanel</span>
                 </a>
             </li>
             <li class="nav-item text-center">
-                <a class="sidebar-link" href="din-annonse">
+                <a class="sidebar-link" href="/din-annonse">
                     <i class="fa-solid fa-box-archive fa-2x"></i>
                     <span>Publiserte annonser</span>
                 </a>
             </li>
             <li class="nav-item text-center">
-                <a class="sidebar-link" href="faq">
+                <a class="sidebar-link" href="/faq">
                     <i class="fa fa-life-ring fa-2x"></i>
                     <span>Support</span>
                 </a>
             </li>
             <li class="nav-item text-center">
-                <a class="sidebar-link" href="instillinger">
+                <a class="sidebar-link" href="/innstillinger">
                     <i class="fa fa-cog fa-2x"></i>
                     <span>Instillinger</span>
                 </a>
