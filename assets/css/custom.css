@@ -442,6 +442,12 @@ label {
 
 /*===================== JOB AD - PUBLISHED =======================*/
 
+.responsive-img {
+	max-width: 100%;
+	height: 400px;
+	border-radius: 10px;
+}
+
 .job-published-container {
     max-width: 100%;
     margin: 0 auto; /* sentrering */
