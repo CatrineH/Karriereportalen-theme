@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li class="nav-item text-center">
-                <a class="sidebar-link" href="/din-annonse">
+                <a class="sidebar-link" href="/user-ad-list-page">
                     <i class="fa-solid fa-box-archive fa-2x"></i>
                     <span>Mine annonser</span>
                 </a>
