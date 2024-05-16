@@ -302,12 +302,13 @@ function get_company_data_from_api() {
             update_user_meta(get_current_user_id(), 'company_orgnr', $company_orgnr);
 
             wp_redirect("register-3");
+            
         } else {
             wp_die('Company not found!');
         }
     }
 }
-
+add_action('init', 'get_company_data_from_api');
 
 
 function handle_image_upload($inputName)
