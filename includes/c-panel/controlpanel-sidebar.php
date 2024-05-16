@@ -20,7 +20,7 @@
             <li class="nav-item text-center">
                 <a class="sidebar-link" href="/din-annonse">
                     <i class="fa-solid fa-box-archive fa-2x"></i>
-                    <span>Publiserte annonser</span>
+                    <span>Mine annonser</span>
                 </a>
             </li>
             <li class="nav-item text-center">
