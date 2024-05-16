@@ -16,7 +16,7 @@
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/animations/Woman-presenting-online-business-analysis.gif" alt="Woman presenting online business analysis">
             <div class="custom-card-body text-center">
                 <h5 class="card-title">Se statistikk</h5>
-                <p class="card-text">Se trafikken på annonseringene dine.</p>
+                <p class="card-text">Når du er kommet i gang vil du kunne se mer data her</p>
             </div>
         </div>
     </div>
