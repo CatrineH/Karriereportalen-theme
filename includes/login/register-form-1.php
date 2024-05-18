@@ -23,10 +23,10 @@
     <div class="form-check form-switch" style="left: 32px; top: 6px;">
       <input style="transform: scale(1.5);" class="form-check-input" type="checkbox" id="registrert-i-brreg" name="registrert-i-brreg" value="1" checked>
       <div id="switch-check">
-        <i class="fas fa-check"></i>
+        <i class="fas fa-check" style="color: white;"></i>
       </div>
       <div id="switch-x">
-        <i class="fas fa-xmark"></i>
+        <i class="fas fa-xmark"style="color: black;"></i>
       </div>
       <label style="margin-left: 10px;" class="form-check-label" for="registrert-i-brreg">Er du registrert i Brønnøysundregisteret?</label>
     </div>
