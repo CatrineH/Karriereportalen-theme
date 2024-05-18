@@ -292,7 +292,7 @@ function get_company_data_from_api() {
 
         if (isset($data->navn)) {
             $company_name = $data->navn;
-            $company_address = implode(",", $data->forretningsadresse->adresse;
+            $company_address =  $data->forretningsadresse->adresse;
             $company_postal = $data->forretningsadresse->postnummer;
             $company_orgnr = $data->organisasjonsnummer;
 

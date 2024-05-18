@@ -602,7 +602,7 @@ iframe {
 	top: 0;
 	left: 0;
 	width: 170px;
-	padding-top: 230px;
+	padding-top: 180px;
 	background-color: #9E182F;
 	height: calc(150vh - var(--header-height));
 }

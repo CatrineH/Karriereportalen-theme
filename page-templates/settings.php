@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Instillinger */
+/* Template Name: Innstillinger */
 get_header();
 ?>
 
