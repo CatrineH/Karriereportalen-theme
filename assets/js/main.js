@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const applicationEmail = document.getElementById('applicationEmail').value;
         const applicationLink = document.getElementById('applicationLink').value;
     
-        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
+        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBNnK7Un4yK2Q1o2CPYp9NNAsJLiiMtvzQ&q=${encodeURIComponent(workplace)}`;
     
         const previewBody = document.getElementById('preview_body');
         previewBody.innerHTML = `
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="row">
                     <h2 style="padding: 25px;">${postTitle}</h2>
                     <h4 style="padding: 25px; color: #9E182F;">${jobTitle}</h4>
-                    <p style="padding: 25px; font-weight: bold;">Søknadsfrist: <span style="font-weight: normal;">${deadline}</span></p>
+                    <p style="padding: 20px; font-weight: bold;">Søknadsfrist: <span style="font-weight: normal;">${deadline}</span></p>
                     <div class="col-6 col-sm-4 mt-4">
                         <ul>
                             <p style="font-weight: bold;">Arbeidsgiver: <span style="font-weight: normal;">${employer}</span></p>
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <p style="font-weight: bold;">Antall stillinger: <span style="font-weight: normal;">${numberOfPositions}</span></p>
                         </ul>
                     </div>
-                    <div class="col-6 col-sm-3 mt-4">
+                    <div class="col-6 col-sm-4 mt-4">
                         <ul>
                             <p style="font-weight: bold;">Ansettelsesform: <span style="font-weight: normal;">${employmentType}</span></p>
                             <p style="font-weight: bold;">Sektor: <span style="font-weight: normal;">${sector}</span></p>
@@ -72,25 +72,37 @@ document.addEventListener('DOMContentLoaded', function () {
                         </ul>
                     </div>
                     <hr>
-                    <div class="full-width description">
+                    <div class="full-width">
                         <p style="font-weight: bold;"><strong>Beskrivelse:</strong></p>
                         <h5 style="font-weight: bold;"><span style="font-weight: normal;">${editorData}</span></h5>
                     </div>
-                    <div class="col-8 col-sm-3 mt-2">
+                    <hr>
+                    <div class="full-width">
+                    <p style="font-weight: bold;"><strong>Kontakt informasjon</strong></p>
+                    </div>
+                    <div class="full-width">
+                   
+                    <ul>
+                    <p style="font-weight: bold;">Søknadslink: <span style="font-weight: normal;">${applicationLink}</span></p>
+                    <p style="font-weight: bold;">søknads epost: <span style="font-weight: normal;">${applicationEmail}</span></p>
+                </ul>
+                <div class="full-width">
                         <ul>
                             <p style="font-weight: bold;">Kontakt person: <span style="font-weight: normal;">${contactPerson}</span></p>
                             <p style="font-weight: bold;">Kontakt telefon: <span style="font-weight: normal;">${applicationPhone}</span></p>
-                            <p style="font-weight: bold;">Søknadslink: <span style="font-weight: normal;">${applicationLink}</span></p>
-                            <p style="font-weight: bold;">søknads epost: <span style="font-weight: normal;">${applicationEmail}</span></p>
-                        </ul>
+                            </ul>
+                            </div>
+                          
                     </div>
                     <hr>
                     <div>
+                    <div class="full-width">
                         <div class="job-address">
-                            <h6>Addresse: <span style="font-weight: normal;">${workplace}</span></h6>
+                            <h6 style="font-weight: bold;">Addresse: <span style="font-weight: normal;">${workplace}</span></h6>
                             <iframe width="80%" height="300" style="border:0" loading="lazy" allowfullscreen
                                 src="${googleMapsUrl}">
                             </iframe>
+                        </div>
                         </div>
                     </div>
                 </div>
