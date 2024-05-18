@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const applicationPhone = document.getElementById('applicationPhone').value;
         const applicationEmail = document.getElementById('applicationEmail').value;
         const applicationLink = document.getElementById('applicationLink').value;
-
+    
         const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
-
+    
         const previewBody = document.getElementById('preview_body');
         previewBody.innerHTML = `
             <div class="banner-container">
@@ -55,39 +55,39 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="container" style="padding-top: 50px;">
                 <div class="row">
                     <h2 style="padding: 25px;">${postTitle}</h2>
-                    <h4 style="padding: 25px;">${jobTitle}</h4>
-                    <p style="padding: 25px; font-weight: bold;">Søknadsfrist: ${deadline}</p>
+                    <h4 style="padding: 25px; color: #9E182F;">${jobTitle}</h4>
+                    <p style="padding: 25px; font-weight: bold;">Søknadsfrist: <span style="font-weight: normal;">${deadline}</span></p>
                     <div class="col-6 col-sm-4 mt-4">
                         <ul>
-                            <p style="font-weight: bold;">Arbeidsgiver: ${employer}</p>
-                            <p style="font-weight: bold;">Sted: ${workplace}</p>
-                            <p style="font-weight: bold;">Antall stillinger: ${numberOfPositions}</p>
+                            <p style="font-weight: bold;">Arbeidsgiver: <span style="font-weight: normal;">${employer}</span></p>
+                            <p style="font-weight: bold;">Sted: <span style="font-weight: normal;">${workplace}</span></p>
+                            <p style="font-weight: bold;">Antall stillinger: <span style="font-weight: normal;">${numberOfPositions}</span></p>
                         </ul>
                     </div>
                     <div class="col-6 col-sm-3 mt-4">
                         <ul>
-                            <p style="font-weight: bold;">Ansettelsesform: ${employmentType}</p>
-                            <p style="font-weight: bold;">Sektor: ${sector}</p>
-                            <p style="font-weight: bold;">Bransje: ${industry}</p>
+                            <p style="font-weight: bold;">Ansettelsesform: <span style="font-weight: normal;">${employmentType}</span></p>
+                            <p style="font-weight: bold;">Sektor: <span style="font-weight: normal;">${sector}</span></p>
+                            <p style="font-weight: bold;">Bransje: <span style="font-weight: normal;">${industry}</span></p>
                         </ul>
                     </div>
                     <hr>
                     <div class="full-width description">
                         <p style="font-weight: bold;"><strong>Beskrivelse:</strong></p>
-                        <h5 style="font-weight: bold;">${editorData}</h5>
+                        <h5 style="font-weight: bold;"><span style="font-weight: normal;">${editorData}</span></h5>
                     </div>
                     <div class="col-8 col-sm-3 mt-2">
                         <ul>
-                            <p style="font-weight: bold;">Kontakt person: ${contactPerson}</p>
-                            <p style="font-weight: bold;">Kontakt telefon: ${applicationPhone}</p>
-                            <p style="font-weight: bold;">Søknadslink: ${applicationLink}</p>
-                            <p style="font-weight: bold;">søknads epost: ${applicationEmail}</p>
+                            <p style="font-weight: bold;">Kontakt person: <span style="font-weight: normal;">${contactPerson}</span></p>
+                            <p style="font-weight: bold;">Kontakt telefon: <span style="font-weight: normal;">${applicationPhone}</span></p>
+                            <p style="font-weight: bold;">Søknadslink: <span style="font-weight: normal;">${applicationLink}</span></p>
+                            <p style="font-weight: bold;">søknads epost: <span style="font-weight: normal;">${applicationEmail}</span></p>
                         </ul>
                     </div>
                     <hr>
                     <div>
                         <div class="job-address">
-                            <h6>Addresse: ${workplace}</h6>
+                            <h6>Addresse: <span style="font-weight: normal;">${workplace}</span></h6>
                             <iframe width="80%" height="300" style="border:0" loading="lazy" allowfullscreen
                                 src="${googleMapsUrl}">
                             </iframe>
@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>`;
     }
+    
 
     function handlePreview(event) {
         event.preventDefault();
