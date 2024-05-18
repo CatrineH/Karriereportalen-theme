@@ -575,6 +575,10 @@ $_SESSION['employer'] = $_POST['arbeidsgiver'] ?? 'Ingen arbeidsgiver er definer
 $_SESSION['industry'] = $_POST['industry'] ?? 'Ingen industri valgt';
 $_SESSION['numberOfPositions'] = $_POST['numberOfPositions'] ?? '0';
 $_SESSION['description'] = $_POST['editor'] ?? 'Ingen beskrivelse av stillingen er definert';
+$_SESSION['contactPerson'] = $_POST['contactPerson'] ?? 'Ingen kontaktperson er definert';
+$_SESSION['phone'] = $_POST['phone'] ?? 'Ingen telefon er definert';
+$_SESSION['applicationLink'] = $_POST['applicationLink'] ?? 'Ingen søkelink er definert';
+$_SESSION['applicationEmail'] = $_POST['applicationEmail'] ?? 'Ingen søkepost er definert';
 
 // Retrieving variables for use on the page
 $imageBanner = $_SESSION['bannerSrc'];
@@ -589,4 +593,7 @@ $employer = $_SESSION['employer'];
 $industry = $_SESSION['industry'];
 $numberOfPositions = $_SESSION['numberOfPositions'];
 $description = $_SESSION['description'];
+$contactPerson = $_SESSION['contactPerson'];
+$phone = $_SESSION['phone'];
+$applicationLink = $_SESSION['applicationLink'];
 ?>
