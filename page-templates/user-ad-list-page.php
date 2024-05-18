@@ -19,7 +19,7 @@ get_header();
     <div class="row justify-content-center align-items-center ">
         <div class="col-7 col-sm-10 col-md-11">
             <div class="job-published-container"> 
-                <?php get_template_part('includes/job-advertising/job-your-ad-message'); ?>
+                <?php get_template_part('includes/job-advertising/job-user-ad-message'); ?>
             </div>
 
         </div>
