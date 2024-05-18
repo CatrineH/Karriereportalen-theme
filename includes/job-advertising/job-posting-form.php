@@ -26,19 +26,19 @@
                     <!-- STILLINGSINFO -->
                     <div class="row">
                         <div class="form-group">
-                            <label class="control-label" for="post_title">Annonsetittel</label>
-                            <input id="post_title" name="post_title" type="text" placeholder="" class="form-control input-lg" required="">
+                            <label class="control-label" for="postTitle">Annonsetittel</label>
+                            <input id="postTitle" name="postTitle" type="text" placeholder="" class="form-control input-lg" required="">
                         </div>
                     </div>
                     <div class="w-100">
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="job_title" class="control-label">Stillingstittel</label>
-                                <input id="job_title" name="job_title" type="text" class="form-control" required="">
+                                <label for="jobTitle" class="control-label">Stillingstittel</label>
+                                <input id="jobTitle" name="jobTitle" type="text" class="form-control" required="">
                             </div>
                             <div class="col-lg-6">
-                                <label for="job_type" class="control-label">Ansettelsesform</label>
-                                <select id="job_type" name="job_type" class="form-control">
+                                <label for="jobType" class="control-label">Ansettelsesform</label>
+                                <select id="jobType" name="jobType" class="form-control">
                                     <option value="1"> Velg</option>
                                     <option value="2"> Fast</option>
                                     <option value="3"> Deltid</option>
@@ -54,7 +54,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group" style="margin-top: 30px;">
-                                    <label class="control-label" for="workplace">Arbeidsted</label>
+                                    <label class="control-label" for="workplace">Adresse</label>
                                     <input id="workplace" name="workplace" type="text" placeholder="" class="form-control input-lg" required="">
                                 </div>
                             </div>
@@ -198,12 +198,11 @@
             </div>
         </div>
     </form>
-    <!-- Modal for Preview -->
-    <div id="previewModal" class="modal">
+   <!-- Preview Modal -->
+   <div id="previewModal" class="modal" aria-labelledby="previewModalLabel" aria-hidden="true">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h5 style="color: #000;">Forhåndsvisning</h5>
-            <div id="preview_body" class="job-preview"></div>
+            <span class="close" aria-label="Close">&times;</span>
+            <div id="preview_body"></div>
         </div>
     </div>
 

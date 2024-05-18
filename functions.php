@@ -358,11 +358,11 @@ function upload_job_post_form() {
     // Preparing post data
     $postarr = [
         'post_author'  => get_current_user_id(),
-        'post_title'   => sanitize_text_field($_POST['post_title']),
+        'postTitle'   => sanitize_text_field($_POST['postTitle']),
         'post_content' => sanitize_textarea_field($_POST['editor']),
         'post_status'  => 'draft',
         'meta_input'   => [
-            'job_title'            => sanitize_text_field($_POST['job_title']),
+            'jobTitle'            => sanitize_text_field($_POST['jobTitle']),
             'employment_type'      => sanitize_text_field($_POST['employment_type']),
             'workplace'            => sanitize_text_field($_POST['workplace']),
             'sector'               => sanitize_text_field($_POST['sector']),
@@ -442,7 +442,7 @@ function preview_job_ad() {
 function custom_job_ad_fields($user)
 {
     $arbeidsgiver = get_user_meta($user->ID, 'employer', true);
-    $stillingstittel = get_user_meta($user->ID, 'job_title', true);
+    $stillingstittel = get_user_meta($user->ID, 'jobTitle', true);
     $ansettelsesform = get_user_meta($user->ID, 'employment_type', true);
     $arbeidsted = get_user_meta($user->ID, 'workplace', true);
     $sektor = get_user_meta($user->ID, 'sector', true);
@@ -458,7 +458,7 @@ function custom_job_ad_fields($user)
     <table class="form-table">
         <tr>
             <th><label for="jobTitle">Stillingstittel</label></th>
-            <td><input type="text" name="job_title" id="job_title" value="<?php echo $stillingstittel; ?>" class="regular-text" /></td>
+            <td><input type="text" name="jobTitle" id="jobTitle" value="<?php echo $stillingstittel; ?>" class="regular-text" /></td>
         </tr>
         <tr>
             <th><label for="employer">Arbeidsgiver</label></th>
@@ -522,7 +522,7 @@ add_action('edit_user_profile', 'custom_user_fields');
 //         return false;
 //     }
 
-//     xupdate_user_meta($user_id, 'job_title', sanitize_text_field($_POST['stillingstittel']));
+//     xupdate_user_meta($user_id, 'jobTitle', sanitize_text_field($_POST['stillingstittel']));
 //     xupdate_user_meta($user_id, 'employment_type', sanitize_text_field($_POST['ansettelsesform']));
 //     xupdate_user_meta($user_id, 'workplace', sanitize_text_field($_POST['arbeidsted']));
 //     xupdate_user_meta($user_id, 'sector', sanitize_text_field($_POST['sektor']));

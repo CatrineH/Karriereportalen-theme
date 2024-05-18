@@ -520,15 +520,36 @@ iframe {
 .progress-container {
 		position: sticky;
 		top: calc(var(--header-height) + 40px); 
-		width: 80%;
-		margin-left: 550px;
+		width: 90%;
+		margin-left: 540px;
 		
 		z-index: 1030;
 		transform: translateX(-50%);
 	}
 	
-
-
+	.progress-bar {
+		transition: background-color 0.3s, color 0.3s;
+	}
+	
+	.progress-bar.active {
+		background-color: #C61932 !important; /* Active color */
+		color: white !important;
+	}
+	
+	.progress-bar.completed {
+		background-color: #C61932 !important; /* Completed color */
+		color: white !important;
+	}
+	
+	.progress-bar.inactive {
+		background-color: #fff !important; /* Inactive color */
+		color: black !important;
+	}
+	
+	.field-error {
+		border: 2px solid red;
+	}
+	
 
 /*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 

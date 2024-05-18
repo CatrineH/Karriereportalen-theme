@@ -4,18 +4,34 @@ document.addEventListener('DOMContentLoaded', function () {
     const previewButton = document.getElementById('previewButton');
     const publishButton = document.getElementById('publishButton');
     const form = document.getElementById('job_form');
+    const progressBars = document.querySelectorAll('.progress-bar');
 
-    if (!modal || !closeModal || !previewButton || !publishButton || !form) {
+    if (!modal || !closeModal || !previewButton || !publishButton || !form || progressBars.length < 3) {
         console.error('Required DOM elements not found.');
         return;
+    }
+
+    function updateProgressBar(stepIndex) {
+        progressBars.forEach((bar, index) => {
+            if (index < stepIndex) {
+                bar.style.backgroundColor = '#C61932'; // Completed color
+                bar.style.color = 'white';
+            } else if (index === stepIndex) {
+                bar.style.backgroundColor = '#C61932'; // Active color
+                bar.style.color = 'white';
+            } else {
+                bar.style.backgroundColor = '#fff'; // Inactive color
+                bar.style.color = 'black';
+            }
+        });
     }
 
     function updatePreviewContent() {
         const bannerInput = document.getElementById('bannerInput').files[0] ? URL.createObjectURL(document.getElementById('bannerInput').files[0]) : '';
         const logoInput = document.getElementById('logoInput').files[0] ? URL.createObjectURL(document.getElementById('logoInput').files[0]) : '';
-        const postTitle = document.getElementById('post_title').value;
-        const jobTitle = document.getElementById('job_title').value;
-        const employmentType = document.getElementById('job_type').selectedOptions[0].text;
+        const postTitle = document.getElementById('postTitle').value;
+        const jobTitle = document.getElementById('jobTitle').value;
+        const employmentType = document.getElementById('jobType').selectedOptions[0].text;
         const workplace = document.getElementById('workplace').value;
         const sector = document.getElementById('sector').selectedOptions[0].text;
         const employer = document.getElementById('employer').value;
@@ -28,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const applicationEmail = document.getElementById('applicationEmail').value;
         const applicationLink = document.getElementById('applicationLink').value;
 
-		const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBNnK7Un4yK2Q1o2CPYp9NNAsJLiiMtvzQ&q=${encodeURIComponent(workplace)}`;
+        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
 
         const previewBody = document.getElementById('preview_body');
         previewBody.innerHTML = `
@@ -70,67 +86,62 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <hr>
                     <div>
-					<div class="job-address">
-					<h6>Addresse: ${workplace}</h6>
-					<iframe width="80%" height="300" style="border:0" loading="lazy" allowfullscreen
-						src="${googleMapsUrl}">
-					</iframe>
-				</div>
+                        <div class="job-address">
+                            <h6>Addresse: ${workplace}</h6>
+                            <iframe width="80%" height="300" style="border:0" loading="lazy" allowfullscreen
+                                src="${googleMapsUrl}">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>`;
     }
 
-    function validateForm() {
-        return form.checkValidity(); // Basic HTML5 validation
-    }
-
     function handlePreview(event) {
         event.preventDefault();
-        if (!validateForm()) {
-            alert('Fyll ut alle obligatoriske felt.');
-            return;
-        }
         updatePreviewContent();
         modal.style.display = 'block';
+        updateProgressBar(1); // Update to preview step
     }
 
     function handlePublish(event) {
         event.preventDefault();
-        if (!validateForm()) {
-            alert('Fyll ut alle obligatoriske felt.');
-            return;
+        if (confirm('Er du sikker på at du ønsker å publisere denne annonsen?')) {
+            updateProgressBar(2); // Update to publishing step
+            const formData = new FormData(form);
+            formData.append('description', editorInstance.getData());
+            formData.append('action', 'upload_job_post_form'); // Matches action hook in WordPress
+            formData.append('security', ajax_object.nonce); // Security nonce
+
+            fetch(ajax_object.ajax_url, {
+                method: 'POST',
+                body: formData,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    console.log('Annonsen ble publisert:', data);
+                    updateProgressBar(2); // Update to control step after successful publish
+                    window.location.href = 'din-annonse'; // Redirect after publishing
+                } else {
+                    console.error('Det har skjedd en feil:', data);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
         }
-
-        const formData = new FormData(form);
-        formData.append('description', editorInstance.getData());
-        formData.append('action', 'upload_job_post_form'); // Matches action hook in WordPress
-        formData.append('security', ajax_object.nonce); // Security nonce
-
-        fetch(ajax_object.ajax_url, {
-            method: 'POST',
-            body: formData,
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.success) {
-                console.log('Annonsen ble publisert:', data);
-            } else {
-                console.error('Det har skjedd en feil:', data);
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
     }
 
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
+        updateProgressBar(0); // Revert to initial step
     });
 
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
+            updateProgressBar(0); // Revert to initial step
         }
     });
 
