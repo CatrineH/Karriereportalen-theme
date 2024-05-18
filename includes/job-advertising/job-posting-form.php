@@ -78,17 +78,26 @@
                                 <div class="form-group" style="margin-top: 30px;">
                                     <label class="control-label" for="industry">Bransje</label>
                                     <select id="industry" name="industry" class="form-control">
-                                        <option value="1">Velg</option>
-                                        <option value="2">Helse og omsorg</option>
-                                        <option value="3">Varehandel</option>
-                                        <option value="4">Industri</option>
-                                        <option value="5">Bygg og anlegg</option>
-                                        <option value="6">Undervisning</option>
-                                        <option value="7">Offentlig administrasjon</option>
-                                        <option value="8">Faglige tjenester</option>
-                                        <option value="9">IT og medier</option>
-                                        <option value="10">Olje og gass</option>
-                                        <option value="11">Finans og forsikring</option>
+                                    <option value="1">Velg</option>
+                                    <option value="2">Bygg og anlegg</option>
+                                    <option value="3">Faglige tjenester</option>
+                                    <option value="4">Finans og forsikring</option>
+                                    <option value="5">Helse og omsorg</option>
+                                    <option value="6">HR og ledelse</option>
+                                    <option value="7">Håndverkere</option>
+                                    <option value="8">Industri og produksjon</option>
+                                    <option value="9">IT og medier</option>
+                                    <option value="10">Kultur og kreative yrker</option>
+                                    <option value="11">Natur og miljø</option>
+                                    <option value="12">Offentlig administrasjon</option>
+                                    <option value="13">Olje og gass</option>
+                                    <option value="14">Reiseliv og mat</option>
+                                    <option value="15">Sikkerhet og beredskap</option>
+                                    <option value="16">Transport og lager</option>
+                                    <option value="17">Uoppgitt / ikke identifiserbare</option>
+                                    <option value="18">Varehandel</option>
+                                    <option value="19">Kontor og økonomi</option>
+
                                     </select>
                                 </div>
                             </div>
