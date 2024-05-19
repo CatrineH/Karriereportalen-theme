@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const applicationEmail = document.getElementById('applicationEmail').value;
         const applicationLink = document.getElementById('applicationLink').value;
 
-        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBNnK7Un4yK2Q1o2CPYp9NNAsJLiiMtvzQ&q=${encodeURIComponent(workplace)}`;
+        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
 
         let contactInfo = '';
         const contactEntries = document.querySelectorAll('.contact-entry');
@@ -155,31 +155,40 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!confirm('Er du sikker på at du ønsker å publisere denne annonsen?')) {
             return; // Brukeren valgte å avbryte, fortsett ikke med publiseringen
         }
-
+        
         updateProgressBar(2); // Oppdater til publiseringssteget
         const formData = new FormData(form);
-        formData.append('description', editorInstance.getData());
+        formData.append('description', window.editorInstance.getData());
         formData.append('action', 'upload_job_post_form'); // Matcher action hook i WordPress
         formData.append('security', ajax_object.nonce); // Security nonce
-
+    
+        console.log('Sending AJAX request with data:', formData);
+        console.log('Nonce:', ajax_object.nonce);
+        console.log('AJAX URL:', ajax_object.ajax_url);
+    
         fetch(ajax_object.ajax_url, {
             method: 'POST',
             body: formData,
         })
         .then((response) => response.json())
         .then((data) => {
+            console.log('Server response:', data);
             if (data.success) {
                 console.log('Annonsen ble publisert:', data);
                 updateProgressBar(2); // Oppdater til kontrollsteget etter vellykket publisering
-                window.location.href = 'din-annonse'; // Omdiriger etter publisering
+                console.log('Redirecting to /din-annonse');
+                window.location.href = '/din-annonse'; // Omdiriger etter publisering
             } else {
                 console.error('Det har skjedd en feil:', data);
+                alert(`Det har skjedd en feil: ${data.message || 'Ukjent feil'}`);
             }
         })
         .catch((error) => {
             console.error('Error:', error);
+            alert(`Det har skjedd en feil: ${error.message || 'Ukjent feil'}`);
         });
     }
+    
 
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';

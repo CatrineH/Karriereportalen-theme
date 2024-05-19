@@ -30,31 +30,23 @@ function load_js()
 add_action('wp_enqueue_scripts', 'load_js');
 
 // AJAX handlers for file upload
-function handle_image_upload_request()
-{
-    error_log('AJAX request received');
-
+function handle_image_upload_request() {
     if (!check_ajax_referer('file_upload', 'security', false)) {
-        error_log('Nonce check failed');
         wp_send_json_error(['message' => 'Nonce verification failed']);
     }
 
-
-    check_ajax_referer('file_upload', 'security', true);
-    $response = [];
     $banner_id = media_handle_upload('imageBanner', 0);
     $logo_id = media_handle_upload('imageLogo', 0);
 
     if (is_wp_error($banner_id) || is_wp_error($logo_id)) {
-        error_log('Error uploading files: ' . print_r($banner_id->get_error_messages(), true) . ' or ' . print_r($logo_id->get_error_messages(), true));
         wp_send_json_error(array('message' => 'Uploading failed.'));
         return;
     }
 
-    error_log('Upload successful: Banner ID - ' . $banner_id . ', Logo ID - ' . $logo_id);
     wp_send_json_success(['ids' => ['banner_id' => $banner_id, 'logo_id' => $logo_id]]);
-    // wp_send_json_success(array('banner_id' => $banner_id, 'logo_id' => $logo_id));
 }
+
+add_action('wp_ajax_handle_image_upload_request', 'handle_image_upload_request');
 
 
 function handle_job_form_upload()
@@ -339,47 +331,46 @@ function handle_image_upload($inputName)
 
 
 function upload_job_post_form() {
-    // Security checks: verify nonce and user capabilities if needed
-    check_ajax_referer('ajax_nonce', 'security');
+    if (!check_ajax_referer('file_upload', 'security', false)) {
+        wp_send_json_error(['message' => 'Security check failed']);
+        return;
+    }
 
     require_once(ABSPATH . 'wp-admin/includes/image.php');
     require_once(ABSPATH . 'wp-admin/includes/file.php');
     require_once(ABSPATH . 'wp-admin/includes/media.php');
 
-    // Handling image uploads
     $banner_id = media_handle_upload('imageBanner', 0);
     $logo_id = media_handle_upload('imageLogo', 0);
 
     if (is_wp_error($banner_id) || is_wp_error($logo_id)) {
         wp_send_json_error(['message' => 'Image upload failed', 'errors' => ['banner' => $banner_id->get_error_messages(), 'logo' => $logo_id->get_error_messages()]]);
-        return;  // Exit the function after sending JSON error
+        return;
     }
 
-    // Preparing post data
     $postarr = [
         'post_author'  => get_current_user_id(),
-        'postTitle'   => sanitize_text_field($_POST['postTitle']),
+        'post_title'   => sanitize_text_field($_POST['postTitle']),
         'post_content' => sanitize_textarea_field($_POST['editor']),
         'post_status'  => 'draft',
         'meta_input'   => [
             'jobTitle'            => sanitize_text_field($_POST['jobTitle']),
-            'employment_type'      => sanitize_text_field($_POST['employment_type']),
-            'workplace'            => sanitize_text_field($_POST['workplace']),
-            'sector'               => sanitize_text_field($_POST['sector']),
-            'employer'             => sanitize_text_field($_POST['employer']),
-            'industry'             => sanitize_text_field($_POST['industry']),
-            'deadline'             => sanitize_text_field($_POST['deadline']),
-            'number_of_positions'  => sanitize_text_field($_POST['number_of_positions']),
-            'application_link'     => sanitize_url($_POST['application_link']),
-            'application_email'    => sanitize_email($_POST['application_email']),
-            'contact_person'       => sanitize_text_field($_POST['contact_person']),
-            'phone'                => sanitize_text_field($_POST['phone']),
-            'banner_image_id'      => $banner_id,
-            'logo_image_id'        => $logo_id
+            'employment_type'     => sanitize_text_field($_POST['employment_type']),
+            'workplace'           => sanitize_text_field($_POST['workplace']),
+            'sector'              => sanitize_text_field($_POST['sector']),
+            'employer'            => sanitize_text_field($_POST['employer']),
+            'industry'            => sanitize_text_field($_POST['industry']),
+            'deadline'            => sanitize_text_field($_POST['deadline']),
+            'number_of_positions' => sanitize_text_field($_POST['number_of_positions']),
+            'application_link'    => sanitize_url($_POST['application_link']),
+            'application_email'   => sanitize_email($_POST['application_email']),
+            'contact_person'      => sanitize_text_field($_POST['contact_person']),
+            'phone'               => sanitize_text_field($_POST['phone']),
+            'banner_image_id'     => $banner_id,
+            'logo_image_id'       => $logo_id
         ]
     ];
 
-    // Inserting the post
     $post_id = wp_insert_post($postarr);
     if (is_wp_error($post_id)) {
         wp_send_json_error(['message' => 'Failed to create post', 'error' => $post_id->get_error_messages()]);
@@ -387,7 +378,7 @@ function upload_job_post_form() {
         wp_send_json_success(['message' => 'Post created successfully', 'post_id' => $post_id]);
     }
 }
-add_action('wp_ajax_upload_job_post_form', 'upload_job_post_form');  
+add_action('wp_ajax_upload_job_post_form', 'upload_job_post_form');
 
 
 
