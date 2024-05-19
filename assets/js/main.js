@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 </span>
             </div>
             <input id="contactPerson${contactCounter}" name="contactPerson[]" type="text" placeholder="Kontaktperson" class="form-control input-md">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
+            </div>
             <input id="applicationPhone${contactCounter}" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
         `;
         contactContainer.appendChild(newContactEntry);

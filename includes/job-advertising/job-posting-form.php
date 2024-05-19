@@ -140,10 +140,10 @@
                             <textarea class="form-control" id="editor" name="editor" style="height: 400px;"></textarea>
                         </div>
                         <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
-                        <h6 style="color: #9E182F; margin: 15px;"> Hvordan skal stillingen søkes?</h6>
+                        <h5 style="color: #9E182F; margin: 15px;"> Hvordan skal stillingen søkes?</h5>
                         <div class="form-group" style="margin-top: 10px;">
                             <label class="col-md-5 control-label" for="applicationLink">
-                                <p style="color: #4e0000; font-size: 14px;">Via bedriftens eksterne søkeportal</p>
+                                <p style="color: #4e0000; font-size: 16px;">Via bedriftens eksterne søkeportal</p>
                             </label>
                             <div class="col-lg-12 input-group">
                                 <div class="input-group-prepend">
@@ -156,7 +156,7 @@
                         </div>
                         <div class="form-group" style="margin-top: 10px;">
                             <label class="col-md-5 control-label" for="applicationEmail">
-                                <p style="color: #4e0000; font-size: 14px;">Via e-post</p>
+                                <p style="color: #4e0000; font-size: 16px;">Via e-post</p>
                             </label>
                             <div class="col-lg-5 input-group">
                                 <div class="input-group-prepend">
@@ -167,60 +167,40 @@
                                 <input id="applicationEmail" name="applicationEmail" type="email" placeholder="" class="form-control input-md" required="">
                             </div>
                         </div>
-                        <hr style="padding: 30px;">
-                        <h6 style="color: #9E182F; margin: 15px;">Kontaktinformasjon</h6>
-
-                        <!-- <div class="form-group" style="margin-top: 10px;">
-                            <label class="col-md-5 control-label" for="contactPerson">
-                                <p style="color: #4e0000; font-size: 14px;">Søker kan kontakte denne personen</p>
-                            </label>
-                            <div class="col-lg-5 input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa-solid fa-user-group"></i>
-                                    </span>
-                                </div>
-                                <input id="contactPerson" name="contactPerson" type="text" placeholder="" class="form-control input-md" required="">
-                            </div>
-                        </div> -->
+                        <hr style="padding: 10px;">
+                        <h5 style="color: #9E182F; margin: 15px;">Kontaktinformasjon</h5>
                         <div class="form-group">
     <label class="col-md-5 control-label" for="contactPerson">
-        <p style="color: #4e0000; font-size: 14px;">Søker kan kontakte denne personen</p>
+        <p style="color: #4e0000; font-size: 16px;">Søker kan kontakte </p>
+        <button type="button" id="addContactButton" class="btn btn-secondary mt-4">Legg til flere kontaktpersoner</button>
     </label>
-    <div id="contactContainer" class="col-lg-5 input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">
-                <i class="fa-solid fa-user-group"></i>
-            </span>
+
+    <div id="contactContainer" class="col-lg-12">
+        <div class="input-group mt-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-user-group"></i>
+                </span>
+            </div>
+            <input id="contactPerson1" name="contactPerson[]" type="text" placeholder="Kontaktperson" class="form-control input-md">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
+            </div>
+            <input id="applicationPhone1" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
         </div>
-        <input id="contactPerson1" name="contactPerson[]" type="text" placeholder="Kontaktperson" class="form-control input-md">
-        <input id="applicationPhone1" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
     </div>
-    <button type="button" id="addContactButton" class="btn btn-secondary mt-2">Legg til flere kontaktpersoner</button>
 </div>
 
-                        <div class="form-group">
-                            <label class="col-md-5 control-label" for="applicationPhone">
-                                <p style="color: #4e0000; font-size: 14px;">Telefon</p>
-                            </label>
-                            <div class="col-lg-5 input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </span>
-                                </div>
-                                <input id="applicationPhone" name="applicationPhone" type="tel" placeholder="" class="form-control input-md" required="">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <div class="col-lg-7">
-                            <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>
-                            <button type="submit" name="publish-btn" id="publishButton" class="btn" style="background-color:#9E182F; color:#fff;" onclick="location.href='din-annonse';">Publiser</button>
-                            <button type="button" id="previewButton" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
-                        </div>
-                    </div>
+<div class="form-group row">
+    <div class="col-lg-7">
+        <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>
+        <button type="submit" name="publish-btn" id="publishButton" class="btn" style="background-color:#9E182F; color:#fff;">Publiser</button>
+        <button type="button" id="previewButton" class="btn" style="background-color:#7D7DAA; color:#fff;">Forhåndsvis</button>
+    </div>
+</div>
+
                 </fieldset>
             </div>
         </div>
