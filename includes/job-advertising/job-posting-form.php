@@ -169,7 +169,8 @@
                         </div>
                         <hr style="padding: 30px;">
                         <h6 style="color: #9E182F; margin: 15px;">Kontaktinformasjon</h6>
-                        <div class="form-group" style="margin-top: 10px;">
+
+                        <!-- <div class="form-group" style="margin-top: 10px;">
                             <label class="col-md-5 control-label" for="contactPerson">
                                 <p style="color: #4e0000; font-size: 14px;">Søker kan kontakte denne personen</p>
                             </label>
@@ -181,7 +182,23 @@
                                 </div>
                                 <input id="contactPerson" name="contactPerson" type="text" placeholder="" class="form-control input-md" required="">
                             </div>
-                        </div>
+                        </div> -->
+                        <div class="form-group">
+    <label class="col-md-5 control-label" for="contactPerson">
+        <p style="color: #4e0000; font-size: 14px;">Søker kan kontakte denne personen</p>
+    </label>
+    <div id="contactContainer" class="col-lg-5 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">
+                <i class="fa-solid fa-user-group"></i>
+            </span>
+        </div>
+        <input id="contactPerson1" name="contactPerson[]" type="text" placeholder="Kontaktperson" class="form-control input-md">
+        <input id="applicationPhone1" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
+    </div>
+    <button type="button" id="addContactButton" class="btn btn-secondary mt-2">Legg til flere kontaktpersoner</button>
+</div>
+
                         <div class="form-group">
                             <label class="col-md-5 control-label" for="applicationPhone">
                                 <p style="color: #4e0000; font-size: 14px;">Telefon</p>
@@ -196,6 +213,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <div class="col-lg-7">
                             <p style="padding-top: 30px; color:#7D7DAA; font-size: 14px;">** Annonsen må kvalitetssikres av karrieresenteret før den blir synlig for søkere</p>

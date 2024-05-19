@@ -5,11 +5,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const publishButton = document.getElementById('publishButton');
     const form = document.getElementById('job_form');
     const progressBars = document.querySelectorAll('.progress-bar');
+    const addContactButton = document.getElementById('addContactButton');
+    const contactContainer = document.getElementById('contactContainer');
 
     if (!modal || !closeModal || !previewButton || !publishButton || !form || progressBars.length < 3) {
         console.error('Required DOM elements not found.');
         return;
     }
+
+    let contactCounter = 1;
+
+    addContactButton.addEventListener('click', function () {
+        contactCounter++;
+        const newContactEntry = document.createElement('div');
+        newContactEntry.classList.add('input-group', 'mt-2');
+        newContactEntry.innerHTML = `
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-user-group"></i>
+                </span>
+            </div>
+            <input id="contactPerson${contactCounter}" name="contactPerson[]" type="text" placeholder="Kontaktperson" class="form-control input-md">
+            <input id="applicationPhone${contactCounter}" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
+        `;
+        contactContainer.appendChild(newContactEntry);
+    });
 
     function updateProgressBar(stepIndex) {
         progressBars.forEach((bar, index) => {
@@ -39,13 +59,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const deadline = document.getElementById('deadline').value;
         const numberOfPositions = document.getElementById('numberOfPositions').selectedOptions[0].text;
         const editorData = window.editorInstance.getData();
-        const contactPerson = document.getElementById('contactPerson').value;
-        const applicationPhone = document.getElementById('applicationPhone').value;
         const applicationEmail = document.getElementById('applicationEmail').value;
         const applicationLink = document.getElementById('applicationLink').value;
-    
-        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBNnK7Un4yK2Q1o2CPYp9NNAsJLiiMtvzQ&q=${encodeURIComponent(workplace)}`;
-    
+
+        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
+
+        let contactInfo = '';
+        for (let i = 1; i <= contactCounter; i++) {
+            const contactPerson = document.getElementById(`contactPerson${i}`).value;
+            const applicationPhone = document.getElementById(`applicationPhone${i}`).value;
+            if (contactPerson || applicationPhone) {
+                contactInfo += `
+                    <p style="font-weight: bold;">Kontakt person: <span style="font-weight: normal;">${contactPerson}</span></p>
+                    <p style="font-weight: bold;">Kontakt telefon: <span style="font-weight: normal;">${applicationPhone}</span></p>
+                `;
+            }
+        }
+
         const previewBody = document.getElementById('preview_body');
         previewBody.innerHTML = `
             <div class="banner-container">
@@ -78,83 +108,73 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                     <hr>
                     <div class="full-width">
-                    <p style="font-weight: bold;"><strong>Kontakt informasjon</strong></p>
+                        <p style="font-weight: bold;"><strong>Kontakt informasjon</strong></p>
+                        <ul>
+                            ${applicationLink ? `<p style="font-weight: bold;">Søknadslink: <span style="font-weight: normal;">${applicationLink}</span></p>` : ''}
+                            ${applicationEmail ? `<p style="font-weight: bold;">søknads epost: <span style="font-weight: normal;">${applicationEmail}</span></p>` : ''}
+                        </ul>
                     </div>
                     <div class="full-width">
-                   
-                    <ul>
-                    <p style="font-weight: bold;">Søknadslink: <span style="font-weight: normal;">${applicationLink}</span></p>
-                    <p style="font-weight: bold;">søknads epost: <span style="font-weight: normal;">${applicationEmail}</span></p>
-                </ul>
-                <div class="full-width">
-                        <ul>
-                            <p style="font-weight: bold;">Kontakt person: <span style="font-weight: normal;">${contactPerson}</span></p>
-                            <p style="font-weight: bold;">Kontakt telefon: <span style="font-weight: normal;">${applicationPhone}</span></p>
-                            </ul>
-                            </div>
-                          
+                        ${contactInfo}
                     </div>
                     <hr>
-                    <div>
-                    <div class="full-width">
-                        <div class="job-address">
-                            <h6 style="font-weight: bold;">Addresse: <span style="font-weight: normal;">${workplace}</span></h6>
-                            <iframe width="80%" height="300" style="border:0" loading="lazy" allowfullscreen
-                                src="${googleMapsUrl}">
-                            </iframe>
-                        </div>
-                        </div>
+                    <div class="job-address">
+                        <h6 style="font-weight: bold;">Addresse: <span style="font-weight: normal;">${workplace}</span></h6>
+                        <iframe width="80%" height="300" style="border:0" loading="lazy" allowfullscreen
+                            src="${googleMapsUrl}">
+                        </iframe>
                     </div>
                 </div>
             </div>`;
     }
-    
 
     function handlePreview(event) {
         event.preventDefault();
         updatePreviewContent();
         modal.style.display = 'block';
-        updateProgressBar(1); // Update to preview step
+        updateProgressBar(1); // Oppdater til forhåndsvisningssteget
     }
 
     function handlePublish(event) {
         event.preventDefault();
-        if (confirm('Er du sikker på at du ønsker å publisere denne annonsen?')) {
-            updateProgressBar(2); // Update to publishing step
-            const formData = new FormData(form);
-            formData.append('description', editorInstance.getData());
-            formData.append('action', 'upload_job_post_form'); // Matches action hook in WordPress
-            formData.append('security', ajax_object.nonce); // Security nonce
-
-            fetch(ajax_object.ajax_url, {
-                method: 'POST',
-                body: formData,
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.success) {
-                    console.log('Annonsen ble publisert:', data);
-                    updateProgressBar(2); // Update to control step after successful publish
-                    window.location.href = 'din-annonse'; // Redirect after publishing
-                } else {
-                    console.error('Det har skjedd en feil:', data);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+        if (!confirm('Er du sikker på at du ønsker å publisere denne annonsen?')) {
+            return; // Brukeren valgte å avbryte, fortsett ikke med publiseringen
         }
+
+        updateProgressBar(2); // Oppdater til publiseringssteget
+        const formData = new FormData(form);
+        formData.append('description', editorInstance.getData());
+        formData.append('action', 'upload_job_post_form'); // Matcher action hook i WordPress
+        formData.append('security', ajax_object.nonce); // Security nonce
+
+        fetch(ajax_object.ajax_url, {
+            method: 'POST',
+            body: formData,
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                console.log('Annonsen ble publisert:', data);
+                updateProgressBar(2); // Oppdater til kontrollsteget etter vellykket publisering
+                window.location.href = 'din-annonse'; // Omdiriger etter publisering
+            } else {
+                console.error('Det har skjedd en feil:', data);
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
 
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
-        updateProgressBar(0); // Revert to initial step
+        updateProgressBar(0); // Tilbake til startsteget
     });
 
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
-            updateProgressBar(0); // Revert to initial step
+            updateProgressBar(0); // Tilbake til startsteget
         }
     });
 
