@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const applicationEmail = document.getElementById('applicationEmail').value;
         const applicationLink = document.getElementById('applicationLink').value;
 
-        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
+        const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBNnK7Un4yK2Q1o2CPYp9NNAsJLiiMtvzQ&q=${encodeURIComponent(workplace)}`;
 
         let contactInfo = '';
         const contactEntries = document.querySelectorAll('.contact-entry');
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="full-width">
                         <p style="font-weight: bold;"><strong>Kontakt informasjon</strong></p>
                         <ul>
-                            ${applicationLink ? `<p style="font-weight: bold;">Søknadslink: <span style="font-weight: normal;">${applicationLink}</span></p>` : ''}
+                            ${applicationLink ? `<p style="font-weight: bold;">Søknadslink: <a href="${applicationLink}" target="_blank">${applicationLink}</a></p>` : ''}
                             ${applicationEmail ? `<p style="font-weight: bold;">søknads epost: <span style="font-weight: normal;">${applicationEmail}</span></p>` : ''}
                         </ul>
                     </div>

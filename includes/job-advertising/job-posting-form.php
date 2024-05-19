@@ -170,13 +170,14 @@
                         <hr style="padding: 10px;">
                         <h5 style="color: #9E182F; margin: 15px;">Kontaktinformasjon</h5>
                         <div class="form-group">
+                        <div class="form-group">
     <label class="col-md-5 control-label" for="contactPerson">
-        <p style="color: #4e0000; font-size: 16px;">Søker kan kontakte </p>
+        <p style="color: #4e0000; font-size: 14px;">Søker kan kontakte denne personen</p>
         <button type="button" id="addContactButton" class="btn btn-secondary mt-4">Legg til flere kontaktpersoner</button>
     </label>
 
     <div id="contactContainer" class="col-lg-12">
-        <div class="input-group mt-2">
+        <div class="input-group mt-2 contact-entry">
             <div class="input-group-prepend">
                 <span class="input-group-text">
                     <i class="fa-solid fa-user-group"></i>
@@ -189,9 +190,13 @@
                 </span>
             </div>
             <input id="applicationPhone1" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-danger remove-contact-button">&times;</button>
+            </div>
         </div>
     </div>
 </div>
+
 
 <div class="form-group row">
     <div class="col-lg-7">
