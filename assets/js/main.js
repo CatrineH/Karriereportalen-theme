@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addContactButton.addEventListener('click', function () {
         contactCounter++;
         const newContactEntry = document.createElement('div');
-        newContactEntry.classList.add('input-group', 'mt-2');
+        newContactEntry.classList.add('input-group', 'mt-2', 'contact-entry');
         newContactEntry.innerHTML = `
             <div class="input-group-prepend">
                 <span class="input-group-text">
@@ -32,8 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 </span>
             </div>
             <input id="applicationPhone${contactCounter}" name="applicationPhone[]" type="tel" placeholder="Telefonnummer" class="form-control input-md">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-danger remove-contact-button">&times;</button>
+            </div>
         `;
         contactContainer.appendChild(newContactEntry);
+    });
+
+    contactContainer.addEventListener('click', function (event) {
+        if (event.target.classList.contains('remove-contact-button')) {
+            event.target.closest('.contact-entry').remove();
+        }
     });
 
     function updateProgressBar(stepIndex) {
@@ -70,16 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(workplace)}`;
 
         let contactInfo = '';
-        for (let i = 1; i <= contactCounter; i++) {
-            const contactPerson = document.getElementById(`contactPerson${i}`).value;
-            const applicationPhone = document.getElementById(`applicationPhone${i}`).value;
+        const contactEntries = document.querySelectorAll('.contact-entry');
+        contactEntries.forEach(entry => {
+            const contactPerson = entry.querySelector('input[name="contactPerson[]"]').value;
+            const applicationPhone = entry.querySelector('input[name="applicationPhone[]"]').value;
             if (contactPerson || applicationPhone) {
                 contactInfo += `
                     <p style="font-weight: bold;">Kontakt person: <span style="font-weight: normal;">${contactPerson}</span></p>
                     <p style="font-weight: bold;">Kontakt telefon: <span style="font-weight: normal;">${applicationPhone}</span></p>
                 `;
             }
-        }
+        });
 
         const previewBody = document.getElementById('preview_body');
         previewBody.innerHTML = `
