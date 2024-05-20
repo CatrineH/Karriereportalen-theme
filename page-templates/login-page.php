@@ -9,10 +9,10 @@ get_header();
 
 
 <div class="main-content" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/img1.png');">
-  <div class="container-fluid">
-    <div class="row h-100 align-items-start">
-     
-    <div class="col-md-7 text-white float-left p-4">
+  <!-- <div class="container-fluid"> -->
+    <!-- <div class="row h-100 align-items-start"> -->
+    <div class="container-fluid" style="height: 70vh;">
+    <div class="col-md-7 text-white float-left p-5">
         <h1>Velkommen til karriereportalen</h1>
       </div>
 
@@ -26,7 +26,7 @@ get_header();
 
 </div>
 </div>
-    </div>
+    <!-- </div> -->
   </section><!-- End Hero Section -->
 
 <?php get_footer(); ?>
