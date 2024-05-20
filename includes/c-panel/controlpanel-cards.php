@@ -12,7 +12,7 @@
 
     <!-- Second Card -->
     <div class="custom-card">
-        <div class="custom-card" onclick="location.href='statistikk';" style="cursor: pointer;">
+        <div class="custom-card" style="cursor: pointer;">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/animations/Woman-presenting-online-business-analysis.gif" alt="Woman presenting online business analysis">
             <div class="custom-card-body text-center">
                 <h5 class="card-title">Se statistikk</h5>
