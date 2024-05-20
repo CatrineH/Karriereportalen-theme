@@ -12,7 +12,7 @@ get_header();
   <!-- <div class="container-fluid"> -->
     <!-- <div class="row h-100 align-items-start"> -->
     <div class="container-fluid" style="height: 70vh;">
-    <div class="col-md-7 text-white float-left p-5">
+    <div class="col-md-7 text-white float-left" style="margin-top: 10rem;">
         <h1>Velkommen til karriereportalen</h1>
       </div>
 

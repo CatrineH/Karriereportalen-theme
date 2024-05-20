@@ -1,5 +1,5 @@
 
-<form class="form" id="login" method="post">
+<form class="form" style="margin-top: 100px;" id="login" method="post">
   <h2>Logg inn</h2>
   
   <div class="form-field">
