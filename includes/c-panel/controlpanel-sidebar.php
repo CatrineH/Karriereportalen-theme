@@ -26,7 +26,7 @@
             <li class="nav-item text-center">
                 <a class="sidebar-link" href="/faq">
                     <i class="fa fa-life-ring fa-2x"></i>
-                    <span>Support</span>
+                    <span>FAQ</span>
                 </a>
             </li>
             <li class="nav-item text-center">
