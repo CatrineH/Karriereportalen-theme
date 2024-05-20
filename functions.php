@@ -163,8 +163,13 @@ function create_new_user()
             );
 
             $user = wp_signon($creds, false);
-            wp_redirect("register-2");
+            if (isset($_POST['registrert-i-brreg']) && $_POST['registrert-i-brreg'] == 1) {
+                wp_redirect("/brreg");
+                exit;
+            } else {
+            wp_redirect("/register-2");
             exit;
+            }
         }
     }
 }
