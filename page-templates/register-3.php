@@ -23,7 +23,7 @@ get_header();
     </div>
  
     <!-- Registration Form 1 -->
-    <?php get_template_part('includes/login/register-form-3'); ?>
+    <?php get_template_part('includes/register-form-3'); ?>
   </div>
 </main>
 <?php get_footer(); ?>

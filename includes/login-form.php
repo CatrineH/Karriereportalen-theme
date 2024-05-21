@@ -1,5 +1,5 @@
 
-<form class="form" style="margin-top: 100px;" id="login" method="post">
+<form class="form" id="login" method="post">
   <h2>Logg inn</h2>
   
   <div class="form-field">
@@ -24,7 +24,7 @@
   <input type="hidden" name="action" value="user_login_action">
 <br>
 <p>Har du ikke en bruker hos oss?
-  <a href="<?php echo get_permalink(get_page_by_path('register-1/')); ?>" class="register">Opprett en konto</a>
+  <a href="<?php echo get_permalink(get_page_by_path('register-1')); ?>" class="register">Opprett en konto</a>
 </p>
 
 

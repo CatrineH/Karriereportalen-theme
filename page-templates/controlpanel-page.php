@@ -4,17 +4,20 @@
 get_header();
 ?>
 
-    <?php get_template_part('includes/c-panel/controlpanel-sidebar'); ?>
+    <?php get_template_part('includes/controlpanel-sidebar'); ?>
     <div class="headline-block" > 
-    Her er stillingsportalen! Hva vil du gjøre?
+    <h2 id="c-panel-headline">Her er stillingsportalen! Hva vil du gjøre?</h2>
     </div>
         <div class="container">
         <div class="d-flex justify-content-center">
 
-              <?php get_template_part('includes/c-panel/controlpanel-cards'); ?>  
+            <!-- <div class="card-container d-flex justify-content-center flex-wrap"> -->
+              <?php get_template_part('includes/controlpanel-cards'); ?>  
             </div>
 
         </div>
-  
+    <!-- </div> -->
+
+
 <?php get_footer(); ?>
 

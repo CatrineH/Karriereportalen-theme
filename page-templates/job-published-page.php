@@ -1,29 +1,41 @@
 <?php
-/**
- * Template Name: Job Published Page
- */
+
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+//     $title = $_POST['annonsetittel'];
+//     $jobTitle = $_POST['stillingstittel'];
+//     $employmentType = $_POST['ansettelsesform'];
+//     $workplace = $_POST['arbeidsted'];
+//     $sector = $_POST['sektor'];
+//     $employer = $_POST['arbeidsgiver'];
+//     $industry = $_POST['industry'];
+//     $deadline = $_POST['frist'];
+//     $numberOfPositions = $_POST['numberOfPositions'];
+//     $description = $_POST['editor']; 
+
+
 get_header(); 
 ?>
-
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-3 ">
-            <button class="btn btn-back-publish" style="" onclick="location.href='kontrollpanel';">
-                <i class="fas fa-arrow-left"></i> Kontrollpanel
-            </button>
+        
+        <main class="main-content">
+            <img src="path/to/banner/image.jpg" alt="Banner image" class="banner-image">
+            <h1><?= $title; ?></h1>
+            <div class="job-details">
+                <p>Stillingstittel: <?= $jobTitle; ?></p>
+                <p>Ansettelsesform: <?= $employmentType; ?></p>
+                <p>Arbeidsted: <?= $workplace; ?></p>
+                <p>Sektor: <?= $sector; ?></p>
+                <p>Arbeidsgiver: <?= $employer; ?></p>
+                <p>Bransje: <?= $industry; ?></p>
+                <p>Frist: <?= $deadline; ?></p>
+                <p>Antall stillinger: <?= $numberOfPositions; ?></p>
             </div>
-        </div>
-    <!-- Content section -->
-
-    <div class="row justify-content-center align-items-center ">
-        <div class="col-7 col-sm-10 col-md-11">
-            <div class="job-published-container"> 
-                <?php get_template_part('includes/job-advertising/job-finale-message'); ?>
+            <div class="job-description">
+                <p><?= $description; ?></p>
             </div>
-
-        </div>
-    </div>
-</div>
+        </main>
 
 <?php get_footer(); ?>
+    </div>
+</body>
+</html>

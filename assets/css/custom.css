@@ -12,7 +12,7 @@
 }
 
 :root {
-	--header-height: 100px;
+	--header-height: 150px;
 	--footer-height: 150px;
 }
 
@@ -78,6 +78,7 @@
 /*==============================    FOOTER  ===================================*/
 footer {
 	position: relative;
+	/* Removed fixed positioning */
 }
 
 .bg-black {
@@ -98,6 +99,8 @@ footer {
 .social-icons a:hover {
 	color: #9E182F;
 }
+
+/*============================== PROGRESSBAR ANNONSER  ===========================*/
 
 
 /*============================== REG FORM STANDARDS  ===========================*/
@@ -166,14 +169,7 @@ footer {
 
 .reg-button {
 	position: relative;
-}
-
-#reg-button-1 {
-	left: -20px;
-}
-
-#reg-button-2 {
-	left: 375px;
+	left: 402px;
 }
 
 .login-button:hover {
@@ -254,18 +250,17 @@ p {
 	left: 0px;
 }
 
-/*======================== BRRG CARD ======================*/
+/*========================== BRRG CARD ==========================*/
 
-/* h2 {
+h2 {
 	font-size: 2.5rem;
 	top: 10%;
 	left: 300px;
 	z-index: 2;
 	color: rgb(245, 245, 245);
-} */
+}
 
-/* vi ble enige om å rydde bort denne? */
-/* .question-box {
+.question-box {
 	background: #4e0000;
 	padding: 60px;
 	border-radius: 15px;
@@ -273,7 +268,7 @@ p {
 	margin-top: 17rem;
 	margin-right: 30rem;
 	z-index: 1;
-} */
+}
 
 .btn-outline-light,
 .btn-light {
@@ -281,7 +276,7 @@ p {
 }
 
 
-/*======================= JOB AD - FORM ==========================*/
+/*======================= ANNONSE - FORM ==========================*/
 
 
 .card-form {
@@ -293,7 +288,7 @@ p {
 	height: 200px;
 	overflow: hidden;
 	position: relative;
-	border: 0.5px solid #878787;
+	border: 1px solid #ccc;
 }
 
 #bannerPreview {
@@ -303,8 +298,8 @@ p {
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: ns-resize;
-
 }
+
 
 
 #logoPreview {
@@ -314,12 +309,12 @@ p {
 	object-fit: contain;
 	border-radius: 50%;
 	overflow: hidden;
-	border: 0.5px solid #000000;
+	border: 1px solid #000000;
 
 
 	position: absolute;
 	left: 15px;
-	top: 150px;
+	top: 190px;
 	margin-left: 130px;
 	object-fit: cover;
 	z-index: 10;
@@ -351,15 +346,15 @@ label {
 
 .ck-editor__editable {
 	min-height: 400px;
-	width: auto;
+	width: 1024px;
 	max-height: auto;
 	overflow-y: auto;
 }
 
-/* .headline-block {
+.headline-block {
 	text-align: center;
 	margin: 30px;
-} */
+}
 
 .custom-file-upload {
 	display: inline-block;
@@ -378,7 +373,7 @@ label {
 	background-color: #4e0000;
 }
 
-/*====================== JOB AD - MODAL PREVIEW =====================*/
+/*======================= ANNONSE - MODAL PREVIEW ==========================*/
 .modal {
 	display: none;
 	position: fixed;
@@ -409,6 +404,7 @@ label {
 .modal-content {
 	max-width: 1024px;
 	margin: auto;
+
 	background-color: #fefefe;
 	margin: 10% auto;
 	padding: 20px;
@@ -416,6 +412,11 @@ label {
 	width: 90%;
 }
 
+/* .job-preview img.bannerPreview {
+    width: 50%;
+    height: 200;
+	object-fit:contain;
+} */
 
 .job-preview img.logo {
 	width: 150px;
@@ -447,41 +448,7 @@ label {
 }
 
 
-/*===================== JOB AD - PUBLISHED =======================*/
-
-.responsive-img {
-	max-width: 100%;
-	height: 400px;
-	border-radius: 10px;
-}
-
-.job-published-container {
-	max-width: 100%;
-	margin: 0 auto;
-	/* sentrering */
-	padding: 50px;
-	background-color: #fff;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	transform: scale(90%);
-
-}
-
-
-.description,
-.job-address {
-	padding: 25px;
-	/* background-color: #f4f4f4;  */
-	margin-top: 50px;
-}
-
-/* google map */
-iframe {
-	width: 100%;
-	border: none;
-}
-
-
-/*===================== REG - LAYOUT 2COL GRID ===================*/
+/*====================== REG - LAYOUT 2COL GRID ==========================*/
 
 .upload-form {
 	display: flex;
@@ -521,51 +488,14 @@ iframe {
 }
 
 .progress {
-
 	height: 40px;
-}
-
-
-.progress-container {
-	position: sticky;
-	top: calc(var(--header-height) + 40px);
-	width: 90%;
-	margin-left: 540px;
-
-	z-index: 1030;
-	transform: translateX(-50%);
-}
-
-.progress-bar {
-	transition: background-color 0.3s, color 0.3s;
-}
-
-.progress-bar.active {
-	background-color: #C61932 !important;
-	/* Active color */
-	color: white !important;
-}
-
-.progress-bar.completed {
-	background-color: #C61932 !important;
-	/* Completed color */
-	color: white !important;
-}
-
-.progress-bar.inactive {
-	background-color: #fff !important;
-	/* Inactive color */
-	color: black !important;
-}
-
-.field-error {
-	border: 2px solid red;
 }
 
 
 /*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 
 .custom-card {
+	border-color: #9e182f;
 	flex: 0 1 300px;
 	margin: 1px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -577,7 +507,7 @@ iframe {
 .custom-card:hover {
 	transform: scale(1.03);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-	background-color: #9e182f;
+	background-color: #c61932;
 	color: #f3f3f3;
 }
 
@@ -605,44 +535,47 @@ iframe {
 	flex-wrap: wrap;
 	gap: 50px;
 	margin-left: 9%;
-	margin-bottom: 8%;
 }
 
 #c-panel-headline {
 	color: #000;
 	padding-top: 30px;
-	font-size: 2.5rem;	
+	font-size: 2.5rem;
 
 }
 
-/*========================== SIDEBAR NAV ALL PAGES ==========================*/
+/*========================== SIDEBAR NAV CONTROLPANEL ==========================*/
 .with-line:after {
 	content: '';
-	width: 155px;
+	width: 250px;
 	height: 0.5px;
 	background-color: #fff;
 	margin-top: 15px;
-
 }
+
 
 .sidebar {
 	position: fixed;
-	top: 0;
 	left: 0;
-	width: 170px;
-	padding-top: 180px;
-	background-color: #9E182F;
-	height: calc(150vh - var(--header-height));
+	width: 230px;
+	padding-top: 25px;
+	background-color: #c61932;
+	text-align: center;
+	overflow-y: auto;
+	height: calc(100vh - var(--header-height));
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
+
 
 .sidebar a {
 	display: block;
 	color: #fff;
-	padding: 15px;
+	padding: 16px;
 	text-decoration: none;
+	white-space: nowrap;
 	position: relative;
-	margin: 0;
-	border-bottom: 1px solid #ffffff30;
 
 }
 
@@ -657,53 +590,13 @@ iframe {
 	top: 0;
 	left: 0;
 	right: 0;
-	width: auto;
-	height: 95%;
+	width: 250px;
+	height: 100%;
 	background-color: #4e0000;
 	opacity: 0.3;
 	transition: opacity 0.3s ease;
 }
 
-.nav-item .sidebar-link {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-decoration: none;
-	color: #f3f3f3;
-	font-size: 14px;
-}
-
-.nav-item .sidebar-link i {
-	margin-bottom: 5px;
-	/* Space mellom ikon og tekst */
-}
-
-
-/*========================== PUBLISHED - PAGE ==========================*/
-.btn-back-publish,
-.btn-apply {
-	margin-top: 50px;
-	background: #9E182F;
-	color: rgb(255, 255, 255);
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	padding: 10px 20px;
-	border-radius: 5px;
-	border: none;
-	margin-top: 40px;
-	margin-left: 170px;
-
-}
-
-.btn-apply {
-	float: right;
-	margin-right: 170px;
-	margin-bottom: 50px;
-
-
-}
 
 /*========================== FAQ ==========================*/
 
@@ -743,7 +636,6 @@ iframe {
 
 
 /*========================== INNSTILLINGER ==========================*/
-
 .settings-container {
 	width: 300px;
 	margin: 50px auto;

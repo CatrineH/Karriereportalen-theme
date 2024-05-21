@@ -37,7 +37,7 @@ get_header();
 <p>Ønsker du å skrive bedriftsinformasjonen manuelt, kan du trykke <a href="register-2" class="navbar-btn-brrg align-items-end ">her <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
 <br>
       <!-- API Interaction Form -->
-      <?php get_template_part('includes/login/reg-api-form'); ?>
+      <?php get_template_part('includes/reg-api-form'); ?>
 
     </div>
   </div>
