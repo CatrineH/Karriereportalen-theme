@@ -16,7 +16,7 @@
 
   <div class="form-field">
     <label for="email"></label>
-    <input type="email" id="email" name="email" placeholder="e-post" required>
+    <input type="email" id="email" name="email" placeholder="E-post" required>
   </div>
 
   <div class="form-action">

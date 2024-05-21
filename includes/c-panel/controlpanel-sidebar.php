@@ -25,7 +25,7 @@
             </li>
             <li class="nav-item text-center">
                 <a class="sidebar-link" href="/faq">
-                    <i class="fa fa-life-ring fa-2x"></i>
+                    <i class="fa-solid fa-circle-question fa-2x"></i>
                     <span>FAQ</span>
                 </a>
             </li>

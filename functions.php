@@ -154,7 +154,7 @@ function create_new_user()
         $user_id = wp_create_user($username, $password, $email);
 
         if (is_wp_error($user_id)) {
-            wp_redirect("register");
+            wp_die($user_id->get_error_message());
             exit;
         } else {
             $creds = array(
