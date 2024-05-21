@@ -2,13 +2,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	@font-face {
-		font-family: calibri;
-		src: url(/fonts/calibri-bold.ttf) format('ttf');
-		src: url(/fonts/calibri-italic.ttf) format('ttf');
-		src: url(/fonts/calibri-regular.ttf) format('ttf');
-		src: url(/fonts/calibri-bold-italic.ttf) format('ttf');
-	}
 }
 
 :root {
@@ -166,15 +159,16 @@ footer {
 
 .reg-button {
 	position: relative;
+	left: 402px;
 }
 
-#reg-button-1 {
+/* #reg-button-1 {
 	left: -20px;
 }
 
 #reg-button-2 {
 	left: 375px;
-}
+} */
 
 .login-button:hover {
 	background-color: darkred;
@@ -608,11 +602,16 @@ iframe {
 	margin-bottom: 8%;
 }
 
-#c-panel-headline {
-	color: #000;
-	padding-top: 30px;
-	font-size: 2.5rem;	
-
+.headline-block {
+	color: #ffffff;
+	padding: 20px;
+	margin-top: 3%;
+	margin-left: 30%;
+	margin-right: 30%;
+	font-size: 1.7rem;
+	background-color: #9e182f;
+	border-radius: 10px;
+	text-align: center;
 }
 
 /*========================== SIDEBAR NAV ALL PAGES ==========================*/
