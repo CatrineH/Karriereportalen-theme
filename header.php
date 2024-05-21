@@ -25,7 +25,7 @@
 <body <?php body_class(); ?>>
 
 
-    <header class="container-fluid py-3 sticky-top" style="background-color: #FFFFFF; box-shadow: 0px 3px 6px #00000029;">
+    <header class="container-fluid sticky-top" style="background-color: #FFFFFF; box-shadow: 0px 3px 6px #00000029;">
       <div class="row">
         <div class="col d-flex justify-content-between align-items-center">
           <!-- Logo section -->
@@ -41,10 +41,10 @@
             if (is_user_logged_in()) {
                 echo '<a href="/kontrollpanel" class="nav-link">Kontrollpanel</a>';
             } else {
-                echo '<a href="/" class="nav-link">Log inn / Registrer</a>';
+                echo '<a href="/" class="nav-link">Logg inn</a>';
             }
         ?>
-        <span class="separator">|</span>
+        <!-- <span class="separator">|</span> -->
         <a href="http://www.kristiania.no" class="navbar-btn"> Kristiania.no  <i class=" fa-solid fa-arrow-up-right-from-square"></i></a>
 
           </nav>
