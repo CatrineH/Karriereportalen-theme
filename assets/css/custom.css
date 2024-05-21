@@ -146,7 +146,7 @@ footer {
 
 .login-button,
 .reg-button {
-	background: #9E182F;
+	background: #C61932;
 	color: rgb(255, 255, 255);
 	text-align: center;
 	text-decoration: none;
@@ -159,15 +159,16 @@ footer {
 
 .reg-button {
 	position: relative;
+	left: 402px;
 }
 
-#reg-button-1 {
+/* #reg-button-1 {
 	left: -20px;
 }
 
 #reg-button-2 {
 	left: 375px;
-}
+} */
 
 .login-button:hover {
 	background-color: darkred;
@@ -257,7 +258,7 @@ p {
 	color: rgb(245, 245, 245);
 } */
 
- /* vi ble enige om å rydde bort denne? */
+/* vi ble enige om å rydde bort denne? */
 /* .question-box {
 	background: #4e0000;
 	padding: 60px;
@@ -296,7 +297,7 @@ p {
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: ns-resize;
-	
+
 }
 
 
@@ -449,26 +450,28 @@ label {
 }
 
 .job-published-container {
-    max-width: 100%;
-    margin: 0 auto; /* sentrering */
-    padding: 50px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	max-width: 100%;
+	margin: 0 auto;
+	/* sentrering */
+	padding: 50px;
+	background-color: #fff;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	transform: scale(90%);
-	
+
 }
 
 
 .description,
 .job-address {
-    padding: 25px;
-    /* background-color: #f4f4f4;  */
-    margin-top: 50px; 
+	padding: 25px;
+	/* background-color: #f4f4f4;  */
+	margin-top: 50px;
 }
+
 /* google map */
 iframe {
-    width: 100%;
-    border: none; 
+	width: 100%;
+	border: none;
 }
 
 
@@ -512,44 +515,47 @@ iframe {
 }
 
 .progress {
-	
+
 	height: 40px;
 }
 
 
 .progress-container {
-		position: sticky;
-		top: calc(var(--header-height) + 40px); 
-		width: 90%;
-		margin-left: 540px;
-		
-		z-index: 1030;
-		transform: translateX(-50%);
-	}
-	
-	.progress-bar {
-		transition: background-color 0.3s, color 0.3s;
-	}
-	
-	.progress-bar.active {
-		background-color: #C61932 !important; /* Active color */
-		color: white !important;
-	}
-	
-	.progress-bar.completed {
-		background-color: #C61932 !important; /* Completed color */
-		color: white !important;
-	}
-	
-	.progress-bar.inactive {
-		background-color: #fff !important; /* Inactive color */
-		color: black !important;
-	}
-	
-	.field-error {
-		border: 2px solid red;
-	}
-	
+	position: sticky;
+	top: calc(var(--header-height) + 40px);
+	width: 90%;
+	margin-left: 540px;
+
+	z-index: 1030;
+	transform: translateX(-50%);
+}
+
+.progress-bar {
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.progress-bar.active {
+	background-color: #C61932 !important;
+	/* Active color */
+	color: white !important;
+}
+
+.progress-bar.completed {
+	background-color: #C61932 !important;
+	/* Completed color */
+	color: white !important;
+}
+
+.progress-bar.inactive {
+	background-color: #fff !important;
+	/* Inactive color */
+	color: black !important;
+}
+
+.field-error {
+	border: 2px solid red;
+}
+
 
 /*========================== CONTROLPANEL - CUSTOMCARD ==========================*/
 
@@ -602,7 +608,7 @@ iframe {
 	margin-top: 3%;
 	margin-left: 30%;
 	margin-right: 30%;
-	font-size: 1.7rem;	
+	font-size: 1.7rem;
 	background-color: #9e182f;
 	border-radius: 10px;
 	text-align: center;
@@ -635,7 +641,7 @@ iframe {
 	text-decoration: none;
 	position: relative;
 	margin: 0;
-	border-bottom: 1px solid #ffffff30; 
+	border-bottom: 1px solid #ffffff30;
 
 }
 
@@ -658,22 +664,24 @@ iframe {
 }
 
 .nav-item .sidebar-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
 	color: #f3f3f3;
-    font-size: 14px; 
+	font-size: 14px;
 }
 
 .nav-item .sidebar-link i {
-    margin-bottom: 5px; /* Space mellom ikon og tekst */
+	margin-bottom: 5px;
+	/* Space mellom ikon og tekst */
 }
 
 
 /*========================== PUBLISHED - PAGE ==========================*/
-.btn-back-publish , .btn-apply{
+.btn-back-publish,
+.btn-apply {
 	margin-top: 50px;
 	background: #9E182F;
 	color: rgb(255, 255, 255);
@@ -685,16 +693,17 @@ iframe {
 	border: none;
 	margin-top: 40px;
 	margin-left: 170px;
-	
+
 }
 
 .btn-apply {
-float: right;
-margin-right: 170px;
-margin-bottom: 50px;
+	float: right;
+	margin-right: 170px;
+	margin-bottom: 50px;
 
-	
+
 }
+
 /*========================== FAQ ==========================*/
 
 #accordion {

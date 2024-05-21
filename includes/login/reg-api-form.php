@@ -4,6 +4,6 @@
     <label for="organisationNumber">Organisasjonsnummer</label>
     <input type="text" id="organisationNumber" name="organisationNumber" class="form-control mb-3" placeholder="9-siffer">
   </div>
-  <button type="submit" class="btn btn-danger">Fortsett</button>
+  <button type="submit" class="reg-button fa-solid fa-arrow-right"></button>
   <input type="hidden" name="action" value="get_company_data_from_api">
 </form>
