@@ -1,7 +1,18 @@
+@font-face {
+	font-family: 'calibri';
+	src: url('/assets/fonts/calibri-bold.ttf') format('ttf'),
+		url('/assets/fonts/calibri-italic.ttf') format('ttf'),
+		url('/assets/fonts/calibri-regular.ttf') format('ttf'),
+		url('/assets/fonts/calibri-bold-italic.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'calibri', sans-serif;
 }
 
 :root {
