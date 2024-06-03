@@ -64,13 +64,6 @@ Karriereportalen-theme/
 ```
 
 
-
-
-
-
-## Deployment
-
-
 ## Bruk av Karriereportalen Theme
 
 
