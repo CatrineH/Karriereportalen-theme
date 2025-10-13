@@ -96,6 +96,7 @@ Karriereportalen-theme/
 
 ## Demo
 
+[▶️ Se full video (MP4)](https://github.com/CatrineH/Karriereportalen-theme/releases/download/v.2.0/Demo.mp4)
 <p align="center">
   <a href="https://github.com/CatrineH/Karriereportalen-theme/releases/download/v.2.0/Demo.mp4">
     <img src="./screenshot.png" width="700" alt="Se demo-video">
