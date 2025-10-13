@@ -95,7 +95,9 @@ Karriereportalen-theme/
 ```
 
 ## Demo
-![Gif pres BAO203](https://github.com/CatrineH/Karriereportalen-theme/assets/70755662/855749e4-76ce-4b32-a0dc-5488d79a5785)
 
-
-
+<p align="center">
+  <a href="https://github.com/CatrineH/Karriereportalen-theme/releases/download/v.2.0/Demo.mp4">
+    <img src="./screenshot.png" width="700" alt="Se demo-video">
+  </a>
+</p>
